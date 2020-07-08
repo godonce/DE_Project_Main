@@ -1,0 +1,57 @@
+.\flash\win.o: ..\GUI\GUI_C\WIN.c
+.\flash\win.o: E:\Pro Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GUI.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GUI_ConfDefaults.h
+.\flash\win.o: ..\emWin\Config\GUIConf.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GUI_Type.h
+.\flash\win.o: ..\GUI\GUI_H\Include\LCD.h
+.\flash\win.o: ..\GUI\GUI_H\Include\Global.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GUI_Version.h
+.\flash\win.o: ..\GUI\GUI_H\WIN.h
+.\flash\win.o: E:\Pro Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\flash\win.o: ..\GUI\GUI_H\WIN_Tree.h
+.\flash\win.o: ..\GUI\GUI_H\WIN_Context.h
+.\flash\win.o: ..\GUI\GUI_H\WinWindow.h
+.\flash\win.o: ..\GUI\GUI_H\WIN.h
+.\flash\win.o: ..\GUI\GUI_H\Include\Dialog.h
+.\flash\win.o: ..\GUI\GUI_H\Include\WM.h
+.\flash\win.o: ..\GUI\GUI_H\Include\WM_GUI.h
+.\flash\win.o: ..\GUI\GUI_H\Include\BUTTON.h
+.\flash\win.o: ..\GUI\GUI_H\Include\DIALOG_Intern.h
+.\flash\win.o: ..\GUI\GUI_H\Include\WIDGET.h
+.\flash\win.o: ..\GUI\GUI_H\Include\WM_Intern.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GUI_Private.h
+.\flash\win.o: ..\GUI\GUI_H\Include\LCD_Protected.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GUI_Debug.h
+.\flash\win.o: E:\Pro Software\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\flash\win.o: ..\GUI\GUI_H\Include\SCROLLBAR.h
+.\flash\win.o: ..\GUI\GUI_H\Include\WIDGET.h
+.\flash\win.o: ..\GUI\GUI_H\Include\CALENDAR.h
+.\flash\win.o: ..\GUI\GUI_H\Include\CHECKBOX.h
+.\flash\win.o: ..\GUI\GUI_H\Include\CHOOSECOLOR.h
+.\flash\win.o: ..\GUI\GUI_H\Include\CHOOSEFILE.h
+.\flash\win.o: ..\GUI\GUI_H\Include\DROPDOWN.h
+.\flash\win.o: ..\GUI\GUI_H\Include\LISTBOX.h
+.\flash\win.o: ..\GUI\GUI_H\Include\EDIT.h
+.\flash\win.o: ..\GUI\GUI_H\Include\FRAMEWIN.h
+.\flash\win.o: ..\GUI\GUI_H\Include\GRAPH.h
+.\flash\win.o: ..\GUI\GUI_H\Include\HEADER.h
+.\flash\win.o: ..\GUI\GUI_H\Include\ICONVIEW.h
+.\flash\win.o: ..\GUI\GUI_H\Include\IMAGE.h
+.\flash\win.o: ..\GUI\GUI_H\Include\LISTVIEW.h
+.\flash\win.o: ..\GUI\GUI_H\Include\LISTWHEEL.h
+.\flash\win.o: ..\GUI\GUI_H\Include\MENU.h
+.\flash\win.o: ..\GUI\GUI_H\Include\MULTIEDIT.h
+.\flash\win.o: ..\GUI\GUI_H\Include\MULTIPAGE.h
+.\flash\win.o: ..\GUI\GUI_H\Include\DIALOG.h
+.\flash\win.o: ..\GUI\GUI_H\Include\PROGBAR.h
+.\flash\win.o: ..\GUI\GUI_H\Include\RADIO.h
+.\flash\win.o: ..\GUI\GUI_H\Include\SLIDER.h
+.\flash\win.o: ..\GUI\GUI_H\Include\SPINBOX.h
+.\flash\win.o: ..\GUI\GUI_H\Include\TEXT.h
+.\flash\win.o: ..\GUI\GUI_H\Include\TREEVIEW.h
+.\flash\win.o: ..\GUI\GUI_H\Include\KNOB.h
+.\flash\win.o: ..\GUI\GUI_H\DataInterface.h
+.\flash\win.o: ..\GUI\GUI_H\WIN.h
+.\flash\win.o: ..\Hardware\hard_h\datafigures.h
+.\flash\win.o: E:\Pro Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

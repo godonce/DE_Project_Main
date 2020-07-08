@@ -1,0 +1,1328 @@
+Dependencies for Project 'Project', Target 'Internal Flash': (DO NOT MODIFY !)
+F (.\startup_LPC43xx.s)(0x5BC1A33D)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0--pd "NO_CRP SETA 1"--list .\flash\startup_lpc43xx.lst --xref -o .\flash\startup_lpc43xx.o --depend .\flash\startup_lpc43xx.d)
+F (..\emWin518\library\emWin_518_Keil460_M3_LE.lib)(0x52170AA9)()
+F (..\Library\Core\Device\NXP\LPC43xx\Source\Templates\system_LPC43xx.c)(0x5B616A52)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\system_lpc43xx.o --omf_browse .\flash\system_lpc43xx.crf --depend .\flash\system_lpc43xx.d)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\LPC43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+F (..\Library\Drivers\source\lpc43xx_uart.c)(0x5B2B1907)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_uart.o --omf_browse .\flash\lpc43xx_uart.crf --depend .\flash\lpc43xx_uart.d)
+I (..\Library\Drivers\include\lpc43xx_uart.h)(0x5BA3178B)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_libcfg_default.h)(0x52170ABF)
+F (..\Library\Drivers\source\lpc43xx_timer.c)(0x52170ABE)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_timer.o --omf_browse .\flash\lpc43xx_timer.crf --depend .\flash\lpc43xx_timer.d)
+I (..\Library\Drivers\include\lpc43xx_timer.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_libcfg_default.h)(0x52170ABF)
+F (..\Library\Drivers\source\lpc43xx_cgu.c)(0x5B02797A)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_cgu.o --omf_browse .\flash\lpc43xx_cgu.crf --depend .\flash\lpc43xx_cgu.d)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+F (..\Library\Drivers\source\lpc43xx_gpio.c)(0x5B2BA824)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_gpio.o --omf_browse .\flash\lpc43xx_gpio.crf --depend .\flash\lpc43xx_gpio.d)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_libcfg_default.h)(0x52170ABF)
+F (..\Library\Drivers\source\lpc43xx_scu.c)(0x5B0BCD16)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_scu.o --omf_browse .\flash\lpc43xx_scu.crf --depend .\flash\lpc43xx_scu.d)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+F (..\Library\Drivers\source\lpc43xx_ssp.c)(0x5B74F500)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_ssp.o --omf_browse .\flash\lpc43xx_ssp.crf --depend .\flash\lpc43xx_ssp.d)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_libcfg_default.h)(0x52170ABF)
+F (..\Library\Drivers\source\lpc43xx_lcd.c)(0x5AFD84AC)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_lcd.o --omf_browse .\flash\lpc43xx_lcd.crf --depend .\flash\lpc43xx_lcd.d)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_libcfg_default.h)(0x52170ABF)
+F (..\Library\Drivers\source\lpc43xx_adc.c)(0x52170ABE)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lpc43xx_adc.o --omf_browse .\flash\lpc43xx_adc.crf --depend .\flash\lpc43xx_adc.d)
+I (..\Library\Drivers\include\lpc43xx_adc.h)(0x5B178A96)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_libcfg_default.h)(0x52170ABF)
+F (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu_c.c)(0x52170AA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\cpu_c.o --omf_browse .\flash\cpu_c.crf --depend .\flash\cpu_c.d)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+F (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)()
+F (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu_a.asm)(0x52170AA6)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0--pd "NO_CRP SETA 1"--list .\flash\cpu_a.lst --xref -o .\flash\cpu_a.o --depend .\flash\cpu_a.d)
+F (..\uC-CPU\cpu_def.h)(0x52170AA6)()
+F (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)()
+F (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu_a.asm)(0x52170AA3)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0--pd "NO_CRP SETA 1"--list .\flash\os_cpu_a.lst --xref -o .\flash\os_cpu_a.o --depend .\flash\os_cpu_a.d)
+F (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu_c.c)(0x52170AA3)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_cpu_c.o --omf_browse .\flash\os_cpu_c.crf --depend .\flash\os_cpu_c.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_dbg.c)(0x52170AA3)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_dbg.o --omf_browse .\flash\os_dbg.crf --depend .\flash\os_dbg.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_core.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_core.o --omf_browse .\flash\os_core.crf --depend .\flash\os_core.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_flag.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_flag.o --omf_browse .\flash\os_flag.crf --depend .\flash\os_flag.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_mbox.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_mbox.o --omf_browse .\flash\os_mbox.crf --depend .\flash\os_mbox.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_mem.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_mem.o --omf_browse .\flash\os_mem.crf --depend .\flash\os_mem.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_mutex.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_mutex.o --omf_browse .\flash\os_mutex.crf --depend .\flash\os_mutex.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_q.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_q.o --omf_browse .\flash\os_q.crf --depend .\flash\os_q.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_sem.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_sem.o --omf_browse .\flash\os_sem.crf --depend .\flash\os_sem.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_task.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_task.o --omf_browse .\flash\os_task.crf --depend .\flash\os_task.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_time.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_time.o --omf_browse .\flash\os_time.crf --depend .\flash\os_time.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\os_tmr.c)(0x52170AA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\os_tmr.o --omf_browse .\flash\os_tmr.crf --depend .\flash\os_tmr.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)()
+F (..\emWin518\Config\GUI_X.c)(0x5B4ED511)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\gui_x.o --omf_browse .\flash\gui_x.crf --depend .\flash\gui_x.d)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\GUI\GUI_H\Include\GUI_Private.H)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.H)(0x53463A44)
+F (..\emWin518\Config\GUIConf.c)(0x5BA36E1C)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\guiconf.o --omf_browse .\flash\guiconf.crf --depend .\flash\guiconf.d)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+F (..\emWin518\Config\LCDConf.c)(0x5B4EFAEF)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lcdconf.o --omf_browse .\flash\lcdconf.crf --depend .\flash\lcdconf.d)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\emWin518\header\GUIDRV_Lin.h)(0x52170AAA)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+F (..\emWin518\Config\SIMConf.c)(0x5B4ED52B)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\simconf.o --omf_browse .\flash\simconf.crf --depend .\flash\simconf.d)
+F (..\GUI\GUI_C\CodeConvert.c)(0x5B91DC9A)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\codeconvert.o --omf_browse .\flash\codeconvert.crf --depend .\flash\codeconvert.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Application\CodeConvert.h)(0x5AED51CB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (..\Hardware\hard_h\tchar.h)(0x5AE2EE04)
+I (..\Library\SYST\_mingw.h)(0x4FEE23B2)
+I (C:\Keil_v5\ARM\ARMCC\include\locale.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+F (..\GUI\GUI_C\DataInterface.c)(0x5BF8CAA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\datainterface.o --omf_browse .\flash\datainterface.crf --depend .\flash\datainterface.d)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+F (..\GUI\GUI_C\FramewinDLG.c)(0x5B615FF5)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\framewindlg.o --omf_browse .\flash\framewindlg.crf --depend .\flash\framewindlg.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+F (..\GUI\GUI_C\WIN.c)(0x5BF8C3C0)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\win.o --omf_browse .\flash\win.crf --depend .\flash\win.d)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Application\WIN.h)(0x5B9774A8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (..\Application\WIN_Tree.h)(0x5AC7358B)
+I (..\Application\WIN_Context.h)(0x5B619666)
+I (..\Application\WinWindow.h)(0x5B99FCEE)
+I (..\GUI\GUI_H\Include\Dialog.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+F (..\GUI\GUI_C\WIN_Context.c)(0x5BEC3356)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\win_context.o --omf_browse .\flash\win_context.crf --depend .\flash\win_context.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Application\WIN_Context.h)(0x5B619666)
+I (..\Application\WIN.h)(0x5B9774A8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (..\Application\WIN_Tree.h)(0x5AC7358B)
+I (..\Application\WinWindow.h)(0x5B99FCEE)
+F (..\GUI\GUI_C\WIN_Tree.c)(0x5B616104)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\win_tree.o --omf_browse .\flash\win_tree.crf --depend .\flash\win_tree.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Application\WIN_Tree.h)(0x5AC7358B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+F (..\GUI\GUI_C\WindowMain.c)(0x5BD95627)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\windowmain.o --omf_browse .\flash\windowmain.crf --depend .\flash\windowmain.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+F (..\GUI\GUI_C\WinWindow.c)(0x5BF8C8B2)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\winwindow.o --omf_browse .\flash\winwindow.crf --depend .\flash\winwindow.d)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (..\Application\WIN.h)(0x5B9774A8)
+I (..\Application\WIN_Tree.h)(0x5AC7358B)
+I (..\Application\WinWindow.h)(0x5B99FCEE)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\emWin518\Config\LCDConf.H)(0x52170AA9)
+I (..\GUI\GUI_C\Bitmap_use.c)(0x5BF7CC88)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (..\GUI\GUI_C\song16all.c)(0x5BF75B0E)
+I (..\GUI\GUI_C\song64.c)(0x5AEC1C6F)
+I (..\GUI\GUI_C\song33.c)(0x5AEC1BC4)
+I (..\GUI\GUI_C\test.c)(0x5BF6B46F)
+I (..\Application\CodeConvert.h)(0x5AED51CB)
+I (..\Hardware\hard_h\tchar.h)(0x5AE2EE04)
+I (..\Library\SYST\_mingw.h)(0x4FEE23B2)
+I (C:\Keil_v5\ARM\ARMCC\include\locale.h)(0x53463A44)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\GUI\GUI_C\GUIDEMO_Start.c)(0x5BBD4F6F)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\guidemo_start.o --omf_browse .\flash\guidemo_start.crf --depend .\flash\guidemo_start.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+I (..\Application\WIN_Context.h)(0x5B619666)
+I (..\Application\WIN.h)(0x5B9774A8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (..\Application\WIN_Tree.h)(0x5AC7358B)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+F (..\GUI\GUI_C\WinMessage.c)(0x5B98FC06)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\winmessage.o --omf_browse .\flash\winmessage.crf --depend .\flash\winmessage.d)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+F (..\src\main.c)(0x5BF76A4D)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\main.o --omf_browse .\flash\main.crf --depend .\flash\main.d)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\LPC43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Hardware\hard_h\USART_Conf.h)(0x5BAD9AF8)
+I (..\Library\Drivers\include\lpc43xx_uart.h)(0x5BA3178B)
+I (..\Library\Drivers\include\lpc43xx_gpdma.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_timer.h)(0x52170ABF)
+I (..\Hardware\hard_h\FIGURES.h)(0x5B207989)
+I (..\Hardware\hard_h\dataCRC.h)(0x5BAD8BB8)
+I (..\Hardware\hard_h\Encoder.h)(0x5B99D77E)
+I (..\Library\Drivers\include\lpc43xx_adc.h)(0x5B178A96)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+I (..\Hardware\hard_h\timer.h)(0x5B7F5BC5)
+I (..\Hardware\hard_h\mlx90363.h)(0x5BEE5299)
+I (..\Application\DataInterface.h)(0x5BF8CAC3)
+I (..\Application\WIN_Context.h)(0x5B619666)
+I (..\GUI\GUI_H\Include\DIALOG.h)(0x5B614B17)
+I (..\GUI\GUI_H\Include\WM.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_GUI.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\BUTTON.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DIALOG_Intern.h)(0x5BBABE66)
+I (..\GUI\GUI_H\Include\WIDGET.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\WM_Intern.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Private.h)(0x5B5EF1E6)
+I (..\GUI\GUI_H\Include\LCD_Protected.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Debug.h)(0x5AC7358D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x53463A44)
+I (..\GUI\GUI_H\Include\SCROLLBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\CALENDAR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHECKBOX.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSECOLOR.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\CHOOSEFILE.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\DROPDOWN.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\LISTBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\EDIT.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\FRAMEWIN.h)(0x5B619535)
+I (..\GUI\GUI_H\Include\GRAPH.h)(0x5AC7358C)
+I (..\GUI\GUI_H\Include\HEADER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\ICONVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\IMAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LISTWHEEL.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MENU.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIEDIT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\MULTIPAGE.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\PROGBAR.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\RADIO.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SLIDER.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\SPINBOX.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TEXT.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\TREEVIEW.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\KNOB.h)(0x5AC7358D)
+I (..\Hardware\hard_h\Extern.h)(0x5B98DD5D)
+I (..\Hardware\hard_h\0420.h)(0x5B98C854)
+I (..\Hardware\hard_h\torque.h)(0x5BD7B8CB)
+I (..\Hardware\hard_h\datafigures.h)(0x5BF76B89)
+F (..\src\bsp.c)(0x5B4ED752)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\bsp.o --omf_browse .\flash\bsp.crf --depend .\flash\bsp.d)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+F (..\Hardware\hard_c\GUI_main.c)(0x5AE2BB87)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\gui_main.o --omf_browse .\flash\gui_main.crf --depend .\flash\gui_main.d)
+I (..\Hardware\hard_h\GUI_main.h)(0x5B6196A8)
+F (..\Hardware\hard_c\datafigures.c)(0x5BF76BCA)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\datafigures.o --omf_browse .\flash\datafigures.crf --depend .\flash\datafigures.d)
+I (..\Hardware\hard_h\datafigures.h)(0x5BF76B89)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+F (..\Hardware\hard_c\ADC.c)(0x5BF7F203)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\adc.o --omf_browse .\flash\adc.crf --depend .\flash\adc.d)
+I (..\Hardware\hard_h\ADC.h)(0x5AD70915)
+I (..\Hardware\hard_h\SPI.h)(0x5B7CBD29)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+F (..\Hardware\hard_c\LED.c)(0x5B864542)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\led.o --omf_browse .\flash\led.crf --depend .\flash\led.d)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+F (..\Hardware\hard_c\DAC.c)(0x5B98C1EB)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\dac.o --omf_browse .\flash\dac.crf --depend .\flash\dac.d)
+I (..\Hardware\hard_h\0420.h)(0x5B98C854)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Hardware\hard_h\SPI.h)(0x5B7CBD29)
+F (..\Hardware\hard_c\Handler.c)(0x5AD414C9)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\handler.o --omf_browse .\flash\handler.crf --depend .\flash\handler.d)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+F (..\Hardware\hard_c\MLX90363.c)(0x5BEE643B)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\mlx90363.o --omf_browse .\flash\mlx90363.crf --depend .\flash\mlx90363.d)
+I (..\Hardware\hard_h\MLX90363.h)(0x5BEE5299)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Hardware\hard_h\dataCRC.h)(0x5BAD8BB8)
+I (..\Hardware\hard_h\SPI.h)(0x5B7CBD29)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x53463A44)
+F (..\Hardware\hard_c\SPI.c)(0x5B7CBD29)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\spi.o --omf_browse .\flash\spi.crf --depend .\flash\spi.d)
+I (..\Hardware\hard_h\SPI.h)(0x5B7CBD29)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+F (..\Hardware\hard_c\FLASH.c)(0x5B179874)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\flash.o --omf_browse .\flash\flash.crf --depend .\flash\flash.d)
+I (..\Hardware\hard_h\FLASH.h)(0x5B07B0B3)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Library\Drivers\include\lpc43xx_timer.h)(0x52170ABF)
+F (..\Hardware\hard_c\LCD.c)(0x5BEA303E)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\lcd.o --omf_browse .\flash\lcd.crf --depend .\flash\lcd.d)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+F (..\Hardware\hard_c\USART_Conf.c)(0x5BF7D3C1)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\usart_conf.o --omf_browse .\flash\usart_conf.crf --depend .\flash\usart_conf.d)
+I (..\Hardware\hard_h\USART_Conf.h)(0x5BAD9AF8)
+I (..\Library\Drivers\include\lpc43xx_uart.h)(0x5BA3178B)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_gpdma.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_timer.h)(0x52170ABF)
+I (..\Hardware\hard_h\FIGURES.h)(0x5B207989)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\Hardware\hard_h\dataCRC.h)(0x5BAD8BB8)
+I (..\Hardware\hard_h\torque.h)(0x5BD7B8CB)
+I (..\Hardware\hard_h\test_UART0.h)(0x5BD286D5)
+F (..\Hardware\hard_c\Encoder.c)(0x5BEBF81F)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\encoder.o --omf_browse .\flash\encoder.crf --depend .\flash\encoder.d)
+I (..\Hardware\hard_h\Encoder.h)(0x5B99D77E)
+I (..\Library\Drivers\include\lpc43xx_adc.h)(0x5B178A96)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Hardware\hard_h\USART_Conf.h)(0x5BAD9AF8)
+I (..\Library\Drivers\include\lpc43xx_uart.h)(0x5BA3178B)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_gpdma.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_timer.h)(0x52170ABF)
+I (..\Hardware\hard_h\FIGURES.h)(0x5B207989)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\Hardware\hard_h\dataCRC.h)(0x5BAD8BB8)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Hardware\hard_h\timer.h)(0x5B7F5BC5)
+F (..\Hardware\hard_c\Extern.c)(0x5BF65370)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\extern.o --omf_browse .\flash\extern.crf --depend .\flash\extern.d)
+I (..\Hardware\hard_h\Extern.h)(0x5B98DD5D)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+F (..\Hardware\hard_c\dataCRC.c)(0x5BAD8BB8)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\datacrc.o --omf_browse .\flash\datacrc.crf --depend .\flash\datacrc.d)
+I (..\Hardware\hard_h\dataCRC.h)(0x5BAD8BB8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+F (..\Hardware\hard_c\timer.c)(0x5BF3A888)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\timer.o --omf_browse .\flash\timer.crf --depend .\flash\timer.d)
+I (..\Hardware\hard_h\timer.h)(0x5B7F5BC5)
+I (..\Library\Drivers\include\lpc43xx_timer.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+F (..\Hardware\hard_c\0420.c)(0x5B98D3C6)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\0420.o --omf_browse .\flash\0420.crf --depend .\flash\0420.d)
+I (..\Hardware\hard_h\0420.h)(0x5B98C854)
+I (..\inc\includes.h)(0x5B4ED78C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\uCOS-II\Source\ucos_ii.h)(0x52170AA2)
+I (..\inc\app_cfg.h)(0x5BA3A1E6)
+I (..\inc\os_cfg.h)(0x52170AA3)
+I (..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM\os_cpu.h)(0x52170AA3)
+I (..\uC-CPU\ARM-Cortex-M3\MDK-ARM\cpu.h)(0x52170AA6)
+I (..\uC-CPU\cpu_def.h)(0x52170AA6)
+I (..\inc\lib.h)(0x52170AA6)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\inc\bsp.h)(0x5AD481B4)
+I (..\Hardware\hard_h\lcd.h)(0x5BD97236)
+I (..\Library\Drivers\include\lpc43xx_lcd.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\inc\lpc43xx_libcfg.h)(0x52170AA3)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_ssp.h)(0x5B698CC9)
+I (..\GUI\GUI_H\Include\GUI.h)(0x5BEE5299)
+I (..\GUI\GUI_H\Include\GUI_ConfDefaults.h)(0x5AC7358D)
+I (..\emWin518\Config\GUIConf.h)(0x5B5EF2A2)
+I (..\GUI\GUI_H\Include\GUI_Type.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\LCD.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\Global.h)(0x5AC7358D)
+I (..\GUI\GUI_H\Include\GUI_Version.h)(0x5AC7358D)
+I (..\Hardware\hard_h\LED.h)(0x5B83694D)
+I (..\Hardware\hard_h\SPI.h)(0x5B7CBD29)
+I (..\Hardware\hard_h\Handler.h)(0x5A9F8EAA)
+F (..\Hardware\hard_c\torque.c)(0x5BD97C15)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\torque.o --omf_browse .\flash\torque.crf --depend .\flash\torque.d)
+I (..\Hardware\hard_h\torque.h)(0x5BD7B8CB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (..\Hardware\hard_h\dataCRC.h)(0x5BAD8BB8)
+F (..\Hardware\hard_c\test_UART0.c)(0x5BD286D5)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\test_uart0.o --omf_browse .\flash\test_uart0.crf --depend .\flash\test_uart0.d)
+I (..\Hardware\hard_h\test_UART0.h)(0x5BD286D5)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+F (..\Hardware\hard_c\States_Error.c)(0x5BF78ACF)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\states_error.o --omf_browse .\flash\states_error.crf --depend .\flash\states_error.d)
+I (..\Hardware\hard_h\States_Error.h)(0x5BF76F38)
+I (..\Hardware\hard_h\datafigures.h)(0x5BF76B89)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+F (..\Hardware\hard_c\hand.c)(0x5BF7F06B)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\hand.o --omf_browse .\flash\hand.crf --depend .\flash\hand.d)
+I (..\Hardware\hard_h\hand.h)(0x5BF7F099)
+I (..\Hardware\hard_h\datafigures.h)(0x5BF76B89)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (..\Library\Drivers\include\lpc43xx_gpio.h)(0x52170ABF)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+I (..\Library\Drivers\include\lpc43xx_scu.h)(0x5B0BC83B)
+I (..\Library\Drivers\include\lpc43xx_cgu.h)(0x52170ABF)
+F (..\Hardware\hard_c\temperature.c)(0x5BF7F201)(-c --cpu Cortex-M3 -D__MICROLIB -g -W -O0 --apcs=interwork -I..\inc -I..\uC-CPU -I..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I..\uCOS-II\Source -I..\Library\Drivers\include -I..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I..\Library\Core\Device\NXP\LPC43xx\Include -I..\Library\SYST -I..\Application -I..\Library\Boards\Include -I..\Hardware\hard_h -I..\GUI\GUI_H -I..\GUI\GUI_H\Include -I..\emWin518\Config -I..\emWin518\header-I D:\projectV11.24_1\projectV11.24_1\Keil\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\LPC1800_DFP\2.9.0-D_RTE_ -DLPC18xx -DCORE_M4-o .\flash\temperature.o --omf_browse .\flash\temperature.crf --depend .\flash\temperature.d)
+I (..\Hardware\hard_h\temperature.h)(0x5BF8ACEC)
+I (..\Library\Drivers\include\lpc43xx_adc.h)(0x5B178A96)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\lpc43xx.h)(0x52170AAB)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4.h)(0x538426C6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
+I (..\Library\Core\Device\NXP\LPC43xx\Include\system_LPC43xx.h)(0x52170AAB)
+I (..\Library\Drivers\include\lpc_types.h)(0x52170ABF)
+F (..\readme.txt)(0x5BF76D19)()

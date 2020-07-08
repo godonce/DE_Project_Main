@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__MICROLIB -g -W -O3 --apcs=interwork -I ..\inc -I ..\uC-CPU -I ..\uC-CPU\ARM-Cortex-M3\MDK-ARM -I ..\uCOS-II\Ports\ARM-Cortex-M3\Generic\MDK-ARM -I ..\uCOS-II\Source -I ..\Library\Drivers\include -I ..\Library\Core\Device\NXP\LPC43xx\Source\Templates -I ..\Library\Core\Device\NXP\LPC43xx\Include -I ..\Library\SYST -I ..\Library\Boards\Include -I ..\Hardware\hard_h -I ..\GUI\GUI_H -I ..\GUI\GUI_H\Include -I ..\emWin\Config -I ..\emWin\header -I ..\Source\States\states_h -I ..\usb\include -I ..\DEBUG-COM\include -I ..\fat -I ..\RTT --locale=english --no-multibyte-chars
+-I.\RTE\_Actor13
+-ID:\01-Programming\01-keil525\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
+-ID:\01-Programming\01-keil525\ARM\PACK\Keil\LPC1800_DFP\2.9.0\Device\Include
+-D__UVISION_VERSION="525" -D_RTE_ -DLPC18xx -DCORE_M4 -DGray -DEE13 -DEncnew -DUITEST_2
+-o .\flash\timer.o --omf_browse .\flash\timer.crf --depend .\flash\timer.d --feedback ".\Flash\Project.fed" "..\Hardware\hard_c\timer.c"
