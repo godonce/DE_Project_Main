@@ -68,9 +68,12 @@ char send[10];
  *---------------------------------------------------------------------------*/
 	//ai_o420.AI_0420  shuru moniliang
 	//ai_o420.AO_0420_UI   shuchu moniliang
+
+uint8_t usb_count_flag = 0;
+extern unsigned char usb_handshake;
 void VCOM_Usb2Serial_send(void)
 {
-	if(ai_o420.AI_0420_old!=ai_o420.AI_0420)
+	/*if(ai_o420.AI_0420_old!=ai_o420.AI_0420)
 	{
 		MODBUS_SEND_0420(2,(unsigned short)(ai_o420.AI_0420*100));
 						ai_o420.AI_0420_old=ai_o420.AI_0420;
@@ -79,21 +82,58 @@ void VCOM_Usb2Serial_send(void)
 	{
 		MODBUS_SEND_0420(3,(unsigned short)(ai_o420.AO_0420_UI*100));
 				ai_o420.AO_0420_old=ai_o420.AO_0420_UI;
-	}
+	}*/
+    
+    //byj上位机程序
+    if(usb_handshake == 1)
+    {
+        ai_o420.flag_save0420_o=1;
+        if(usb_count_flag == 0)
+        {
+            MODBUS_SEND_0420(2,(unsigned short)(ai_o420.AI_0420 * 100));
+            usb_count_flag = 1;
+        }
+        else if(usb_count_flag == 1)
+        {
+            MODBUS_SEND_0420(3,(unsigned short)(ai_o420.AO_0420_UI * 100));
+            usb_count_flag = 2;
+        }
+        else if (usb_count_flag == 2)
+        {
+            MODBUS_SEND_0420(4,(unsigned short)(ai_o420.G0420_slope));
+            usb_count_flag = 3;
+        }
+        else if (usb_count_flag == 3)
+        {
+            MODBUS_SEND_0420(5,(unsigned short)(ai_o420.G0420_offset));
+            usb_count_flag = 4;
+        }
+        else if (usb_count_flag == 4)
+        {
+            MODBUS_SEND_0420(6,(unsigned short)(ai_o420.G0420_OUT_slope));
+            usb_count_flag = 5;
+        }
+        else if (usb_count_flag == 5)
+        {
+            MODBUS_SEND_0420(7,(unsigned short)(ai_o420.G0420_OUT_offset));
+            usb_count_flag = 0;
+            usb_handshake  = 0;  //握手结束
+        }
+    } 
 }
 //char read[50];
- //char Read_buf[20];
+//char Read_buf[20];
 extern unsigned char Read_buf_modbus[20];
 extern unsigned char Send_buf_modbus[40];
 void VCOM_Usb2Serial(void)
 {
-	int i;
-		VCOM_Usb2Serial_send();
-  CDC_OutBufAvailChar (&numAvailByte);
-  if (numAvailByte > 0) 
-  {
-    numBytesToRead = numAvailByte > 32 ? 32 : numAvailByte;
-    numBytesRead = CDC_RdOutBuf (&Read_buf_modbus[0], &numBytesToRead);
+    int i;
+    VCOM_Usb2Serial_send();
+    CDC_OutBufAvailChar (&numAvailByte);
+    if (numAvailByte > 0) 
+    {
+        numBytesToRead = numAvailByte > 32 ? 32 : numAvailByte;
+        numBytesRead = CDC_RdOutBuf (&Read_buf_modbus[0], &numBytesToRead);
 		//MODBUS_READ();
 		m0420_Read();
 		m_torque_Read();

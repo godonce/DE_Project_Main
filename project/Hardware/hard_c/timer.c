@@ -13,48 +13,47 @@ int flag_TAB_3s_num;
 void TIMER0_IRQHandler(void)
 {	
 
-  if (TIM_GetIntStatus(LPC_TIMER0, TIM_MR0_INT)== SET) 
+    if(TIM_GetIntStatus(LPC_TIMER0, TIM_MR0_INT)== SET) 
 	{
 		TIM_ClearIntPending(LPC_TIMER0, TIM_MR0_INT); 
 		a++;
 		f++;
 	}
-		if((a<58))
-		{
-				if(a%2==0)
-				{
-					GPIO_SetValue(4,(1<<8));
-				}
-				if(a%2==1)
-				{
-					GPIO_ClearValue(4,(1<<8));
-					read_data=read_data<<1;
-					if(flag_read==1)
-					{
-						if(GPIO_ReadValue(0x4)&(1<<9))
-						{
-							read_data++;
-						}else
-						{
-							read_data=read_data;
-						}
-					}	
-			}
-		}
-			else
-			if(a<68&&a>=58)
-			{
-				
-				data_figures.READ_timer=read_data&0xFFFFFFF;
-				GPIO_SetValue(4,(1<<8));
-				flag_read=0;
-			}else
-			if(a==68)
-			{
-				GPIO_SetValue(4,(1<<8));
-				a=0;
-				flag_read=1;
-	}
+    if((a<58))
+    {
+            if(a%2==0)
+            {
+                GPIO_SetValue(4,(1<<8));  //CLK
+            }
+            if(a%2==1)
+            {
+                GPIO_ClearValue(4,(1<<8));
+                read_data=read_data<<1;
+                if(flag_read==1)
+                {
+                    if(GPIO_ReadValue(0x4)&(1<<9))  //如果GPIO P4.9口检测到高电平
+                    {
+                        read_data++;  //数据+1
+                    }else
+                    {
+                        read_data=read_data;  //数据不变
+                    }
+                }	
+        }
+    }
+    else
+    if(a<68&&a>=58)
+    {
+        data_figures.READ_timer=read_data&0xFFFFFFF;
+        GPIO_SetValue(4,(1<<8));  //通信结束之后，及时将GPIO P4.8(CS)口置高电平，否则编码器不会退出通信
+        flag_read=0;
+    }else
+    if(a==68)
+    {
+        GPIO_SetValue(4,(1<<8));
+        a=0;
+        flag_read=1;
+    }
 }
 TIM_TIMERCFG_Type TIM_ConfigStruct;
 TIM_MATCHCFG_Type TIM_MatchConfigStruct ;
@@ -230,7 +229,7 @@ void TIMER2_IRQHandler(void)
 		}else
 		{
 			lcd.an_set_flag=0;
-				lcd.num=0;
+            lcd.num=0;
 		}
 		
 		
@@ -238,14 +237,14 @@ void TIMER2_IRQHandler(void)
 		if(motorset.flag_run==1)  //堵转判断规避启动2s内大电流
 		{
 			motorset.currentout_num1++;
-			if(motorset.currentout_num1 > 20)  //30
+			if(motorset.currentout_num1 > 20) //20
 			{
 				motorset.flag_run=0;
 				motorset.currentout_num1=0;
 			}
 		}
 		
-		if(motorset.flag_run==2)  //堵转判断规避停机大电流
+		/*if(motorset.flag_run==2)  //堵转判断规避停机大电流
 		{
 			motorset.currentout_num2++;
 			if(motorset.currentout_num2 > 5)
@@ -253,7 +252,7 @@ void TIMER2_IRQHandler(void)
 				motorset.flag_run=0;
 				motorset.currentout_num2=0;
 			}
-		}
+		}*/
 	}
 	#endif
 }

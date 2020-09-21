@@ -853,19 +853,4 @@ void SystemInit (void) {
   /* Configure External Memory Controller */
   SystemInit_ExtMemCtl ();
 	//SDRAM123_Init();
-	
-		#if 0
-  SystemInit();  
-	//CGU_Init();
-	states_spi0(0);
-c_entry_flash_test()	;
- c_entry_flash_READ(0x000000);
- c_entry_flash_READ_close_brow(0x008000);
- c_entry_flash_READ_open_blue(0x010000);
- c_entry_flash_READ_open_brow(0x018000);
- //c_entry_flash_READ_mainerror(0x00000000);
-//states_spi0(0);
-FLASH_CS_HIGH();
-
-#endif
 }

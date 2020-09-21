@@ -9,11 +9,11 @@
 #define Q_two 2
 #define Q_THR 3
 #define Q_FOU 4
-int DEGREE_OLD;
-char key_old;  
+int DEGREE_OLD;  //原先角度
+char key_old;    //按键状态
 char u8_spi_read_buffer[8],u8_spi_write_buffer[8];
 char u8_SPI_ReadWrite_buffer[8];
- float X_sq_old,Y_sq_old;
+float X_sq_old,Y_sq_old;  //原先XY位置
 
 void Init_MLX90363(void)
 {
@@ -33,10 +33,10 @@ void Init_MLX90363(void)
 #if 1
 void c_entry_mlx_I(void)
 {
-			int i=0;
+    int i=0;
 	int quadrant=0;
-		float degree,degree_new;
-		float X,Y,Z;
+    float degree,degree_new;
+    float X,Y,Z;
 	float X_now,Y_now,Z_now;
 	float X_sq,Y_sq,Z_sq;
 		u8_spi_write_buffer[0] = 0x00;
@@ -54,7 +54,7 @@ void c_entry_mlx_I(void)
 			u8_spi_read_buffer[i] = SPI1_ReadWrite(u8_spi_write_buffer[i]);
 		}
 		GPIO_SetValue(MLX_GPIO,(1<<MLX_GPIO_PIN));
-	wait_ms(200);
+        wait_ms(200);
 		wait_ms(200);
 		wait_ms(200);
 		wait_ms(200);
@@ -86,7 +86,7 @@ void c_entry_mlx_I(void)
 		GPIO_SetValue(MLX_GPIO,(1<<MLX_GPIO_PIN));
 		degree=(atan2(Y_sq,X_sq)*RAD)/PI;
 
-	DEGREE_OLD=degree;
+        DEGREE_OLD=degree;
 		
 		X_sq_old =X_sq;
 		Y_sq_old =Y_sq;
@@ -100,17 +100,17 @@ char flag_key_enter=0;
 
 char c_entry_mlx(void)
 {
-			int i=0;
+    int i=0;
 	int j;
 	int quadrant=0;
 	int key=8;
 	float key_abs_old,key_abs_new;
 	int degree;
 	int16_t degree_new,degree_diff,degree_diff2;
-		float X,Y,Z;
+    float X,Y,Z;
 	float X_now1,Y_now1,Z_now1;
 	float X_new,Y_new,Z_new;
-		float T,S,jiaodu;
+    float T,S,jiaodu;
 	int16_t X_sq,Y_sq;
 	
 
@@ -148,6 +148,8 @@ char c_entry_mlx(void)
 		Y_sq=(int16_t)((((u8_spi_read_buffer[3]<<8)|u8_spi_read_buffer[2])<<2)&0xFFFF);
 		GPIO_SetValue(MLX_GPIO,(1<<MLX_GPIO_PIN));
 		wait_ms(4);
+        
+        
 		degree=(atan2(Y_sq,X_sq)*RAD)/PI;
 		degree_diff=degree-DEGREE_OLD;
 		if(degree_diff>180)
@@ -162,14 +164,15 @@ char c_entry_mlx(void)
 			degree_new=degree;	
 		}
 		degree_diff2=degree_new-DEGREE_OLD;
-		
+
+        
 		if((degree_diff2)>18&&(degree_diff2<180))
 		{
-			key=KEY_UP;			
+			key=KEY_UP;  //17.旋钮向上转
 		}else
 		if((degree_diff2<-18)&&(degree_diff2>-180))
 		{
-			key=KEY_DOWN;
+			key=KEY_DOWN;  //19.旋钮向下转
 		}else
 		{
 			X_new=X_sq*X_sq+Y_sq*Y_sq;
@@ -179,11 +182,11 @@ char c_entry_mlx(void)
 			{
 				if(key_old==KEY_ESCAPE)
 				{
-					key=KEY_ENTER_BEF;
+					key=KEY_ENTER_BEF;  //15.旋钮抬起
 					printf("\r\n X_new: %f  key: %d ",X_new,key);
 				}else
 				{
-					key=KEY_TAB;
+					key=KEY_TAB;  //9.旋钮抬起
 					if(key_old==KEY_TAB)
 					{
 					
@@ -197,18 +200,18 @@ char c_entry_mlx(void)
 			{
 				if((key_old==KEY_ENTER_BEF)||(key_old==KEY_TAB))
 				{
-					key=KEY_ENTER;
+					key=KEY_ENTER;  //13.按下去动作
 					printf("\r\n X_new: %f  key: %d ",X_new,key);
 				}else
 				{
-					key=KEY_ESCAPE;
+					key=KEY_ESCAPE;  //8.旋钮抬起状态
 				}
 			}else
 			{
 				key=KEY_ESCAPE;
 			}
 		}
-#if 1
+        #if 1
 		if(key==KEY_ESCAPE)
 		{
 			key_old=key;

@@ -47,7 +47,7 @@ static void InitDialog(WM_MESSAGE * pMsg)
     hWin = WM_GetDialogItem(hWin, ID_TEXT_SHOWMESSAGE);
     StrShowClear();
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    //TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, "Save Current Pos");
 

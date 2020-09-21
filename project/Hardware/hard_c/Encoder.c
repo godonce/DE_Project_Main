@@ -4,22 +4,22 @@
                                                   
 void Init_Encoder(void)
 {
-	scu_pinmux(0x0A ,1 , MD_PDN, FUNC0);
-  GPIO_SetDir(4,(1<<8), 1);
+    scu_pinmux(0x0A ,1 , MD_PDN, FUNC0);
+    GPIO_SetDir(4,(1<<8), 1);
 	scu_pinmux(0x0A ,2 , MD_EZI, FUNC0);
-  GPIO_SetDir(4,(1<<9), 0);
-  SysTick_Config(CGU_GetPCLKFrequency(CGU_PERIPHERAL_M4CORE)/1000); 
-	GPIO_SetValue(4,(1<<8));
+    GPIO_SetDir(4,(1<<9), 0);
+    SysTick_Config(CGU_GetPCLKFrequency(CGU_PERIPHERAL_M4CORE)/1000); 
+    GPIO_SetValue(4,(1<<8));
 }
 
 
 void Restart_Encoder_Init(void)
 {
 	scu_pinmux(Restart_Encoder_PORT ,Restart_Encoder_PORT_PIN , MD_EZI, Restart_Encoder_PORT_FUNC);
-  GPIO_SetDir(Restart_Encoder_GPIO,(1<<Restart_Encoder_GPIO_PIN), 1);
+    GPIO_SetDir(Restart_Encoder_GPIO,(1<<Restart_Encoder_GPIO_PIN), 1);
 
 
-  SysTick_Config(CGU_GetPCLKFrequency(CGU_PERIPHERAL_M4CORE)/1000);
+    SysTick_Config(CGU_GetPCLKFrequency(CGU_PERIPHERAL_M4CORE)/1000);
 	
 	GPIO_ClearValue(Restart_Encoder_GPIO,(1<<Restart_Encoder_GPIO_PIN));
 	
@@ -65,7 +65,7 @@ int graytobinary(uint32_t graycode)
 
 void UART2_IRQHandler(void)
 {
-		uint8_t res;
+    uint8_t res;
 	static uint8_t cnt0;	
 	uint32_t timeOut;
 	while(1)
@@ -75,11 +75,11 @@ void UART2_IRQHandler(void)
 			break;
 		} else
 		{
-					res=UART_ReceiveByte(LPC_USART2);
+            res=UART_ReceiveByte(LPC_USART2);
 			encoder.RX_Timeout=0;
 			if(encoder.RX_timeout_buf==0)
 			{
-					uart2.buffer2_ALL[cnt0++]=res;
+                uart2.buffer2_ALL[cnt0++]=res;
 				encoder.RX_Timeout_flag=1;
 			}else
 			{
@@ -96,13 +96,13 @@ void UART2_IRQHandler(void)
 
 void c_entry_uart2_encoder (void) 
 {
-		uint8_t buffer0_buf[8];
-		buffer0_buf[0]=0x00;
-		buffer0_buf[1]=uart2.buffer2_ALL[0];
-		buffer0_buf[2]=uart2.buffer2_ALL[1];
-		buffer0_buf[3]=uart2.buffer2_ALL[2];
-		buffer0_buf[4]=uart2.buffer2_ALL[3];
-		buffer0_buf[5]=uart2.buffer2_ALL[4];
+    uint8_t buffer0_buf[8];
+    buffer0_buf[0]=0x00;
+    buffer0_buf[1]=uart2.buffer2_ALL[0];
+    buffer0_buf[2]=uart2.buffer2_ALL[1];
+    buffer0_buf[3]=uart2.buffer2_ALL[2];
+    buffer0_buf[4]=uart2.buffer2_ALL[3];
+    buffer0_buf[5]=uart2.buffer2_ALL[4];
 	
 	encoder.ssi_m=(buffer0_buf[0]<<16)+(buffer0_buf[1]<<8)+(buffer0_buf[2]);
 	encoder.ssi_s=(buffer0_buf[3]<<16)+(buffer0_buf[4]<<8)+(buffer0_buf[5]);
@@ -117,11 +117,11 @@ void UART2_Init(void)
 	UART_Init((LPC_USARTn_Type *)LPC_USART2, &UARTConfigStruct);
 	UART_FIFOConfig((LPC_USARTn_Type *)LPC_USART2, &UARTFIFOConfigStruct);
 	UART_TxCmd((LPC_USARTn_Type *)LPC_USART2, ENABLE);
-  UART_IntConfig((LPC_USARTn_Type *)LPC_USART2, UART_INTCFG_RBR, ENABLE);
-  UART_IntConfig((LPC_USARTn_Type *)LPC_USART2, UART_INTCFG_RLS, ENABLE);
+    UART_IntConfig((LPC_USARTn_Type *)LPC_USART2, UART_INTCFG_RBR, ENABLE);
+    UART_IntConfig((LPC_USARTn_Type *)LPC_USART2, UART_INTCFG_RLS, ENABLE);
 
 	NVIC_SetPriority(USART2_IRQn, ((0x03<<3)|0x01)); 
-  NVIC_EnableIRQ( USART2_IRQn); 
+    NVIC_EnableIRQ( USART2_IRQn); 
 
 }
 
@@ -206,6 +206,7 @@ void c_entry_Encoder2 (void)
 					motorset.flag_MOTOR_Close=0;
 					motorset.flag_MOTOR_Open=0;
 				}
+                
 				if((encoder.num==1)||(encoder.num==4))
 				{
 					if((key_mlx90363.READ_run>995)&&(key_mlx90363.READ_run<=1200))
@@ -237,7 +238,7 @@ void c_entry_Encoder2 (void)
 					}
 					key_mlx90363.READ_run_1=1000-key_mlx90363.READ_run_1;
 					key_mlx90363.Integer_3=99-key_mlx90363.Integer_3;
-					key_mlx90363.decimal_3=10-key_mlx90363.decimal_3;
+					key_mlx90363.decimal_3=9-key_mlx90363.decimal_3;  //decimal范围为0-9，这边用10减的话，会使得其范围变为10-1，影响GUI中百分比显示
 				}else
 				if(encoder.num==3)
 				{
@@ -302,7 +303,7 @@ void c_entry_Encoder2 (void)
 					
 					key_mlx90363.READ_run_1=1000-key_mlx90363.READ_run_1;
 					key_mlx90363.Integer_3=99-key_mlx90363.Integer_3;
-					key_mlx90363.decimal_3=10-key_mlx90363.decimal_3;
+					key_mlx90363.decimal_3=9-key_mlx90363.decimal_3;  //decimal范围为0-9，这边用10减的话，会使得其范围变为10-1，影响GUI中百分比显示
 				}else
 				if(encoder.num==7)
 				{
@@ -318,7 +319,7 @@ void c_entry_Encoder2 (void)
 						motorset.flag_MOTOR_Close=0;
 						motorset.flag_MOTOR_Open=1;
 					}
-				}				else
+				}else
 				{
 					if((key_mlx90363.READ_run>995)&&(key_mlx90363.READ_run<=1200))
 					{

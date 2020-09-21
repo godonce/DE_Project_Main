@@ -103,7 +103,7 @@ int main(void)
 	flag_figures.KEYMod=1;
 	timer.flag_all_run=1;
 	set_end.flag_setend=0;
-	eeprom.flag_eeprom=0;
+	eeprom.flag_eeprom=0;  //定义未使用
 	encoder.set_flag=0;
 	encoder.set_end_ok=1;
 	motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
@@ -118,7 +118,7 @@ int main(void)
 	OSInit(); 
 	
 	#if 1
-    c_entry_flash_test()	;
+    c_entry_flash_test();
 	c_entry_flash_READ_TEST(0x00000000,liju_left);
 	c_entry_flash_READ_TEST(0x00010000,xingcheng_left);
 	c_entry_flash_READ_TEST(0x00020000,liju_right);
@@ -287,7 +287,7 @@ static  void  App_TaskStates (void *p_arg)
 {
 	#ifdef Encnew
 		Init_Encoder();
-		Timer0_Init();
+		Timer0_Init();  //读编码器数据
 	#elif  Encold
 		UART2_Init();
 	#endif
@@ -305,13 +305,14 @@ static  void  App_TaskStates (void *p_arg)
 		#elif  Encold
 		c_entry_uart2_encoder();
 		#endif
-		c_entry_Encoder2();		
-		#if 1
+		c_entry_Encoder2();
+        
 		remote_conntrol.AI1_read=c_entry_AI1();
 		remote_control();
 		c_entry_AO1(key_mlx90363.READ_run_1);
-		Error_out();	
-		#endif
+			
+        Error_out();
+        
 		OSTimeDlyHMSM(0, 0, 0, 200);
   }
 }
@@ -340,14 +341,14 @@ static  void  App_TaskGUI (void *p_arg)
 		if(tset_key==8)
 		{
 			lcd.an_flag=1;
-			if(lcd.an_set_flag==1)
+			if(lcd.an_set_flag==1)  //长时间(1000s)不操作，屏幕变暗，权限变为操作员
 			{
 				MCOWM_SetPWM(10);
-				flag_figures.user=1; 
-				menuMainSettings[3]=0;  
-				g_authority=0;
-				lcd.an_ming_flag=1;
-				lcd.ming_flag=0;
+				flag_figures.user = AUTHRITY_OPERATOR; 
+				menuMainSettings[3] = 0;  
+				g_authority = AUTHRITY_OPERATOR;
+				lcd.an_ming_flag = 1;
+				lcd.ming_flag = 0;
 			}		
         }else
         {
@@ -373,6 +374,7 @@ static  void  App_TaskGUI (void *p_arg)
 			if((tset_key==GUI_KEY_ENTER)||(lcd.ming_flag==1))
 			{
 				MCOWM_SetPWM(80);
+                //MCOWM_SetPWM(10);
 				lcd.an_ming_flag=0;
 				lcd.ming_flag=0;
 			}			
@@ -422,8 +424,8 @@ static  void  App_TaskUART0 (void *p_arg)  //主要控制led
 	USB_init();
 	Restart_Encoder_Init();
 	Init_States();
-	ExternOUT_Init();
-	ExternIN_Init();
+	ExternOUT_Init();  //开关量输出
+	ExternIN_Init();   //开关量输入
 	ledstates.local=1;
 	Init_SPI0();
 	Init_EESPI0();	
@@ -440,6 +442,7 @@ static  void  App_TaskUART0 (void *p_arg)  //主要控制led
 		Extern_set_IO();
 		#endif
 		Extern_in();
+        
 		write_eeprom();
 		if(ledstates.local==1)
 		{

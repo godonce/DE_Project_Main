@@ -58,9 +58,9 @@
 .\flash\winwindow.o: ..\Hardware\hard_h\datafigures.h
 .\flash\winwindow.o: ..\GUI\GUI_C\bit_second.c
 .\flash\winwindow.o: ..\GUI\GUI_C\bit_zhunbei.c
-.\flash\winwindow.o: ..\GUI\GUI_C\song16all.c
-.\flash\winwindow.o: ..\GUI\GUI_C\song64.c
-.\flash\winwindow.o: ..\GUI\GUI_C\song33.c
+.\flash\winwindow.o: ..\GUI\GUI_C\black16all.c
+.\flash\winwindow.o: ..\GUI\GUI_C\black64.c
+.\flash\winwindow.o: ..\GUI\GUI_C\black33.c
 .\flash\winwindow.o: ..\GUI\GUI_H\CodeConvert.h
 .\flash\winwindow.o: ..\Hardware\hard_h\tchar.h
 .\flash\winwindow.o: ..\Library\SYST\_mingw.h

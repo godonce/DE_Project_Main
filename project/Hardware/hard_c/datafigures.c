@@ -35,7 +35,7 @@ void init_figures(void)
 	diagnose.switch_num_old=1;
 }
 
- void Utf8ToUnicode(char* unicode, char *utf8)
+ void Utf8ToUnicode(char* unicode, char *utf8)  //定义未使用
 {
     char *pchar = utf8;
     int nBytes = 0;
@@ -66,7 +66,7 @@ void init_figures(void)
 }
 
 
-int UTF8_to_Unicode(char *dst, char *src)
+int UTF8_to_Unicode(char *dst, char *src)  //定义未使用
 {
     int i = 0, unicode = 0, ii, iii;
     int codeLen = 0;
@@ -118,7 +118,7 @@ int UTF8_to_Unicode(char *dst, char *src)
 }
 
 
- unsigned short UTF8decodeUNICODE(void *d, unsigned char *s, unsigned short len)
+unsigned short UTF8decodeUNICODE(void *d, unsigned char *s, unsigned short len)  //定义未使用
 {
          unsigned short b_len = 0;
          unsigned short *unicode = ( unsigned short *)d;
@@ -195,7 +195,7 @@ int UTF8_to_Unicode(char *dst, char *src)
         return b_len;
 }
 
- void Utf8ToUnicode1(char* unicode, char *utf8)
+ void Utf8ToUnicode1(char* unicode, char *utf8)  //定义未使用
 {
     char *pchar = utf8;
     int nBytes = 0;

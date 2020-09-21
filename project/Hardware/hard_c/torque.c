@@ -102,9 +102,9 @@ void check_hand()
 		{
 			if(flag_start==1)
 			{
-			flag_step1=1;  
-			flag_step2=0;
-			flag_step3=0;
+                flag_step1=1;  
+                flag_step2=0;
+                flag_step3=0;
 			}else
 			{
 				flag_step=1;
@@ -118,9 +118,9 @@ void check_hand()
 			{
 				if(flag_ok==1)
 				{
-				flag_step1=0;
-				flag_step2=1;   
-				flag_step3=0;
+                    flag_step1=0;
+                    flag_step2=1;   
+                    flag_step3=0;
 				}
 				else
 				{
@@ -128,27 +128,27 @@ void check_hand()
 				}
 			}else
 			{
-			flag_step1=1; 
-			flag_step2=0;
-			flag_step3=0;
+                flag_step1=1; 
+                flag_step2=0;
+                flag_step3=0;
 			}
 			if(uart3.ready_4A>56)
 			{
 				if((buffer3[0]==0x80)||(buffer3[0]==0x00))
 				{
 					flag_step1=0;   
-				flag_step2=0;
-				flag_step3=1;
+                    flag_step2=0;
+                    flag_step3=1;
 				}
 			}
 		}else
-			if((buffer3[0]==0x81)||(buffer3[0]==0x01)||(buffer3[0]==0x84)||(buffer3[0]==0x04)||(buffer3[0]==0x85)||(buffer3[0]==0x05))
+        if((buffer3[0]==0x81)||(buffer3[0]==0x01)||(buffer3[0]==0x84)||(buffer3[0]==0x04)||(buffer3[0]==0x85)||(buffer3[0]==0x05))
 		{
 			
-				flag_step1=0;   
-				flag_step2=0;
-				flag_step3=1;    
-		powerboard.USB_ERROR=0;
+            flag_step1=0;   
+            flag_step2=0;
+            flag_step3=1;    
+            powerboard.USB_ERROR=0;
 		}
 		else
 		{
@@ -635,8 +635,8 @@ int changeDIR(void)
 
 #ifdef  DE13
 
-			 uint16_t  SPEED_Stand_C[7]= {       10,       14,       20,      28,       40,       56,        80};
-			 uint16_t  TORQUE_Stand_C[8]={       18,       24,       30,      36,       42,       48,        54,      60};
+uint16_t  SPEED_Stand_C[7]= {       10,       14,       20,      28,       40,       56,        80};
+uint16_t  TORQUE_Stand_C[8]={       18,       24,       30,      36,       42,       48,        54,      60};
 static uint16_t DE13_SPEED_RUN[7]= {   0x0640,   0x0898,   0x0BB8,  0x0FA0,   0x15E0,   0x1E14,    0x2AF8};
 static uint16_t DE13_RISE_TIME[7]= {       65,       75,       88,     103,      130,      165,       219};
 static uint16_t DE13_DOWN_TIME[7]= {       40,       48,       63,      64,       85,      112,       156};
@@ -1002,20 +1002,20 @@ int changeDIR(void)
 
 #ifdef  EE13
 
-			 uint16_t  SPEED_Stand_C[7]= {       20,       28,       40,      56,       80,       112,        160};
-			 uint16_t  TORQUE_Stand_C[8]={       18,       24,       30,      36,       42,       48,        54,      60};
- uint16_t EE13_SPEED_RUN[7]= {   0x0640,   0x0898,   0x0BB8,  0x0FA0,   0x15E0,   0x1E14,    0x2AF8};
-static uint16_t EE13_RISE_TIME[7]= {       65,       115/*115 75*/,       88,  400/*103*/,500/*130*/, 500/*165*/,       600/*219*/};
-static uint16_t EE13_DOWN_TIME[7]= {       53,       67,       55,   200/*78*/,300/*116*/, 200/*164*/,       241};
-static uint16_t EE13_SPEED_END[7]= {   0x0000,   0x0000,   0x0000,  0x0000,   0x0000,   0x0000,    0x0000};
+uint16_t  SPEED_Stand_C[7]= {       20,       28,       40,      56,       80,       112,        160};
+uint16_t  TORQUE_Stand_C[8]={       18,       24,       30,      36,       42,       48,        54,      60};
+uint16_t EE13_SPEED_RUN[7]= {   0x0640,   0x0898,   0x0BB8,  0x0FA0,   0x15E0,   0x1E14,    0x2AF8};  //平稳运行下发的转速
+static uint16_t EE13_RISE_TIME[7]= {       65,       115/*115 75*/,       88,  400/*103*/,500/*130*/, 500/*165*/, 600/*219*/};  //从停转到稳定转速中间码个数
+static uint16_t EE13_DOWN_TIME[7]= {       53,       67,       55,   200/*78*/,300/*116*/, 200/*164*/, 241};  //从稳定到停转转速中间码个数
+static uint16_t EE13_SPEED_END[7]= {   0x0000,   0x0000,   0x0000,  0x0000,   0x0000,   0x0000,    0x0000};   
 static float    EE13_torque_min[7]={      0.1,      0.6,      0.6,     0.1,      0.1,      0.1,        0.1};
 static float    EE13_torque_max[7]={      1.5,      1.5,      1.5,     1.1,      1.1,      1.1,        1.1};
-static float     EE13_torque_a[7]= {  -0.7407,  -0.9312,  -1.0476, -1.2381,  -1.6614,  -4.3175,    -4.1481};
-static float     EE13_torque_b[7]= {   169.78,   199.87,   229.65,  270.41,   344.83,   574.48,  520.44  };
-static float     EE13_torque_c[7]= {   3525.3,3925.3+300,     4635,    5451,   6616.8,  6272-400,    15456};
-static float    EE13_current_a[7]= {   0.0587,  -0.0026 ,  0.0909, 0.039,      0.0243,  0.122,        0.1243};
-static float    EE13_current_b[7]= {   1.3442,    6.0238,  0.1528,  4.2302,   6.5744,   2.5298,   6.746};
-static float    EE13_current_c[7]= {   46.577,   -15.405,  82.036,  49.798,    49.411,   154.68,   133.79};
+static float     EE13_torque_a[7]= {  -0.7407,  -0.9312,  -1.0476, -1.2381,  -1.6614,  -4.3175,    -4.1481};  //平稳运行下发的转矩A
+static float     EE13_torque_b[7]= {   169.78,   199.87,   229.65,  270.41,   344.83,   574.48,  520.44  };   //平稳运行下发的转矩B
+static float     EE13_torque_c[7]= {   3525.3,3925.3+300,     4635,    5451,   6616.8,  6272-400,    15456};  //平稳运行下发的转矩C
+static float    EE13_current_a[7]= {   0.0587,  -0.0026 ,  0.0909, 0.039,      0.0243,  0.122,        0.1243};//启动阶段的尖峰电流A
+static float    EE13_current_b[7]= {   1.3442,    6.0238,  0.1528,  4.2302,   6.5744,   2.5298,   6.746};     //启动阶段的尖峰电流B
+static float    EE13_current_c[7]= {   46.577,   -15.405,  82.036,  49.798,    49.411,   154.68,   133.79};   //启动阶段的尖峰电流C
 unsigned short EE13_voltage[7][8];
 unsigned short EE13_current[7][8];
 void Set_DZ(void)
@@ -1136,7 +1136,25 @@ void Set_DZ(void)
 	EE13_current[6][7]=usb_torque_cur.T7_8;
 }
 
-#define CURRENT_STOP_MIN (EE13_current_a[0]*TORQUE_Stand_C[0]*TORQUE_Stand_C[0]+EE13_current_b[0]*TORQUE_Stand_C[0]+EE13_current_c[0])
+//#define CURRENT_STOP_MIN (EE13_current_a[0]*TORQUE_Stand_C[0]*TORQUE_Stand_C[0]+EE13_current_b[0]*TORQUE_Stand_C[0]+EE13_current_c[0])
+uint16_t calCurrentBaseMin(void)
+{   
+    uint16_t speed_tmp;
+    uint16_t gear = 0;
+    uint16_t i = 0;
+    speed_tmp = (motorset.DIR_MOTOR == motorset.DIR_MOTOR_n) ? dataStructInterface.speed_open : dataStructInterface.speed_close;
+    
+    for(i = 0;i < 7;i ++)
+    {
+        if(speed_tmp == SPEED_Stand_C[i])
+        {
+            gear = i;
+        }
+    }
+    
+    return (EE13_current_a[gear]*TORQUE_Stand_C[0]*TORQUE_Stand_C[0]+EE13_current_b[gear]*TORQUE_Stand_C[0]+EE13_current_c[gear]);
+}
+
 
 void choice_speed_line()
 {
@@ -1146,10 +1164,12 @@ void choice_speed_line()
 	float current_a,current_b,current_c;
 	unsigned short torque_test,current_test;
 	int i;
+    static uint16_t speed_tmp;
+    uint16_t CURRENT_STOP_MIN;
+    
 	Set_DZ();
 	switch(SPEED_Stand)
 	{
-		
 		case 20:
 					{
 						SPEED_RUN=EE13_SPEED_RUN[0];
@@ -1366,10 +1386,11 @@ void choice_speed_line()
 			
 	}
 	
-	ABC=(current_a*(float )TORQUE_Stand*(float )TORQUE_Stand);
-	ABD=(current_b*(float )TORQUE_Stand);
-	ABE=current_c;
+	ABC = (current_a*(float )TORQUE_Stand*(float )TORQUE_Stand);
+	ABD = (current_b*(float )TORQUE_Stand);
+	ABE = current_c;
 	//Current_STOP=ABC+ABD+ABE;
+    CURRENT_STOP_MIN = calCurrentBaseMin();
     Current_STOP=((ABC+ABD+ABE) > CURRENT_STOP_MIN) ? (ABC+ABD+ABE) : CURRENT_STOP_MIN;  //89为EE13电机最低转速转矩档对应的堵转基准电流，转矩转速初始化搞定之后可以删去
 	torque_cl=((torque_a*TORQUE_Stand*TORQUE_Stand)+(torque_b*TORQUE_Stand)+ torque_c)+800;
 	for(i=1;i<7;i++)
@@ -1385,7 +1406,7 @@ void choice_speed_line()
 }
 
 
-#define CURRENT_BASE_OFFSET 0 //电流限值增加偏移，以规避启停瞬间的电流冲高，导致误动作堵转。（另外，也可以对下板启停阶段上传电流值加以限制）
+#define CURRENT_BASE_OFFSET 10 //电流限值增加偏移，以规避启停瞬间的电流冲高，导致误动作堵转。（另外，也可以对下板启停阶段上传电流值加以限制）
 int changeDIR(void)
 {
 	if((motorset.flag_run == 0) && (is_endpos == 0))  //前者用来规避启动2s内的堵转判断，后者用来规避末端位置的堵转判断
@@ -1407,7 +1428,7 @@ int changeDIR(void)
 				motorset.stop1=3;
 				if(set_end.flag_setend==1)
 				{
-					flag_estop=0;	
+					flag_estop=0;
 					if(dataStructInterface.closeOffMode==1)
 					{
 						if(motorset.DIR_MOTOR==motorset.DIR_MOTOR_s)
@@ -2075,7 +2096,7 @@ int changeDIR(void)
 								if(SPEED_Stand==SPEED_Stand_C[1])
 								{
 									motorset.flag_run_jiangsu=0;
-										motorset.DIR_MOTOR_old=motorset.DIR_MOTOR;
+                                    motorset.DIR_MOTOR_old=motorset.DIR_MOTOR;
 									//	Current_UP=current_up;
 									motorset.stop1=3;
 									if(set_end.flag_setend==1)

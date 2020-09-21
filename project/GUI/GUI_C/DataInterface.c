@@ -7,10 +7,10 @@
 DATASTRUCTINTERFACE dataStructInterface;
 extern unsigned char ssi_m,ssi_s;
 extern uint8_t DIR_MOTOR  ; 
- char   g_deviceState  ;
+unsigned char   g_deviceState  ;
 volatile char   g_mainMenuFocus  = 0;
 volatile char   g_hdlMenuFocus  = 1;
-volatile short  g_authority  = 1;
+volatile short  g_authority  = AUTHRITY_OPERATOR;  //临时调整，方便测试。默认上电为专家模式，之前为1
 
 volatile char   g_authority_bak;
 volatile unsigned short   g_max_percentage  = 25;
@@ -132,273 +132,277 @@ void _InterDataRefresh(void)
 	                 
     sprintf(str,"                  %d rpm ",dataStructInterface.speed_close );
     strcpy(menuObStatusCn[1],str);
-		switch(flag_figures.user)
-		{                           
-			case 1: {sprintf(str,"                     操作员");
-							strcpy(menuUserManagCn[1],str);
-							strcpy(menuUserManagEn[1],str);
-							}break;
-			                     
-			case 2: {sprintf(str,"                       监察");
-							strcpy(menuUserManagCn[1],str);
-							strcpy(menuUserManagEn[1],str);
-							}break;
-			                     
-			case 3: {sprintf(str,"                       专家");
-							strcpy(menuUserManagCn[1],str);
-							strcpy(menuUserManagEn[1],str);
-							}break;
-			                     
-			case 4: {sprintf(str,"                       服务");
-							strcpy(menuUserManagCn[1],str);
-							strcpy(menuUserManagEn[1],str);
-							}break;
-			                     
-			case 5: {sprintf(str,"                   工厂服务");
-							strcpy(menuUserManagCn[1],str);
-							strcpy(menuUserManagEn[1],str);
-							}break;
-			 default: break;
-		}
-		
-		if(flag_figures.KEYMod==1)
-		{
-			strcpy(menuObKrInputCn[0],menuObKrInputCn_H1[0]);
-		}else
-		{
-			strcpy(menuObKrInputCn[0],menuObKrInputCn_L1[0]);
-		}
-		if(flag_figures.KEYClose==1)
-		{
-			strcpy(menuObKrInputCn[1],menuObKrInputCn_H1[1]);
-		}else
-		{
-			strcpy(menuObKrInputCn[1],menuObKrInputCn_L1[1]);
-		}
-		
-		if(flag_figures.KEYOpen==1)
-		{
-			strcpy(menuObKrInputCn[2],menuObKrInputCn_H1[2]);
-		}else
-		{
-			strcpy(menuObKrInputCn[2],menuObKrInputCn_L1[2]);
-		}
-		
-		if(flag_figures.KEYStop==1)
-		{
-			strcpy(menuObKrInputCn[3],menuObKrInputCn_H1[3]);
-		}else
-		{
-			strcpy(menuObKrInputCn[3],menuObKrInputCn_L1[3]);
-		}
-		
-		if(flag_figures.KEYEme==1)
-		{
-			strcpy(menuObKrInputCn[4],menuObKrInputCn_H1[4]);
-		}else
-		{
-			strcpy(menuObKrInputCn[4],menuObKrInputCn_L1[4]);
-		}
-		
-		            
-        sprintf(str,"                     %d  ",states.Coils_temp);
-        strcpy(menuObStatusCn[6],str);
-        strcpy(menuObStatusEn[6],str);
-		                
-        sprintf(str,"                     %d ",states.Ele_temp);
-        strcpy(menuObStatusCn[8],str);
-        strcpy(menuObStatusEn[8],str);
+    switch(flag_figures.user)
+    {                           
+        case 1: {sprintf(str,"                     操作员");
+                        strcpy(menuUserManagCn[1],str);
+                        strcpy(menuUserManagEn[1],str);
+                        }break;
+                             
+        case 2: {sprintf(str,"                       监察");
+                        strcpy(menuUserManagCn[1],str);
+                        strcpy(menuUserManagEn[1],str);
+                        }break;
+                             
+        case 3: {sprintf(str,"                       专家");
+                        strcpy(menuUserManagCn[1],str);
+                        strcpy(menuUserManagEn[1],str);
+                        }break;
+                             
+        case 4: {sprintf(str,"                       服务");
+                        strcpy(menuUserManagCn[1],str);
+                        strcpy(menuUserManagEn[1],str);
+                        }break;
+                             
+        case 5: {sprintf(str,"                   工厂服务");
+                        strcpy(menuUserManagCn[1],str);
+                        strcpy(menuUserManagEn[1],str);
+                        }break;
+         default: break;
+    }
+    
+    if(flag_figures.KEYMod==1)
+    {
+        strcpy(menuObKrInputCn[0],menuObKrInputCn_H1[0]);
+    }else
+    {
+        strcpy(menuObKrInputCn[0],menuObKrInputCn_L1[0]);
+    }
+    if(flag_figures.KEYClose==1)
+    {
+        strcpy(menuObKrInputCn[1],menuObKrInputCn_H1[1]);
+    }else
+    {
+        strcpy(menuObKrInputCn[1],menuObKrInputCn_L1[1]);
+    }
+    
+    if(flag_figures.KEYOpen==1)
+    {
+        strcpy(menuObKrInputCn[2],menuObKrInputCn_H1[2]);
+    }else
+    {
+        strcpy(menuObKrInputCn[2],menuObKrInputCn_L1[2]);
+    }
+    
+    if(flag_figures.KEYStop==1)
+    {
+        strcpy(menuObKrInputCn[3],menuObKrInputCn_H1[3]);
+    }else
+    {
+        strcpy(menuObKrInputCn[3],menuObKrInputCn_L1[3]);
+    }
+    
+    if(flag_figures.KEYEme==1)
+    {
+        strcpy(menuObKrInputCn[4],menuObKrInputCn_H1[4]);
+    }else
+    {
+        strcpy(menuObKrInputCn[4],menuObKrInputCn_L1[4]);
+    }
+    
+                
+    sprintf(str,"                     %d  ",states.Coils_temp);
+    strcpy(menuObStatusCn[6],str);
+    strcpy(menuObStatusEn[6],str);
                     
-        sprintf(str,"                  %.1f A ",powerboard.lcd_current);
-        strcpy(menuObStatusCn[17],str);
-        strcpy(menuObStatusEn[17],str);
-		                
-        sprintf(str,"                    %d V ",(int)powerboard.lcd_voltage);
-        strcpy(menuObStatusCn[19],str);
-        strcpy(menuObStatusEn[19],str);
-		
-		if(dataStructInterface.ctrlMode == 0 )
-        {
-            ai_o420.flag_mode1=1;
-            ai_o420.flag_mode2=0;
-            ai_o420.flag_mode3=0;
-            ai_o420.flag_mode4=0;
-					           
-            sprintf(str,"      开关量持续节点控制 ");
-            strcpy(menuCtrlSysParaCn[1],str);
-            strcpy(menuCtrlSysParaEn[1],str);
-        }
-        else if(dataStructInterface.ctrlMode == 1 )
-        {
-            ai_o420.flag_mode1=0;
-            ai_o420.flag_mode2=1;
-            ai_o420.flag_mode3=0;
-            ai_o420.flag_mode4=0;
-					            
-            sprintf(str,"      开关量脉冲节点控制 ");
-            strcpy(menuCtrlSysParaCn[1],str);
-            strcpy(menuCtrlSysParaEn[1],str);
-        }
-        else if(dataStructInterface.ctrlMode == 2 )
-        {
-            ai_o420.flag_mode1=0;
-            ai_o420.flag_mode2=0;
-            ai_o420.flag_mode3=1;
-            ai_o420.flag_mode4=0;
-					            
-            sprintf(str,"          开关量比例控制 ");
-            strcpy(menuCtrlSysParaCn[1],str);
-            strcpy(menuCtrlSysParaEn[1],str);
-        }
-        else if(dataStructInterface.ctrlMode == 3 )
-        {
-            ai_o420.flag_mode1=0;
-            ai_o420.flag_mode2=0;
-            ai_o420.flag_mode3=0;
-            ai_o420.flag_mode4=1;
-					            
-            sprintf(str,"       模拟量位置控制AI1 ");
-            strcpy(menuCtrlSysParaCn[1],str);
-            strcpy(menuCtrlSysParaEn[1],str);
-        }
-		if(ai_o420.flag_mode1==1)
-        {
-            sprintf(str,"       持续节点 ");
-            strcpy(infoWinMainList0CN[1],str);
-            strcpy(infoWinMainList0EN[1],str);
-        }else
-        if(ai_o420.flag_mode2==1)
-        {
-            sprintf(str,"       脉冲节点 ");
-            strcpy(infoWinMainList0CN[1],str);
-            strcpy(infoWinMainList0EN[1],str);
-        }else
-        if(ai_o420.flag_mode3==1)
-        {
-            sprintf(str,"       比例控制 ");
-            strcpy(infoWinMainList0CN[1],str);
-            strcpy(infoWinMainList0EN[1],str);
-        }else
-        if(ai_o420.flag_mode4==1)
-        {
-            sprintf(str,"       位置控制器 ");
-            strcpy(infoWinMainList0CN[1],str);
-            strcpy(infoWinMainList0EN[1],str);
-        }
-        if(0 == dataStructInterface.closeDir)
-        {               
-            sprintf(str,"                  顺时针 ");
-            strcpy(menuVavleParaCn[1],str);
-            strcpy(menuVavleParaEn[1],str);
-            strcpy(menu1EndPosParaCn[1],str);
-            strcpy(menu1EndPosParaEn[1],str);
-        }
-        else if(1 == dataStructInterface.closeDir)
-        {
-            sprintf(str,"                  逆时针 ");
-            strcpy(menuVavleParaCn[1],str);
-            strcpy(menuVavleParaEn[1],str);
-            strcpy(menu1EndPosParaCn[1],str);
-            strcpy(menu1EndPosParaEn[1],str);
-        }
-			
-		if(0 == dataStructInterface.closeOffMode)
-        {               
-            sprintf(str,"            行程关断模式 ");
-            strcpy(menuVavleParaCn[6],str);
-            strcpy(menuVavleParaEn[6],str);
-			strcpy(menu2EndPosParaCn[1],str);
-            strcpy(menu2EndPosParaEn[1],str);
-        }
-        else if(1 == dataStructInterface.closeOffMode)
-        {               
-            sprintf(str,"            力矩关断模式 ");
-            strcpy(menuVavleParaCn[6],str);
-            strcpy(menuVavleParaEn[6],str);
-            strcpy(menu2EndPosParaCn[1],str);
-            strcpy(menu2EndPosParaEn[1],str);
-        }
-		
-        if(0 == dataStructInterface.openOffMode)
-        {               
-            sprintf(str,"            行程关断模式 ");
-            strcpy(menuVavleParaCn[7],str);
-            strcpy(menuVavleParaEn[7],str);
-            strcpy(menu2EndPosParaCn[2],str);
-            strcpy(menu2EndPosParaEn[2],str);
-        }
-        else if(1 == dataStructInterface.openOffMode)
-        {               
-            sprintf(str,"            力矩关断模式 ");
-            strcpy(menuVavleParaCn[7],str);
-            strcpy(menuVavleParaEn[7],str);
-            strcpy(menu2EndPosParaCn[2],str);
-            strcpy(menu2EndPosParaEn[2],str);
-        }
-		if(dataStructInterface.showDirect==1)
-        {                       
-            sprintf(str,"                   180度 ");
-            strcpy(menuParaSysShowDirCn[1],str);
-            strcpy(menuParaSysShowDirEn[1],str);
-        }else
-        if(dataStructInterface.showDirect==0)
-        {    			
-            sprintf(str,"                     0度 ");
-            strcpy(menuParaSysShowDirCn[1],str);
-            strcpy(menuParaSysShowDirEn[1],str);
-        }
-					
-        if(dataStructInterface.krInput == 0 )
-        {               
-            sprintf(str,"            常闭接点(NC) ");
-            strcpy(menuCtrlSysParaCn[5],str);
-            strcpy(menuCtrlSysParaEn[5],str);
-        }
-        else if(dataStructInterface.krInput == 1 )
-        {              
-            sprintf(str,"            常开接点(NO) ");
-            strcpy(menuCtrlSysParaCn[5],str);
-            strcpy(menuCtrlSysParaEn[5],str);
-        }
+    sprintf(str,"                     %d ",states.Ele_temp);
+    strcpy(menuObStatusCn[8],str);
+    strcpy(menuObStatusEn[8],str);
+    
+    sprintf(str," 定位              %d.%d %% ",key_mlx90363.Integer_3,key_mlx90363.decimal_3);
+    strcpy(menuObStatusCn[13],str);
+    strcpy(menuObStatusEn[13],str);
+                
+    sprintf(str,"                   %.1f A ",powerboard.lcd_current);
+    strcpy(menuObStatusCn[17],str);
+    strcpy(menuObStatusEn[17],str);
+                    
+    sprintf(str,"                   %d V ",(int)powerboard.lcd_voltage);
+    strcpy(menuObStatusCn[19],str);
+    strcpy(menuObStatusEn[19],str);
+    
+    if(dataStructInterface.ctrlMode == 0 )
+    {
+        ai_o420.flag_mode1=1;
+        ai_o420.flag_mode2=0;
+        ai_o420.flag_mode3=0;
+        ai_o420.flag_mode4=0;
+                           
+        sprintf(str,"      开关量持续节点控制 ");
+        strcpy(menuCtrlSysParaCn[1],str);
+        strcpy(menuCtrlSysParaEn[1],str);
+    }
+    else if(dataStructInterface.ctrlMode == 1 )
+    {
+        ai_o420.flag_mode1=0;
+        ai_o420.flag_mode2=1;
+        ai_o420.flag_mode3=0;
+        ai_o420.flag_mode4=0;
+                            
+        sprintf(str,"      开关量脉冲节点控制 ");
+        strcpy(menuCtrlSysParaCn[1],str);
+        strcpy(menuCtrlSysParaEn[1],str);
+    }
+    else if(dataStructInterface.ctrlMode == 2 )
+    {
+        ai_o420.flag_mode1=0;
+        ai_o420.flag_mode2=0;
+        ai_o420.flag_mode3=1;
+        ai_o420.flag_mode4=0;
+                            
+        sprintf(str,"          开关量比例控制 ");
+        strcpy(menuCtrlSysParaCn[1],str);
+        strcpy(menuCtrlSysParaEn[1],str);
+    }
+    else if(dataStructInterface.ctrlMode == 3 )
+    {
+        ai_o420.flag_mode1=0;
+        ai_o420.flag_mode2=0;
+        ai_o420.flag_mode3=0;
+        ai_o420.flag_mode4=1;
+                            
+        sprintf(str,"       模拟量位置控制AI1 ");
+        strcpy(menuCtrlSysParaCn[1],str);
+        strcpy(menuCtrlSysParaEn[1],str);
+    }
+    if(ai_o420.flag_mode1==1)
+    {
+        sprintf(str,"       持续节点 ");
+        strcpy(infoWinMainList0CN[1],str);
+        strcpy(infoWinMainList0EN[1],str);
+    }else
+    if(ai_o420.flag_mode2==1)
+    {
+        sprintf(str,"       脉冲节点 ");
+        strcpy(infoWinMainList0CN[1],str);
+        strcpy(infoWinMainList0EN[1],str);
+    }else
+    if(ai_o420.flag_mode3==1)
+    {
+        sprintf(str,"       比例控制 ");
+        strcpy(infoWinMainList0CN[1],str);
+        strcpy(infoWinMainList0EN[1],str);
+    }else
+    if(ai_o420.flag_mode4==1)
+    {
+        sprintf(str,"       位置控制器 ");
+        strcpy(infoWinMainList0CN[1],str);
+        strcpy(infoWinMainList0EN[1],str);
+    }
+    if(0 == dataStructInterface.closeDir)
+    {               
+        sprintf(str,"                  顺时针 ");
+        strcpy(menuVavleParaCn[1],str);
+        strcpy(menuVavleParaEn[1],str);
+        strcpy(menu1EndPosParaCn[1],str);
+        strcpy(menu1EndPosParaEn[1],str);
+    }
+    else if(1 == dataStructInterface.closeDir)
+    {
+        sprintf(str,"                  逆时针 ");
+        strcpy(menuVavleParaCn[1],str);
+        strcpy(menuVavleParaEn[1],str);
+        strcpy(menu1EndPosParaCn[1],str);
+        strcpy(menu1EndPosParaEn[1],str);
+    }
         
-        if(dataStructInterface.rmtChoose == 0 )
-        {              
-            sprintf(str,"                    无效 ");
-            strcpy(menuCtrlSysParaCn[3],str);
-            strcpy(menuCtrlSysParaEn[3],str);
-        }
-        else if(dataStructInterface.rmtChoose == 1 )
-        {         
-            sprintf(str,"      开关量持续节点控制 ");
-            strcpy(menuCtrlSysParaCn[3],str);
-            strcpy(menuCtrlSysParaEn[3],str);
-        }
-        else if(dataStructInterface.rmtChoose == 2 )
-        {              
-            sprintf(str,"          开关量比例控制 ");
-            strcpy(menuCtrlSysParaCn[3],str);
-            strcpy(menuCtrlSysParaEn[3],str);
-        }
-        else if(dataStructInterface.rmtChoose == 3 )
-        {
-            sprintf(str,"       模拟量位置控制AI1 ");
-            strcpy(menuCtrlSysParaCn[3],str);
-            strcpy(menuCtrlSysParaEn[3],str);
-        }
-        if(dataStructInterface.emgInput==0)
-        {                 
-            sprintf(str,"            常闭接点(NC) ");
-            strcpy(menuSaftyCn[1],str);
-            strcpy(menuSaftyEn[1],str);
-            remote_conntrol.EME_Flag=0;
-        }else
-        if(dataStructInterface.emgInput==1)
-        {                
-            sprintf(str,"            常开接点(NO) ");
-            strcpy(menuSaftyCn[1],str);
-            strcpy(menuSaftyEn[1],str);
-            remote_conntrol.EME_Flag=1;
-        }
+    if(0 == dataStructInterface.closeOffMode)
+    {               
+        sprintf(str,"            行程关断模式 ");
+        strcpy(menuVavleParaCn[6],str);
+        strcpy(menuVavleParaEn[6],str);
+        strcpy(menu2EndPosParaCn[1],str);
+        strcpy(menu2EndPosParaEn[1],str);
+    }
+    else if(1 == dataStructInterface.closeOffMode)
+    {               
+        sprintf(str,"            力矩关断模式 ");
+        strcpy(menuVavleParaCn[6],str);
+        strcpy(menuVavleParaEn[6],str);
+        strcpy(menu2EndPosParaCn[1],str);
+        strcpy(menu2EndPosParaEn[1],str);
+    }
+    
+    if(0 == dataStructInterface.openOffMode)
+    {               
+        sprintf(str,"            行程关断模式 ");
+        strcpy(menuVavleParaCn[7],str);
+        strcpy(menuVavleParaEn[7],str);
+        strcpy(menu2EndPosParaCn[2],str);
+        strcpy(menu2EndPosParaEn[2],str);
+    }
+    else if(1 == dataStructInterface.openOffMode)
+    {               
+        sprintf(str,"            力矩关断模式 ");
+        strcpy(menuVavleParaCn[7],str);
+        strcpy(menuVavleParaEn[7],str);
+        strcpy(menu2EndPosParaCn[2],str);
+        strcpy(menu2EndPosParaEn[2],str);
+    }
+    if(dataStructInterface.showDirect==1)
+    {                       
+        sprintf(str,"                   180度 ");
+        strcpy(menuParaSysShowDirCn[1],str);
+        strcpy(menuParaSysShowDirEn[1],str);
+    }else
+    if(dataStructInterface.showDirect==0)
+    {    			
+        sprintf(str,"                     0度 ");
+        strcpy(menuParaSysShowDirCn[1],str);
+        strcpy(menuParaSysShowDirEn[1],str);
+    }
+                
+    if(dataStructInterface.krInput == 0 )
+    {               
+        sprintf(str,"            常闭接点(NC) ");
+        strcpy(menuCtrlSysParaCn[5],str);
+        strcpy(menuCtrlSysParaEn[5],str);
+    }
+    else if(dataStructInterface.krInput == 1 )
+    {              
+        sprintf(str,"            常开接点(NO) ");
+        strcpy(menuCtrlSysParaCn[5],str);
+        strcpy(menuCtrlSysParaEn[5],str);
+    }
+    
+    if(dataStructInterface.rmtChoose == 0 )
+    {              
+        sprintf(str,"                    无效 ");
+        strcpy(menuCtrlSysParaCn[3],str);
+        strcpy(menuCtrlSysParaEn[3],str);
+    }
+    else if(dataStructInterface.rmtChoose == 1 )
+    {         
+        sprintf(str,"      开关量持续节点控制 ");
+        strcpy(menuCtrlSysParaCn[3],str);
+        strcpy(menuCtrlSysParaEn[3],str);
+    }
+    else if(dataStructInterface.rmtChoose == 2 )
+    {              
+        sprintf(str,"          开关量比例控制 ");
+        strcpy(menuCtrlSysParaCn[3],str);
+        strcpy(menuCtrlSysParaEn[3],str);
+    }
+    else if(dataStructInterface.rmtChoose == 3 )
+    {
+        sprintf(str,"       模拟量位置控制AI1 ");
+        strcpy(menuCtrlSysParaCn[3],str);
+        strcpy(menuCtrlSysParaEn[3],str);
+    }
+    if(dataStructInterface.emgInput==0)
+    {                 
+        sprintf(str,"            常闭接点(NC) ");
+        strcpy(menuSaftyCn[1],str);
+        strcpy(menuSaftyEn[1],str);
+        remote_conntrol.EME_Flag=0;
+    }else
+    if(dataStructInterface.emgInput==1)
+    {                
+        sprintf(str,"            常开接点(NO) ");
+        strcpy(menuSaftyCn[1],str);
+        strcpy(menuSaftyEn[1],str);
+        remote_conntrol.EME_Flag=1;
+    }
 
 }
 
@@ -1014,7 +1018,7 @@ char menuObNamePlateCn[MENU_OB_NAMEPLATE_NUM][MAX_INFO_CHAR]={
 "       2SA7321-5EE00-4BB4",
 "设备                     ",
 "序列号                   ",
-"            6800190926102"
+"            6800190926103"
 };
 
 char menuObNamePlateEn[MENU_OB_NAMEPLATE_NUM][MAX_INFO_CHAR]={
@@ -1024,7 +1028,7 @@ char menuObNamePlateEn[MENU_OB_NAMEPLATE_NUM][MAX_INFO_CHAR]={
 "       2SA7321-5EE00-4BB4",
 "E设备                    ",
 "E序列号                  ",
-"            6800190926102"
+"            6800190926103"
 };
 
 unsigned short menuObNamePlateSet[MENU_OB_NAMEPLATE_NUM]={MENU_SETTING_TITLE,
@@ -1111,25 +1115,25 @@ unsigned short menuObInOutPutSet[MENU_OB_INOUTPUT_NUM]={MENU_SETTING_CONTENT,
 
 
 char 	menuObKrInputCn[MENU_OB_KRINPUT_NUM][MAX_INFO_CHAR]={
-"开关量输入信号关  低1 ",
-"开关量输入信号开  低1 ",
-"开关量输入信号停  低1 ",
-"开关量输入信号紧急低1 ",
-"开关量输入信号模式低1 "
+"开关量输入信号 关     低1",
+"开关量输入信号 开     低1",
+"开关量输入信号 停     低1",
+"开关量输入信号 紧急   低1",
+"开关量输入信号 模式   低1"
 };
 char menuObKrInputCn_L1[MENU_OB_KRINPUT_NUM][MAX_INFO_CHAR]={
-"开关量输入信号关  低1 ",
-"开关量输入信号开  低1 ",
-"开关量输入信号停  低1 ",
-"开关量输入信号紧急低1 ",
-"开关量输入信号模式低1 "
+"开关量输入信号 关     低1",
+"开关量输入信号 开     低1",
+"开关量输入信号 停     低1",
+"开关量输入信号 紧急   低1",
+"开关量输入信号 模式   低1"
 };
 char menuObKrInputCn_H1[MENU_OB_KRINPUT_NUM][MAX_INFO_CHAR]={
-"开关量输入信号关  高3 ",
-"开关量输入信号开  高3 ",
-"开关量输入信号停  高3 ",
-"开关量输入信号紧急高3 ",
-"开关量输入信号模式高3 "
+"开关量输入信号 关     高3",
+"开关量输入信号 开     高3",
+"开关量输入信号 停     高3",
+"开关量输入信号 紧急   高3",
+"开关量输入信号 模式   高3"
 };
 
 char menuObKrInputEn[MENU_OB_KRINPUT_NUM][MAX_INFO_CHAR]={
@@ -1828,13 +1832,13 @@ unsigned short menuKrOutputSel2Set[MENU_KROUTPUT_SEL2_NUM]={MENU_SETTING_CONTENT
                                                    };
 
 char menuAnologOutputSel1Cn[MENU_ANOOUTPUT_SEL1_NUM][MAX_INFO_CHAR]={
-"实际过程值               ",
-"实际位置值               "
+"实际位置值               ",
+"实际过程值               "
 };
 
 char menuAnologOutputSel1En[MENU_ANOOUTPUT_SEL1_NUM][MAX_INFO_CHAR]={
-"实际过程值E              ",
-"实际位置值               "
+"实际位置值               ",
+"实际过程值E              "
 };
 
 unsigned short menuAnologOutputSel1Set[MENU_ANOOUTPUT_SEL1_NUM]={MENU_SETTING_CONTENT,
@@ -1923,13 +1927,13 @@ unsigned short menuSaftyEmInputSet[MENU_SAFTY_INPUT_NUM]={MENU_SETTING_CONTENT,
 
 
 char menuSaftyCtlSrcFaultCn[MENU_SAFTY_CTLSRC_FAULT_NUM][MAX_INFO_CHAR]={
-"运行到“紧急”位置         ",
-"保持原位                 "
+"保持原位                 ",
+"运行到“紧急”位置         "
 };
 
 char menuSaftyCtlSrcFaultEn[MENU_SAFTY_CTLSRC_FAULT_NUM][MAX_INFO_CHAR]={
-"运行到“紧急”位置         ",
-"保持原位                 "
+"保持原位                 ",
+"运行到“紧急”位置         "
 };
 
 unsigned short menuSaftyCtlSrcFaultSet[MENU_SAFTY_CTLSRC_FAULT_NUM]={MENU_SETTING_CONTENT,

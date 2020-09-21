@@ -682,10 +682,10 @@ void remote_mode(void)
             ledstates.local=0;
             ledstates.remote=0;
         }
-        }else
-        {
-            ledstates.remote=0;
-        }
+    }else
+    {
+        ledstates.remote=0;
+    }
 				
 
 }
@@ -720,6 +720,7 @@ char remote_ctr(void)
 extern unsigned char Read_buf_modbus[20];
 extern unsigned char Send_buf_modbus[40];
 unsigned char Read_0420_BUF[8];
+unsigned char usb_handshake;
 void m0420_Read(void)
 {
 	int i;
@@ -742,20 +743,31 @@ void m0420_Read(void)
 		{
 			switch(Read_0420_BUF[3])
 			{
-				case 1:	 ai_o420.G0420_offset=READ_0420_remote();break;
-				case 2:	 ai_o420.G0420_slope= READ_0420_remote();break;
-				case 3:	 ai_o420.G0420_OUT_offset= READ_0420_remote();break;
-				case 4:	 ai_o420.G0420_OUT_slope= READ_0420_remote();break;
-
-				default:              break;
-				break;
+				case 1:
+                    ai_o420.G0420_offset=READ_0420_remote();
+                    ai_o420.flag_save0420_o = 1;
+                    break;
+				case 2:
+                    ai_o420.G0420_slope= READ_0420_remote();
+                    ai_o420.flag_save0420_s = 1;
+                    break;
+				case 3:
+                    ai_o420.G0420_OUT_offset= READ_0420_remote();
+                    ai_o420.flag_save0420_o_o = 1;
+                    break;
+				case 4:
+                    ai_o420.G0420_OUT_slope= READ_0420_remote();
+                    ai_o420.flag_save0420_o_s = 1;
+                    break;
+				default:
+                    break;
 			}
 		}
 		if(Read_0420_BUF[2]==0x30)
 		{
 			if(Read_0420_BUF[3]==0x60)
 			{
-				ai_o420.flag_save0420_o=1;
+				usb_handshake = 1;
 			}
 		}
 	}	

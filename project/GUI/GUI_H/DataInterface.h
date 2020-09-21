@@ -241,7 +241,7 @@ extern char userNameCn[][MAX_INFO_CHAR];
 extern char userNameEn[][MAX_INFO_CHAR];
 
 extern DATASTRUCTINTERFACE dataStructInterface;
-extern volatile char   g_deviceState;
+extern volatile unsigned char   g_deviceState;
 extern volatile char   g_mainMenuFocus;
 extern volatile char   g_hdlMenuFocus;
 extern volatile char   g_authority ;
@@ -428,8 +428,8 @@ typedef struct
 	enum speed_close_open speed_open;               //????
 	unsigned char endPosClose;                  //????????
 	unsigned char endPosOpen;                   //????????
-	float moment_close;
-	float moment_open;
+	unsigned char moment_close;
+	unsigned char moment_open;
 	char moment_overtimes;              //???????
     int/*unsigned char*/ emergency_pos;
     char ObNamePlateLable[MAX_INFO_CHAR];
@@ -587,7 +587,7 @@ extern char menu_test_sel_en2[][MAX_INFO_CHAR];
 extern unsigned short menu_test_sel_settings2[];
 
 extern DATASTRUCTINTERFACE dataStructInterface;
-extern  char   g_deviceState;
+extern unsigned char   g_deviceState;
 extern volatile char   g_mainMenuFocus;
 extern volatile char   g_hdlMenuFocus;
 extern volatile short   g_authority ;

@@ -807,7 +807,7 @@ void c_entry_flash_READ_TEST(uint32_t WAddr,uint32_t DEF_INE)
 			{
 				*ramdata=0;
                 *ramdata = (Rx_Buf[i])&0xFFFFFFFF;//(Rx_Buf[i]<<8)&&(Rx_Buf[i]<<4)&&(Rx_Buf[i]<<2)&&(Rx_Buf[i]);
-				ramdata=ramdata+1;
+                ramdata=ramdata+1;
 			}
 			
 			WAddr=WAddr+0x100;

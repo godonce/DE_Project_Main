@@ -217,7 +217,7 @@ typedef struct
 typedef struct
 {
 	int check_run;
-int all_run_h;
+    int all_run_h;
 	int flag_all_run;
 	int all_run_s;
 	int flag_all_run_s;
@@ -489,13 +489,15 @@ typedef struct
     unsigned char moment_close; //关转矩
     char flag_moment_close;
     unsigned char moment_open ; //开转矩
+    char flag_moment_open ;
     unsigned char closeDir;     //关方向参数
 	unsigned char closeDir_save;
-    char flag_moment_open ;
     char flag_90363 ;
     char dir_flag;
     unsigned char ctrlMode;
 	unsigned char ctrlMode_save;
+    unsigned char endPosClose;
+    unsigned char endPosOpen;
 	char flag_endPosClose;
 	char flag_endPosOpen;
 	char flag_ctrlMode;
@@ -562,10 +564,7 @@ typedef struct
     char g_password_factroy;
 	 
     char g_deviceState_flag;
-	 
-    unsigned char endPosClose;
-    unsigned char endPosOpen;
-	 
+
     char krInput_save;
     char flag_krInput;
 	 

@@ -52,7 +52,7 @@ void WIN_KeyBoard(int key)
 }
 
 
-void _DataRefresh(void)
+void _DataRefresh(void)  //定义未使用
 {
     if (m_KeyValue.active)
     {
@@ -887,7 +887,7 @@ static MENU_INFO_TYPE m_MenuEmgCtrlSrcFault = {
     menuSaftyCtlSrcFaultEn[0],
     menuSaftyCtlSrcFaultSet,
     &dataStructInterface.emgCtlSrcFault,
-		31
+    31
 };
 
 
@@ -1424,7 +1424,9 @@ static MENU_INFO_TYPE m_EndPosMenu = {
     SET_END_POSITION_MENU_NUM,
     EndPosMenuCn[0],
     EndPosMenuEn[0],
-    EndPosMenuSet
+    EndPosMenuSet,
+    0,
+    88
 };
 
 
@@ -1743,658 +1745,486 @@ static MENU_INFO_TYPE m_SetEndPosParaMenu2 = {
 
 void WIN_WindowsTreeInit(void)
 {
-    void *p = NULL;
-    void *pTemp = NULL;
-    void *pTemp2 = NULL;
-    void *pTemp3 = NULL;
+    void *p              = NULL;
+    void *p_start_tmp    = NULL;  //开始菜单
+    void *p_main_tmp     = NULL;  //主菜单
+    void *p_ob_tmp       = NULL;  //观察菜单
+    void *p_setend_tmp   = NULL;  //设置末端位置菜单
+    void *p_para_tmp     = NULL;  //与阀门有关参数菜单
+    void *p_kroutput_tmp = NULL;  //开关量输出菜单
+    void *p_activefun_tmp= NULL;  //激活软件功能菜单
+    void *p_sys_para     = NULL;  //与系统有关设定菜单
 
     p = BT_GetDataItem(&m_MainWinInfo);
     BT_InitBiTree(p);   
     BT_AddChild(p, BT_GetDataItem(&m_MenuStateShowInfo), BT_RIGHT);    
-    pTemp = p;
+    p_start_tmp = p;  //主菜单句柄
     p = BT_GetRightChild(p);  
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo1), BT_RIGHT);
-
     p = BT_GetRightChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo2), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo3), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo4), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo5), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo6), BT_LEFT);
 
-    p = pTemp;
+    /*----------------【1】就地操作----------------*/
+    p = p_start_tmp;
     p = BT_GetRightChild(p);
-    BT_AddChild(p, BT_GetDataItem(&m_MenuLocalOp), BT_LEFT);     
+    BT_AddChild(p, BT_GetDataItem(&m_MenuLocalOp), BT_LEFT);
     p = BT_GetLeftChild(p);  
     BT_AddChild(p, BT_GetDataItem(&m_MenuStateShowInfo), BT_RIGHT);
-
     p = BT_GetRightChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo1), BT_RIGHT);
-
     p = BT_GetRightChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo2), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo3), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo4), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo5), BT_LEFT);
-
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuHelpShowInfo6), BT_LEFT);
 
-    p = pTemp;
+    /*----------------【2】语言----------------*/
+    p = p_start_tmp;
     p = BT_GetRightChild(p);
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuLanguage), BT_LEFT);     
 
-
-    p = pTemp;
+    /*----------------【3】主菜单----------------*/
+    p = p_start_tmp;
     p = BT_GetRightChild(p);
     p = BT_GetLeftChild(p);
     p = BT_GetLeftChild(p);
-    BT_AddChild(p, BT_GetDataItem(&m_MainMenuInfo), BT_LEFT);      
+    BT_AddChild(p, BT_GetDataItem(&m_MainMenuInfo), BT_LEFT);
+    
+    /*----------------【3.1】主菜单-用户管理----------------*/
     p = BT_GetLeftChild(p);
-    pTemp = p; 
-    BT_AddChild(p, BT_GetDataItem(&m_UserManagInfo), BT_RIGHT);  //用户管理界面
+    p_main_tmp = p; 
+    BT_AddChild(p, BT_GetDataItem(&m_UserManagInfo), BT_RIGHT);
+    
+    /*----------------【3.1.1】主菜单-用户管理-当前用户----------------*/
     p = BT_GetRightChild(p);   
-    BT_AddChild(p, BT_GetDataItem(&m_CurUserInfo2), BT_RIGHT); //用户管理界面的右子节点，设置为当前用户界面
-        p = BT_GetRightChild(p); 
-        BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);   
-        p = BT_GetRightChild(p);
-        BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputHandle), BT_LEFT);   
-        p = BT_GetLeftChild(p); 
-        BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputViewer), BT_LEFT);     
-        p = BT_GetLeftChild(p); 
-        BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputExpert), BT_LEFT);   
-        p = BT_GetLeftChild(p); 
-        BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputService), BT_LEFT);  
-        p = BT_GetLeftChild(p);
-        BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputFactroy), BT_LEFT);  
-#if 1
-    p = pTemp;
+    BT_AddChild(p, BT_GetDataItem(&m_CurUserInfo2), BT_RIGHT);
+    p = BT_GetRightChild(p); 
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);   
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputHandle), BT_LEFT);   
+    p = BT_GetLeftChild(p); 
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputViewer), BT_LEFT);     
+    p = BT_GetLeftChild(p); 
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputExpert), BT_LEFT);   
+    p = BT_GetLeftChild(p); 
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputService), BT_LEFT);  
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordInputFactroy), BT_LEFT);  
+
+    /*----------------【3.1.2】主菜单-用户管理-管理----------------*/
+    p = p_main_tmp;
     p = BT_GetRightChild(p);   
     p = BT_GetRightChild(p);
-	pChgUserPasswordMenu = p;
-    BT_AddChild(p, BT_GetDataItem(p_ChgPasswordMenu), BT_LEFT);  //用户管理界面的左子节点，设置为改变密码界面
-	    p = BT_GetLeftChild(p);
-		BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeHandle), BT_RIGHT);
-		p = BT_GetRightChild(p);
-	    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeViewer), BT_LEFT);
-		p = BT_GetLeftChild(p);
-	    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeExpert), BT_LEFT);
-		p = BT_GetLeftChild(p);
-	    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeService), BT_LEFT);
-		p = BT_GetLeftChild(p);
-	    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeFactroy), BT_LEFT);
-#endif
-
-    p = pTemp;
+    BT_AddChild(p, BT_GetDataItem(p_ChgPasswordMenu), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeHandle), BT_RIGHT);
     p = BT_GetRightChild(p);
-    BT_AddChild(p, BT_GetDataItem(&m_MenuObserve), BT_LEFT);   
-        p = BT_GetLeftChild(p);
-        pTemp2 = p; 
-        BT_AddChild(p, BT_GetDataItem(&m_MenuObNamePlate), BT_RIGHT);  
-            p = BT_GetRightChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeViewer), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeExpert), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeService), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinPasswordChangeFactroy), BT_LEFT);
 
-            p = BT_GetRightChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);
+    /*----------------【3.2】主菜单-观察----------------*/
+    p = p_main_tmp;
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObserve), BT_LEFT); 
 
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_MenuObNamePlateDevice), BT_LEFT); 
-        p = pTemp2 ;  
-        p = BT_GetRightChild(p);  
-        BT_AddChild(p, BT_GetDataItem(&m_MenuObInOutPut), BT_LEFT);
+    /*----------------【3.2.1】主菜单-观察-电子单元铭牌----------------*/
+    p = BT_GetLeftChild(p);
+    p_ob_tmp = p; 
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObNamePlate), BT_RIGHT);  
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObNamePlateDevice), BT_LEFT);
+    
+    /*----------------【3.2.2】主菜单-观察-输入输出----------------*/
+    p = p_ob_tmp;
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObInOutPut), BT_LEFT);
+    p = BT_GetLeftChild(p); 
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObKrInPut), BT_RIGHT);  //开关量输入
+    p = BT_GetRightChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObKrOutPut), BT_LEFT);  //开关量输出
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObAnalog), BT_LEFT);    //模拟量输入/输出
 
-            p = BT_GetLeftChild(p); 
-            BT_AddChild(p, BT_GetDataItem(&m_MenuObKrInPut), BT_RIGHT);
+    /*----------------【3.2.3】主菜单-观察-状态----------------*/
+    p = p_ob_tmp ;  
+    p = BT_GetRightChild(p); 
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuObStatus), BT_LEFT);
 
-            p = BT_GetRightChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuObKrOutPut), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuObAnalog), BT_LEFT);
-
-        p = pTemp2 ;  
-        p = BT_GetRightChild(p); 
-        p = BT_GetLeftChild(p);   
-        BT_AddChild(p, BT_GetDataItem(&m_MenuObStatus), BT_LEFT);
-
-
-    p = pTemp;
+    /*----------------【3.3】主菜单-诊断----------------*/
+    p = p_main_tmp;
     p = BT_GetRightChild(p);
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuDiagnose), BT_LEFT);
 
-
-#if 1	
+    /*----------------【3.4】主菜单-末端位置----------------*/
+    p = p_main_tmp;
+    p = BT_GetRightChild(p);
+    p = BT_GetLeftChild(p);
 	p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_EndPosMenu), BT_LEFT);
+    
+    /*----------------【3.4.1】主菜单-末端位置-首次设定末端位置----------------*/
+    p_setend_tmp = BT_GetLeftChild(p);           
+    BT_AddChild(p_setend_tmp, BT_GetDataItem(&m_FirstSetEndPosMenu), BT_RIGHT);
+    
+    /*----------------【3.4.1】主菜单-末端位置-首次设定末端位置(选择首次设定的方式)----------------*/
+    p = BT_GetRightChild(p_setend_tmp);
+    BT_AddChild(p, BT_GetDataItem(&m_SelEndPosMenu), BT_RIGHT);
+    p = BT_GetRightChild(p_setend_tmp);
+    BT_AddChild(p, BT_GetDataItem(&m_FrstSelEndPosMenu), BT_RIGHT);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_SetEndPosParaMenu1), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_SetEndPosParaMenu2), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOffModeClose), BT_RIGHT);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);
+    
+    /*----------------【3.4.1】主菜单-末端位置-首次设定末端位置(开方向第一次设置)----------------*/
+    p = BT_GetRightChild(p_setend_tmp);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosOpMenu), BT_RIGHT);   
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
+    /*----------------【3.4.1】主菜单-末端位置-首次设定末端位置(开方向第二次设置)----------------*/
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosOpMenuT2), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
+                        
+    /*----------------【3.4.1】主菜单-末端位置-首次设定末端位置(关方向第一次设置)----------------*/
+    p = BT_GetRightChild(p_setend_tmp);
+    p = BT_GetRightChild(p);
+    p = BT_GetRightChild(p);								
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosCloseMenu), BT_LEFT);   
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
+    /*----------------【3.4.1】主菜单-末端位置-首次设定末端位置(关方向第二次设置)----------------*/
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosCloseMenuT2), BT_LEFT); 
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
 
-        pTemp2 = BT_GetLeftChild(p);           
-        BT_AddChild(pTemp2, BT_GetDataItem(&m_FirstSetEndPosMenu), BT_RIGHT);
-
-            pTemp3 = BT_GetRightChild(pTemp2);
-            BT_AddChild(pTemp3, BT_GetDataItem(&m_SelEndPosMenu), BT_RIGHT);
-
-                pTemp3 = BT_GetRightChild(pTemp2);
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_FrstSelEndPosMenu), BT_RIGHT);
-
- pTemp3 = BT_GetRightChild(pTemp3);
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu1), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);
-                    pTemp3 = BT_GetRightChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu2), BT_LEFT);
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeClose), BT_RIGHT);
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT);
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);
-                    pTemp3 = BT_GetRightChild(pTemp2);
-                    pTemp3 = BT_GetRightChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosOpMenu), BT_RIGHT);   
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosOpMenuT2), BT_LEFT);   //首次设置开末端
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-                pTemp3 = BT_GetRightChild(pTemp2);
-                pTemp3 = BT_GetRightChild(pTemp3);
-                pTemp3 = BT_GetRightChild(pTemp3);								
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosCloseMenu), BT_LEFT);   
-												pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosCloseMenuT2), BT_LEFT);  //首次设置开末端
-												pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-							
-				#if 0
-				pTemp3 = BT_GetRightChild(pTemp3);
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosMenu), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);
-                    pTemp3 = BT_GetRightChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_LEFT);
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu2), BT_LEFT);
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeClose), BT_RIGHT);
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT);
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);
-                    pTemp3 = BT_GetRightChild(pTemp2);
-                    pTemp3 = BT_GetRightChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosOpMenu), BT_RIGHT);   //开方向第一次设置
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosOpMenuT2), BT_LEFT);  //开方向第二次设置
-												pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-                pTemp3 = BT_GetRightChild(pTemp2);
-                pTemp3 = BT_GetRightChild(pTemp3);
-                pTemp3 = BT_GetRightChild(pTemp3);								
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosCloseMenu), BT_LEFT);              //关方向第一次设置
-                        //pTemp3 = BT_GetRightChild(pTemp3);
-												pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosCloseMenuT2), BT_LEFT);     //关方向第二次设置
-												pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-				#endif
-				#if 1
-				 pTemp3 = BT_GetRightChild(pTemp2);
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_FirstSetEndPosMenu), BT_LEFT);
-                
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosMenu), BT_RIGHT); 
-                    
-                    pTemp3 = BT_GetRightChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu1), BT_LEFT);  
-         
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);  
-           
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);   
-           
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);    
-           
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_LEFT);        
-           
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu2), BT_LEFT);  
-           
-                            pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeClose), BT_RIGHT);  
-           
-                            pTemp3 = BT_GetRightChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);    
-           
-                            pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT); 
-           
-                            pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);  
+    /*----------------【3.4.2】主菜单-末端位置-重新设定末端位置----------------*/
+    p = BT_GetRightChild(p_setend_tmp);
+    BT_AddChild(p, BT_GetDataItem(&m_FirstSetEndPosMenu), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_ResetEndPosMenu), BT_RIGHT); 
+    
+    /*----------------【3.4.2】主菜单-末端位置-重新设定末端位置(选择首次设定的方式)----------------*/
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_SetEndPosParaMenu1), BT_LEFT);  
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);      
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);   
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);    
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);        
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_SetEndPosParaMenu2), BT_LEFT);  
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOffModeClose), BT_RIGHT);  
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);    
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT); 
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);  
                             
-                            
-                 pTemp3 = BT_GetRightChild(pTemp2);
-                 pTemp3 = BT_GetLeftChild(pTemp3);
-                 pTemp3 = BT_GetRightChild(pTemp3);
-                 BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosOpMenuT2), BT_RIGHT);  //重新设置开末端
-                 
-                     pTemp3 = BT_GetRightChild(pTemp3);
-				             BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-				             
-				         pTemp3 = BT_GetRightChild(pTemp2);
-                 pTemp3 = BT_GetLeftChild(pTemp3);
-                 pTemp3 = BT_GetRightChild(pTemp3);
-                 pTemp3 = BT_GetRightChild(pTemp3);
-                 BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosCloseMenuT2), BT_LEFT);  //重新设置关末端
-                 
-                     pTemp3 = BT_GetLeftChild(pTemp3);
-				             BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-				#endif
-						#if 0
-				 pTemp3 = BT_GetRightChild(pTemp2);
-                BT_AddChild(pTemp3, BT_GetDataItem(&m_FirstSetEndPosMenu), BT_LEFT);
-                
-                    pTemp3 = BT_GetLeftChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosMenu), BT_RIGHT); 
-                    
-                    pTemp3 = BT_GetRightChild(pTemp3);
-                    BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu1), BT_LEFT);  
-         
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);  
-           
-                        pTemp3 = BT_GetRightChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);   
-           
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);    
-           
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_MenuNull), BT_LEFT);        
-           
-                        pTemp3 = BT_GetLeftChild(pTemp3);
-                        BT_AddChild(pTemp3, BT_GetDataItem(&m_SetEndPosParaMenu2), BT_LEFT);  
-           
-                            pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeClose), BT_RIGHT);  
-           
-                            pTemp3 = BT_GetRightChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);    
-           
-                            pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT); 
-           
-                            pTemp3 = BT_GetLeftChild(pTemp3);
-                            BT_AddChild(pTemp3, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);  
-                            
-                            
-                 pTemp3 = BT_GetRightChild(pTemp2);
-                 pTemp3 = BT_GetLeftChild(pTemp3);
-                 pTemp3 = BT_GetRightChild(pTemp3);
-                 BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosOpMenuT2), BT_RIGHT);
-                 
-                     pTemp3 = BT_GetRightChild(pTemp3);
-				             BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-				             
-				         pTemp3 = BT_GetRightChild(pTemp2);
-                 pTemp3 = BT_GetLeftChild(pTemp3);
-                 pTemp3 = BT_GetRightChild(pTemp3);
-                 pTemp3 = BT_GetRightChild(pTemp3);
-                 BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosCloseMenuT2), BT_LEFT);
-                 
-                     pTemp3 = BT_GetLeftChild(pTemp3);
-				             BT_AddChild(pTemp3, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
-				#endif
-										#if 0
-            pTemp3 = BT_GetRightChild(pTemp2);
-			BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosMenu), BT_LEFT);
-
-			    pTemp3 = BT_GetLeftChild(pTemp3);
-				BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosOpMenuT2), BT_RIGHT);
-
-				pTemp3 = BT_GetRightChild(pTemp3);
-				BT_AddChild(pTemp3, BT_GetDataItem(&m_ResetEndPosCloseMenuT2), BT_LEFT);
-				#endif
-	
-				
-    #endif
+    /*----------------【3.4.2】主菜单-末端位置-重新设定末端位置(开末端重新设置)----------------*/
+    p = BT_GetRightChild(p_setend_tmp);
+    p = BT_GetLeftChild(p);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_ResetEndPosOpMenuT2), BT_RIGHT);  
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
+    
+    /*----------------【3.4.2】主菜单-末端位置-重新设定末端位置(关末端重新设置)----------------*/
+    p = BT_GetRightChild(p_setend_tmp);
+    p = BT_GetLeftChild(p);
+    p = BT_GetRightChild(p);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_ResetEndPosCloseMenuT2), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_EndPosSetOk), BT_RIGHT);
+    
+    /*----------------【3.5】主菜单-参数----------------*/
+    p = p_main_tmp;
+    p = BT_GetRightChild(p);
+    p = BT_GetLeftChild(p);
+	p = BT_GetLeftChild(p);
     p = BT_GetLeftChild(p);
     BT_AddChild(p, BT_GetDataItem(&m_MenuPara), BT_LEFT);
 
-        p = BT_GetLeftChild(p);
-        pTemp2 = p;           
-        BT_AddChild(p, BT_GetDataItem(&m_MenuGear), BT_RIGHT);
-
-            p = BT_GetRightChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_MenuGearType), BT_RIGHT);
-
-        p = pTemp2;              
-        p = BT_GetRightChild(p);  
-        BT_AddChild(p, BT_GetDataItem(&m_MenuVavlePara), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);
-
-            p = BT_GetRightChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinOffModeClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinEndPosClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinEndPosOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);
-            BT_AddChild(p, BT_GetDataItem(&m_WinOverMomentTimes), BT_LEFT);
-        p = pTemp2;               
-        p = BT_GetRightChild(p);  
-        p = BT_GetLeftChild(p);   
-        pTemp2 = p;
-        BT_AddChild(p, BT_GetDataItem(&m_MenuCtrlSysPara), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuCtrlMode), BT_RIGHT);
-
-            p = BT_GetRightChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuRmtChose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuKrInput), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuModeInput), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuAnologInput), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuAnologInputRange), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput), BT_LEFT);
-
-                p = BT_GetLeftChild(p);   
-                pTemp3 = p ;
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput1_1), BT_RIGHT);
-
-                p = BT_GetRightChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput1_2), BT_LEFT);
-
-                p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput2_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput2_2), BT_LEFT);
-
-                 p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput3_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput3_2), BT_LEFT);
-
-                 p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput4_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput4_2), BT_LEFT);
-
-                 p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput5_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput5_2), BT_LEFT);
-
-                 p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput6_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput6_2), BT_LEFT);
-
-                 p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput7_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput7_2), BT_LEFT);
-
-                 p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput8_1), BT_LEFT);
-
-                p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput8_2), BT_LEFT);
-
-            p = pTemp3;
-            BT_AddChild(p, BT_GetDataItem(&m_MenuAOutput1), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuAOutput2), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuAOutput3), BT_LEFT);
-
-        p = pTemp2;
-        p = BT_GetLeftChild(p);   
-        BT_AddChild(p, BT_GetDataItem(&m_MenuSafty), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuEmgInput), BT_RIGHT);
-
-            p = BT_GetRightChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_WinEmgSpeedClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_WinEmgSpeedOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_WinEmergencyPos), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuEmgCtrlSrcFault), BT_LEFT);
-
-
-        p = pTemp2;
-        p = BT_GetLeftChild(p);   
-        p = BT_GetLeftChild(p);   
-        BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFun), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunActive), BT_RIGHT);
-
-            p = BT_GetRightChild(p);   
-            pTemp3 = p;
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunPosCtl), BT_LEFT);
-
-                p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunPosCtlSetPoint), BT_RIGHT);
-
-                p = BT_GetRightChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&g_WinSoftFunDeadMinMenu), BT_LEFT);
-
-                p = BT_GetLeftChild(p);  
-                BT_AddChild(p, BT_GetDataItem(&g_WinSoftFunDeadMaxMenu), BT_LEFT);
-
-            p = pTemp3;
-            p = BT_GetLeftChild(p); 
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSoftRatioCtl), BT_LEFT);
-
-                p = BT_GetLeftChild(p);   
-                BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunRatioSel), BT_RIGHT);
-
-        p = pTemp2;
-        p = BT_GetLeftChild(p);  
-        p = BT_GetLeftChild(p);  
-        p = BT_GetLeftChild(p);  
-        BT_AddChild(p, BT_GetDataItem(&m_MenuSpePara), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
-
-            p = BT_GetRightChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSpeInstallSel), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSpeMidPtOff), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSpeMidPtOn), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSpeMotorHeat), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSpeOverheatedAlarm), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuSpeOverheatedPro), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_MenuOnOffTimes), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MenuMomentOnOffTimes), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_MotorRunHours), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&m_SpeExaDataSel), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&m_SpeFunFasten), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeUpperTimer), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeDCBraking), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpePowerOffDelay), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpeFlangeSel), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeLowerThreshold), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeUpperThreshold), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeTestOperation), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeRuntimeClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpePauseClose), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpeRuntimeOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpePauseOpen), BT_LEFT);
-
-            p = BT_GetLeftChild(p);  
-            BT_AddChild(p, BT_GetDataItem(&g_SpeLimitionVoltage), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpeRuntimeMonitoring), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpeEndPositionSpeed), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpeAutom), BT_LEFT);
-
-            p = BT_GetLeftChild(p);   
-            BT_AddChild(p, BT_GetDataItem(&g_SpeDCSAcceptance), BT_LEFT);
-
-    p = pTemp;
+    /*----------------【3.5.1】主菜单-参数-外配齿轮箱----------------*/
+    p = BT_GetLeftChild(p);
+    p_para_tmp = p;           
+    BT_AddChild(p, BT_GetDataItem(&m_MenuGear), BT_RIGHT);
+    /*----------------【3.5.1】主菜单-参数-外配齿轮箱-外配齿轮箱类型----------------*/
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuGearType), BT_RIGHT);
+
+    /*----------------【3.5.2】主菜单-参数-与阀门有关参数----------------*/
+    p = p_para_tmp;              
+    p = BT_GetRightChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuVavlePara), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuCloseDir), BT_RIGHT);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinSpeedClose), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinSpeedOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOffModeClose), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOffModeOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosClose), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinMomentPosOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinEndPosClose), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinEndPosOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinOverMomentTimes), BT_LEFT);
+    
+    /*----------------【3.5.3】主菜单-参数-与控制系统有关参数----------------*/
+    p = p_para_tmp;
+    p = BT_GetRightChild(p);  
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuCtrlSysPara), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuCtrlMode), BT_RIGHT);
+    p = BT_GetRightChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuRmtChose), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrInput), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuModeInput), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuAnologInput), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuAnologInputRange), BT_LEFT);
+    /*----------------【3.5.3】主菜单-参数-与控制系统有关参数-开关量输出----------------*/
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    p_kroutput_tmp = p ;
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput1_1), BT_RIGHT);
+    p = BT_GetRightChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput1_2), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput2_1), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput2_2), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput3_1), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput3_2), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput4_1), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput4_2), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput5_1), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput5_2), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput6_1), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput6_2), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput7_1), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput7_2), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput8_1), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuKrOutput8_2), BT_LEFT);
+    /*----------------【3.5.3】主菜单-参数-与控制系统有关参数-模拟量输出----------------*/
+    p = p_kroutput_tmp;
+    BT_AddChild(p, BT_GetDataItem(&m_MenuAOutput1), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuAOutput2), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuAOutput3), BT_LEFT);
+    
+    /*----------------【3.5.4】主菜单-参数-安全----------------*/
+    p = p_para_tmp;
+    p = BT_GetRightChild(p);  
+    p = BT_GetLeftChild(p);  
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSafty), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuEmgInput), BT_RIGHT);
+    p = BT_GetRightChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_WinEmgSpeedClose), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_WinEmgSpeedOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_WinEmergencyPos), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuEmgCtrlSrcFault), BT_LEFT);
+
+    /*----------------【3.5.5】主菜单-参数-软件功能----------------*/
+    p = p_para_tmp;
+    p = BT_GetRightChild(p);  
+    p = BT_GetLeftChild(p);  
+    p = BT_GetLeftChild(p);   
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFun), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunActive), BT_RIGHT);
+    
+    /*----------------【3.5.5】主菜单-参数-软件功能-位置控制器----------------*/
+    p = BT_GetRightChild(p);   
+    p_activefun_tmp = p;
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunPosCtl), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunPosCtlSetPoint), BT_RIGHT);
+    p = BT_GetRightChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_WinSoftFunDeadMinMenu), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_WinSoftFunDeadMaxMenu), BT_LEFT);
+    /*----------------【3.5.5】主菜单-参数-软件功能-比例控制----------------*/
+    p = p_activefun_tmp;
+    p = BT_GetLeftChild(p); 
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSoftRatioCtl), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSoftFunRatioSel), BT_RIGHT);
+
+    /*----------------【3.5.6】主菜单-参数-特殊参数----------------*/
+    p = p_para_tmp;
+    p = BT_GetRightChild(p);  
+    p = BT_GetLeftChild(p);  
+    p = BT_GetLeftChild(p);  
+    p = BT_GetLeftChild(p);  
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpePara), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_RIGHT);
+    p = BT_GetRightChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpeInstallSel), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpeMidPtOff), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpeMidPtOn), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpeMotorHeat), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpeOverheatedAlarm), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuSpeOverheatedPro), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_MenuOnOffTimes), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MenuMomentOnOffTimes), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_MotorRunHours), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&m_SpeExaDataSel), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&m_SpeFunFasten), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeUpperTimer), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeDCBraking), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpePowerOffDelay), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpeFlangeSel), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeLowerThreshold), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeUpperThreshold), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeTestOperation), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeRuntimeClose), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpePauseClose), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpeRuntimeOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpePauseOpen), BT_LEFT);
+    p = BT_GetLeftChild(p);  
+    BT_AddChild(p, BT_GetDataItem(&g_SpeLimitionVoltage), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpeRuntimeMonitoring), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpeEndPositionSpeed), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpeAutom), BT_LEFT);
+    p = BT_GetLeftChild(p);   
+    BT_AddChild(p, BT_GetDataItem(&g_SpeDCSAcceptance), BT_LEFT);
+
+    /*----------------【3.5.6】主菜单-空----------------*/
+    p = p_main_tmp;
     p = BT_GetRightChild(p);
     p = BT_GetLeftChild(p);
     p = BT_GetLeftChild(p);
     p = BT_GetLeftChild(p);
     p = BT_GetLeftChild(p); 
-    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);  //不知为何要来个空界面，后续测试不影响功能的情况下去掉
 
+    /*----------------【3.5.7】主菜单-与系统有关设定----------------*/
     p = BT_GetLeftChild(p); 
     BT_AddChild(p, BT_GetDataItem(&g_MenuParaWithSys), BT_LEFT);
-#if 1
- pTemp3 =p;
-        p = BT_GetLeftChild(p);
-        BT_AddChild(p, BT_GetDataItem(&g_MenuParaWithSysShow), BT_RIGHT);
-
-            p = BT_GetRightChild(p);
-            BT_AddChild(p, BT_GetDataItem(&g_SelParaWithSysShowDir), BT_RIGHT);   
-
-		p = pTemp3;
-		p = BT_GetLeftChild(p);
-		p = BT_GetRightChild(p);
-		BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);
-
-		p = BT_GetLeftChild(p);
-		BT_AddChild(p, BT_GetDataItem(&m_WinBluetoothStatusMenu), BT_LEFT);
-
-		    p = BT_GetLeftChild(p);
-			BT_AddChild(p, BT_GetDataItem(&m_WinBluetoothSelMenu), BT_RIGHT);
-      
-
-#endif
-
+    /*----------------【3.5.7】主菜单-与系统有关设定-显示----------------*/
+    p_sys_para = p;
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&g_MenuParaWithSysShow), BT_RIGHT);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&g_SelParaWithSysShowDir), BT_RIGHT);   
+    p = p_sys_para;
+    p = BT_GetLeftChild(p);
+    p = BT_GetRightChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_MenuNull), BT_LEFT);
+    /*----------------【3.5.7】主菜单-与系统有关设定-蓝牙----------------*/
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinBluetoothStatusMenu), BT_LEFT);
+    p = BT_GetLeftChild(p);
+    BT_AddChild(p, BT_GetDataItem(&m_WinBluetoothSelMenu), BT_RIGHT);
 }
 
 #endif

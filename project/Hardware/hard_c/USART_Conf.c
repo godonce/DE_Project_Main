@@ -182,7 +182,8 @@ uint8_t  is_endpos = 0;  //判断是否处于末端位置
 
 void c_entry_uart3(void)
 {
-    static int abc=1;	
+    static int abc=1;
+    
 	abc=changeDIR();
     changetorque(abc);	
 	if((flag_allstart1==1)&&(flag_allstart2==1)&&(flag_allstart3==1))
@@ -196,7 +197,7 @@ void c_entry_uart3(void)
                 is_endpos = 1;
                 
 				#ifdef  EE13
-                SPEED_Stand=SPEED_Stand_C[0];
+                SPEED_Stand=SPEED_Stand_C[0];  //末端位置最小转速档运行
                 if(motorset.DIR_MOTOR == motorset.DIR_MOTOR_n)  //20200704上电如果处在末端位置，初始给定转矩档位
                 {
                     TORQUE_Stand = dataStructInterface.moment_open; 
@@ -445,11 +446,7 @@ void c_entry_uart3(void)
             /*需要回溯对堵转功能的影响
             if(Buffer_Down[0] != USART3_Send.TURN)
             {
-                if(USART3_Send.TURN == 0x48)
-                {
-                    motorset.flag_run = 2;
-                }
-                else
+                if(USART3_Send.TURN != 0x48)
                 {
                     motorset.flag_run = 1;
                 }
@@ -685,11 +682,11 @@ void UART0_IRQHandler(void)
 			#endif
 		} else
 		{
-					res=UART_ReceiveByte(LPC_USART0);
+            res=UART_ReceiveByte(LPC_USART0);
 			encoder.RX_Timeout=0;
 			if(encoder.RX_timeout_buf==0)
 			{
-					buffer0_ALL[cnt0++]=res;
+                buffer0_ALL[cnt0++]=res;
 				encoder.RX_Timeout_flag=1;
 			}else
 			{
@@ -714,11 +711,11 @@ void UART0_Init(void)
 	UART_Init((LPC_USARTn_Type *)LPC_USART0, &UARTConfigStruct);
 	UART_FIFOConfig((LPC_USARTn_Type *)LPC_USART0, &UARTFIFOConfigStruct);
 	UART_TxCmd((LPC_USARTn_Type *)LPC_USART0, ENABLE);
-  UART_IntConfig((LPC_USARTn_Type *)LPC_USART0, UART_INTCFG_RBR, ENABLE);
-  UART_IntConfig((LPC_USARTn_Type *)LPC_USART0, UART_INTCFG_RLS, ENABLE);
+    UART_IntConfig((LPC_USARTn_Type *)LPC_USART0, UART_INTCFG_RBR, ENABLE);
+    UART_IntConfig((LPC_USARTn_Type *)LPC_USART0, UART_INTCFG_RLS, ENABLE);
 
 	NVIC_SetPriority(USART0_IRQn, ((0x03<<3)|0x01)); //
-  NVIC_EnableIRQ( USART0_IRQn); 
+    NVIC_EnableIRQ( USART0_IRQn); 
 
 }
 

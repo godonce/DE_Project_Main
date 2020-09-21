@@ -14,13 +14,13 @@
 #include "bit_flash.c"
 #include "bit_second.c"
 #include "bit_zhunbei.c"
-#include "song16all.c"
-#include "song64.c"
-#include "song33.c"
+#include "black16all.c"
+#include "black64.c"
+#include "black33.c"
 #include "CodeConvert.h"
 #include "DataInterface.h"
 #include "os_cpu.h"
-#include  "datafigures.h"
+#include "datafigures.h"
 
 #include "winSKIN.h"
 
@@ -927,6 +927,7 @@ void _MainWinKeyUp(void)
             {
                 g_mainMenuFocus = MAIN_MENU_FOCUS_TEXT;
                 TEXT_SetBkColor(m_MainWin.hText,GUI_ORANGE);
+                LISTBOX_SetSel(m_MainWin.hList,-1); 
                 LISTBOX_SetBkColor(m_MainWin.hList,LISTBOX_CI_SEL      , GUI_WHITE);
             }
             else
@@ -954,30 +955,30 @@ void _MainWinKeyEnter(void)
         {
             if(DEVICE_STATE_LOCAL == g_deviceState)  //点选主界面控制模式，如果当前为就地，检测到旋钮按下，调整为远控
             {
-                eeprom.g_deviceState_flag=1;
                 motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-                motorset.stop=46;
+                motorset.stop=47;
                 g_deviceState = DEVICE_STATE_REMOTE;
+                eeprom.g_deviceState_flag=1;  //先赋新值，再写内存
                 BUTTON_SetPressed(m_MainWin.hBtnLocal,0);
                 BUTTON_SetPressed(m_MainWin.hBtnRemote,1);
                 _MainWinShowRefresh();
             }
             else if(DEVICE_STATE_REMOTE == g_deviceState)
             {
-                eeprom.g_deviceState_flag=1;
                 motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-                motorset.stop=45;
+                motorset.stop=46;
                 g_deviceState = DEVICE_STATE_OFF;
+                eeprom.g_deviceState_flag=1;  //先赋新值，再写内存
                 BUTTON_SetPressed(m_MainWin.hBtnRemote,0);
                 BUTTON_SetPressed(m_MainWin.hBtnTurnOff,1);
                 _MainWinShowRefresh();
             }
             else if(DEVICE_STATE_OFF == g_deviceState)
             {       
-                eeprom.g_deviceState_flag=1;
                 motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-                motorset.stop=44;
+                motorset.stop=45;
                 g_deviceState = DEVICE_STATE_LOCAL;
+                eeprom.g_deviceState_flag=1;  //先赋新值，再写内存
                 BUTTON_SetPressed(m_MainWin.hBtnTurnOff,0);
                 BUTTON_SetPressed(m_MainWin.hBtnLocal,1);
                 _MainWinShowRefresh();
@@ -1093,11 +1094,11 @@ void _MainWinShowDataRefresh()
         if(DEVICE_STATE_OFF == g_deviceState)
         {
             motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-            motorset.stop=43;
+            motorset.stop=44;
         }
 
     GUI_SetColor(GUI_BLACK);
-    GUI_SetFont(&GUI_Fontsong64);
+    GUI_SetFont(&GUI_Fontblack64);
     GUI_UC_SetEncodeUTF8();
 #if 1
 	
@@ -1107,23 +1108,23 @@ void _MainWinShowDataRefresh()
 		{
 			if(flag_figures.run1_100==1)
 			{
-				GUI_DrawGradientV(80,15,240,70,GUI_WHITE,GUI_WHITE);
+				GUI_DrawGradientV(80,9,240,70,GUI_WHITE,GUI_WHITE);
 				flag_figures.run1_100=0;
 			}
 			flag_figures.run100_100=1;
-			GUI_DrawBitmap(&bmopen, 140,20);
+			GUI_DrawBitmapMag(&bmopen, 130, 10, 2, 2);
 			WM_ShowWindow(m_MainWin.hAll_open);
 			PROGBAR_SetValue(m_MainWin.hProgbar,1000);
 		}else
 		{
 			if(flag_figures.run1_100==1)
 			{
-				GUI_DrawGradientV(80,15,240,70,GUI_WHITE,GUI_WHITE);
+				GUI_DrawGradientV(80,9,240,70,GUI_WHITE,GUI_WHITE);
 				flag_figures.run1_100=0;
 			}
 			flag_figures.run0_0=1;
 			flag_figures.run1_100=0;
-			GUI_DrawBitmap(&bmclose, 140,20);
+			GUI_DrawBitmapMag(&bmclose, 130, 10, 2, 2);
 			WM_ShowWindow(m_MainWin.hAll_close);
 			PROGBAR_SetValue(m_MainWin.hProgbar,0);
 		}
@@ -1135,25 +1136,25 @@ void _MainWinShowDataRefresh()
 		{
 			if(flag_figures.run1_100==1)
 			{
-				GUI_DrawGradientV(80,15,240,70,GUI_WHITE,GUI_WHITE);
+				GUI_DrawGradientV(80,9,240,70,GUI_WHITE,GUI_WHITE);
 				flag_figures.run1_100=0;
 			}
 			flag_figures.run0_0=1;
 			flag_figures.run1_100=0;
 			WM_HideWindow(m_MainWin.hText1);
-			GUI_DrawBitmap(&bmclose, 140,20);
+			GUI_DrawBitmapMag(&bmclose, 130, 10, 2, 2);
 			WM_ShowWindow(m_MainWin.hAll_close);
 			PROGBAR_SetValue(m_MainWin.hProgbar,0);
 		}else
 		{
             if(flag_figures.run1_100==1)
             {
-                GUI_DrawGradientV(80,15,240,70,GUI_WHITE,GUI_WHITE);
+                GUI_DrawGradientV(80,9,240,70,GUI_WHITE,GUI_WHITE);
                 flag_figures.run1_100=0;
             }
             flag_figures.run100_100=1;
             WM_HideWindow(m_MainWin.hText1);
-            GUI_DrawBitmap(&bmopen, 140,20);
+            GUI_DrawBitmapMag(&bmopen, 130, 10, 2, 2);
             WM_ShowWindow(m_MainWin.hText_open);
             WM_ShowWindow(m_MainWin.hAll_open);
             PROGBAR_SetValue(m_MainWin.hProgbar,1000);
@@ -1174,11 +1175,11 @@ void _MainWinShowDataRefresh()
         
 		if(datadula==3)
 		{
-			GUI_DrawGradientV(80,15,240,70,GUI_WHITE,GUI_WHITE);
+			GUI_DrawGradientV(80,9,240,70,GUI_WHITE,GUI_WHITE);
 			flag_figures.datadula3=1;
 			GUI_DispDecAt(100,DEBUG_X_OFFSET+150-32-18-32,5+5+5,datadula);
-			GUI_SetFont(&GUI_Fontsong33);
-			GUI_DispDecAt(0,20+150+18+15,5+2+32,1);
+			GUI_SetFont(&GUI_Fontblack33);
+			GUI_DispDecAt(0,20+150+18+15,42,1);
 			if(flag_figures.datadula2==1)
 			{
                 flag_figures.datadula2=0;
@@ -1190,9 +1191,9 @@ void _MainWinShowDataRefresh()
 		{
 			datadula=2;	
 			flag_figures.datadula2=1;
+            GUI_DrawGradientV(80,9,240,70,GUI_WHITE,GUI_WHITE);
 			if(flag_figures.datadula3==1)
 			{
-				GUI_DrawGradientV(80,15,240,70,GUI_WHITE,GUI_WHITE);
 				flag_figures.datadula3=0;
 				WM_HideWindow(m_MainWin.hText2);
 				WM_HideWindow(m_MainWin.hText1);
@@ -1200,23 +1201,23 @@ void _MainWinShowDataRefresh()
             
             //主界面显示行程百分比
             GUI_DispDecAt(key_mlx90363.Integer_3,DEBUG_X_OFFSET+150-32-18,5+2+5+5,datadula);
-			GUI_SetFont(&GUI_Fontsong33);
-            GUI_DispDecAt(key_mlx90363.decimal_3,20+150+18+15,5+2+32,1);				
+			GUI_SetFont(&GUI_Fontblack33);
+            GUI_DispDecAt(key_mlx90363.decimal_3,20+150+18+15,42,1);				
 		}
 		#endif
 		WM_HideWindow(m_MainWin.hText_open);
 		WM_HideWindow(m_MainWin.hText_close);
 		PROGBAR_SetValue(m_MainWin.hProgbar,key_mlx90363.READ_run_1);
-		GUI_SetFont(&GUI_Fontsong64);
+		GUI_SetFont(&GUI_Fontblack64);
 		GUI_DispStringAt(",",20+150-32-18+52,17);
-		GUI_SetFont(&GUI_Fontsong33);
+		GUI_SetFont(&GUI_Fontblack33);
 		
-		GUI_SetFont(&GUI_Fontsong33);
+		//GUI_SetFont(&GUI_Fontblack33);
 		GUI_DispStringAt("%",DEBUG_X_OFFSET+150+18+20+5,15/*+32-4*/);
 		if((flag_figures.run100_100==1)||(flag_figures.run0_0==1))
 		{
-				WM_ShowWindow(m_MainWin.hText2);
-				WM_ShowWindow(m_MainWin.hText1);
+            WM_ShowWindow(m_MainWin.hText2);
+            WM_ShowWindow(m_MainWin.hText1);
 			if(flag_figures.run100_100==1)
 			{
 				flag_figures.run100_100=0;
@@ -1250,16 +1251,16 @@ void _MainWinShowDataRefresh()
 		TEXT_SetText(m_MainWin.hText, (char *)infoWinMainCN[dataStructInterface.indexFaultNum[0]]);
 		if(flag_figures.ready==0)
         {
-				GUI_DrawGradientV(0,0,60,76,GUI_WHITE,GUI_WHITE);
-				GUI_DrawGradientV(0,76,15,160,GUI_WHITE,GUI_WHITE);
-				GUI_DrawGradientV(0,160,60,240,GUI_WHITE,GUI_WHITE);
-				GUI_DrawGradientV(60,0,260,15,GUI_WHITE,GUI_WHITE);
-				
-				GUI_DrawGradientV(260,0,3200,76,GUI_WHITE,GUI_WHITE);
-				GUI_DrawGradientV(300,76,320,160,GUI_WHITE,GUI_WHITE);
-				GUI_DrawGradientV(260,160,320,240,GUI_WHITE,GUI_WHITE);
-				
-				GUI_DrawGradientV(60,228,260,240,GUI_WHITE,GUI_WHITE);
+				GUI_DrawGradientV(0,0,60,76,GUI_WHITE,GUI_WHITE);      //左上
+                GUI_DrawGradientV(0,76,15,160,GUI_WHITE,GUI_WHITE);    //左
+                GUI_DrawGradientV(0,160,60,240,GUI_WHITE,GUI_WHITE);   //左下
+                GUI_DrawGradientV(60,0,260,10,GUI_WHITE,GUI_WHITE);    //上
+                
+                GUI_DrawGradientV(260,0,320,76,GUI_WHITE,GUI_WHITE);   //右上
+                GUI_DrawGradientV(305,76,320,160,GUI_WHITE,GUI_WHITE); //右
+                GUI_DrawGradientV(260,160,320,240,GUI_WHITE,GUI_WHITE);//右下
+                GUI_DrawGradientV(60,230,260,240,GUI_WHITE,GUI_WHITE); //下
+            
 				flag_figures.ready_old=flag_figures.ready;
 				BUTTON_SetPressed(m_MainWin.hStates,0);
 				WM_HideWindow(m_MainWin.hImage);
@@ -1270,7 +1271,7 @@ void _MainWinShowDataRefresh()
             WM_ShowWindow(m_MainWin.hImage);
         }
         TEXT_SetBkColor(m_MainWin.hText,GUI_TRANSPARENT);
-        TEXT_SetFont(m_MainWin.hText,&GUI_Fontsong16all);
+        TEXT_SetFont(m_MainWin.hText,&GUI_Fontblack16all);
         TEXT_SetTextColor(m_MainWin.hText, GUI_BLACK);
 		if(MAIN_MENU_FOCUS_TEXT == g_mainMenuFocus)
         {
@@ -1417,7 +1418,7 @@ static void _MainWinCreate(void *p)
     //主界面错误码显示
     m_MainWin.hText = TEXT_CreateAsChild(120,70,120,20,hWin,NULL,WM_CF_SHOW|WM_CF_HASTRANS,(char *)infoWinMainCN[dataStructInterface.indexFaultNum[0]],TEXT_CF_LEFT|TEXT_CF_VCENTER);
     TEXT_SetBkColor(m_MainWin.hText,GUI_TRANSPARENT);
-    TEXT_SetFont(m_MainWin.hText,&GUI_Fontsong16all);
+    TEXT_SetFont(m_MainWin.hText,&GUI_Fontblack16all);
     TEXT_SetTextColor(m_MainWin.hText, GUI_BLACK);
 		
     DrawGradientH_PointWhite(73-5,68,240+5,68);
@@ -1452,7 +1453,7 @@ static void _MainWinCreate(void *p)
 
     m_MainWin.hList = LISTBOX_CreateEx( 73-10+2+2+1, 137+1+1+2, 180-10+20-4-2, 104-14, hWin, WM_CF_SHOW, NULL, NULL, NULL);//96  |WM_CF_HASTRANS
     WIDGET_SetEffect(m_MainWin.hList,&WIDGET_Effect_None);
-    LISTBOX_SetFont(m_MainWin.hList, &GUI_Fontsong16all);
+    LISTBOX_SetFont(m_MainWin.hList, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(m_MainWin.hList, 7);//wuxiao
     LISTBOX_SetTextAlign(m_MainWin.hList,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetSel(m_MainWin.hList,-1);
@@ -1564,45 +1565,45 @@ static void _MainWinCreate(void *p)
 
 static void _MainWinDestroy(void *p)
 {
-		WM_DeleteWindow(m_MainWin.hImage_CB_1);      
-		WM_DeleteWindow(m_MainWin.hImage_CB_2);      
-		WM_DeleteWindow(m_MainWin.hQuan_left);       
-		WM_DeleteWindow(m_MainWin.hQuan_right);      
-		WM_DeleteWindow(m_MainWin.hList);            
-		WM_DeleteWindow(m_MainWin.hImage_close);     
-		WM_DeleteWindow(m_MainWin.hImage_open);      
-		WM_DeleteWindow(m_MainWin.hAll_close);       
-		WM_DeleteWindow(m_MainWin.hAll_open);        
-		WM_DeleteWindow(m_MainWin.hStates);          
-		WM_DeleteWindow(m_MainWin.hText_close);      
-		WM_DeleteWindow(m_MainWin.hText_open);       
-		WM_DeleteWindow(m_MainWin.hText);            
-		WM_DeleteWindow(m_MainWin.hText1);           
-		WM_DeleteWindow(m_MainWin.hText2);           
-		WM_DeleteWindow(m_MainWin.hText3);           
-		WM_DeleteWindow(m_MainWin.hProgbar);         
-		WM_DeleteWindow(m_MainWin.hBtnNationFlag);   
-		WM_DeleteWindow(m_MainWin.hBtnLocal);         
-		WM_DeleteWindow(m_MainWin.hBtnRemote);        
-		WM_DeleteWindow(m_MainWin.hBtnTurnOff);       
-		WM_DeleteWindow(m_MainWin.hBtnTurnOff_1);     
-		WM_DeleteWindow(m_MainWin.hImage);            
-		WM_DeleteWindow(m_MainWin.hImage_123123);     
-		WM_DeleteWindow(m_MainWin.hImage_1231234);    
-		WM_DeleteWindow(m_MainWin.hImage1);           
-		WM_DeleteWindow(m_MainWin.hImage2);           
-		WM_DeleteWindow(m_MainWin.hImage3);           
-		WM_DeleteWindow(m_MainWin.hImage4);           
-		WM_DeleteWindow(m_MainWin.hImage5);           
-		WM_DeleteWindow(m_MainWin.hImage_left);       
-		WM_DeleteWindow(m_MainWin.hImage_right);      
-		WM_DeleteWindow(m_MainWin.hImage_test);       
-	  WM_DeleteWindow(m_MainWin.hBtnNew);            
-		WM_DeleteWindow(m_MainWin.hImage_left_1);     
-		WM_DeleteWindow(m_MainWin.hImage_right_1);    
+    WM_DeleteWindow(m_MainWin.hImage_CB_1);      
+    WM_DeleteWindow(m_MainWin.hImage_CB_2);      
+    WM_DeleteWindow(m_MainWin.hQuan_left);       
+    WM_DeleteWindow(m_MainWin.hQuan_right);      
+    WM_DeleteWindow(m_MainWin.hList);            
+    WM_DeleteWindow(m_MainWin.hImage_close);     
+    WM_DeleteWindow(m_MainWin.hImage_open);      
+    WM_DeleteWindow(m_MainWin.hAll_close);       
+    WM_DeleteWindow(m_MainWin.hAll_open);        
+    WM_DeleteWindow(m_MainWin.hStates);          
+    WM_DeleteWindow(m_MainWin.hText_close);      
+    WM_DeleteWindow(m_MainWin.hText_open);       
+    WM_DeleteWindow(m_MainWin.hText);            
+    WM_DeleteWindow(m_MainWin.hText1);           
+    WM_DeleteWindow(m_MainWin.hText2);           
+    WM_DeleteWindow(m_MainWin.hText3);           
+    WM_DeleteWindow(m_MainWin.hProgbar);         
+    WM_DeleteWindow(m_MainWin.hBtnNationFlag);   
+    WM_DeleteWindow(m_MainWin.hBtnLocal);         
+    WM_DeleteWindow(m_MainWin.hBtnRemote);        
+    WM_DeleteWindow(m_MainWin.hBtnTurnOff);       
+    WM_DeleteWindow(m_MainWin.hBtnTurnOff_1);     
+    WM_DeleteWindow(m_MainWin.hImage);            
+    WM_DeleteWindow(m_MainWin.hImage_123123);     
+    WM_DeleteWindow(m_MainWin.hImage_1231234);    
+    WM_DeleteWindow(m_MainWin.hImage1);           
+    WM_DeleteWindow(m_MainWin.hImage2);           
+    WM_DeleteWindow(m_MainWin.hImage3);           
+    WM_DeleteWindow(m_MainWin.hImage4);           
+    WM_DeleteWindow(m_MainWin.hImage5);           
+    WM_DeleteWindow(m_MainWin.hImage_left);       
+    WM_DeleteWindow(m_MainWin.hImage_right);      
+    WM_DeleteWindow(m_MainWin.hImage_test);       
+    WM_DeleteWindow(m_MainWin.hBtnNew);            
+    WM_DeleteWindow(m_MainWin.hImage_left_1);     
+    WM_DeleteWindow(m_MainWin.hImage_right_1);    
 		
-		WM_DeleteTimer(m_MainWin.hTimer);		
-	 WM_SetCallback(WM_HBKWIN,NULL);
+    WM_DeleteTimer(m_MainWin.hTimer);		
+    WM_SetCallback(WM_HBKWIN,NULL);
     memset(&m_MainWin, 0, sizeof(m_MainWin));
 }
 
@@ -1689,7 +1690,7 @@ FRAMEWIN_SetTextAlign(m_HListBox.hFrame, GUI_TA_HCENTER | GUI_TA_HCENTER);
 
     hWin = WM_GetFirstChild(m_HListBox.hFrame);      
     m_HListBox.hList = LISTBOX_CreateAsChild(NULL, hWin, 0, 0, 0, 0,WM_CF_SHOW);
-    LISTBOX_SetFont(m_HListBox.hList, &GUI_Fontsong16all);
+    LISTBOX_SetFont(m_HListBox.hList, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(m_HListBox.hList, 0);
 
     WM_SetFocus(m_HListBox.hFrame);
@@ -1960,7 +1961,7 @@ static void _ListBoxShowMainInfoCreate(void *p)
 	m_HListBoxShowMainInfo.hImage_CB_2 = IMAGE_CreateEx(259,0,60,240,WM_HBKWIN,WM_CF_SHOW,IMAGE_CF_ALPHA,NULL);
 	IMAGE_SetBitmap(m_HListBoxShowMainInfo.hImage_CB_2,&bmComBack_2);
     #endif
-    FRAMEWIN_SetFont(m_HListBoxShowMainInfo.hFrame, &GUI_Fontsong16all);  
+    FRAMEWIN_SetFont(m_HListBoxShowMainInfo.hFrame, &GUI_Fontblack16all);  
     GUI_UC_SetEncodeUTF8();
 
     FRAMEWIN_SetTitleVis(m_HListBoxShowMainInfo.hFrame, 0);    
@@ -1968,18 +1969,17 @@ static void _ListBoxShowMainInfoCreate(void *p)
     val = BT_GetLeftDepth(pMenu);
 
     hWin = WM_GetFirstChild(m_HListBoxShowMainInfo.hFrame);  
-    m_HListBoxShowMainInfo.hBtnRtn    = BUTTON_CreateAsChild(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, 23, 23,hWin,NULL, WM_CF_SHOW);
-    m_HListBoxShowMainInfo.hText      = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+23, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-23, 23, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
+    m_HListBoxShowMainInfo.hBtnRtn    = BUTTON_CreateAsChild(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, 40, 22,hWin,NULL, WM_CF_SHOW);
+    m_HListBoxShowMainInfo.hText      = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+40, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-43, 23, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
     m_HListBoxShowMainInfo.hList      = LISTBOX_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET+23, PER_CM_OFFSET*4.5, PER_CM_OFFSET*5, hWin, WM_CF_SHOW, NULL, NULL,NULL);
 
     hWin = m_HListBoxShowMainInfo.hBtnRtn;
-    BUTTON_SetBitmapEx(hWin,BUTTON_BI_DISABLED,&bmbackUnsel,0,0);
-    BUTTON_SetBitmapEx(hWin,BUTTON_BI_PRESSED,&bmbackSel,0,0);
-    BUTTON_SetBitmapEx(hWin,BUTTON_BI_UNPRESSED,&bmbackUnsel,0,0);
+    BUTTON_SetSkin(hWin,SKIN_Btn_Btn);
     BUTTON_SetPressed(hWin,1);
 
+    header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+40, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-43, 23);
     hWin = m_HListBoxShowMainInfo.hText;
-    TEXT_SetFont(m_HListBoxShowMainInfo.hText,&GUI_Fontsong16all);
+    TEXT_SetFont(m_HListBoxShowMainInfo.hText,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_BLUE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -1988,7 +1988,7 @@ static void _ListBoxShowMainInfoCreate(void *p)
 
     hWin = m_HListBoxShowMainInfo.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_WHITE);
@@ -2264,19 +2264,18 @@ GUI_Clear();
     val = BT_GetLeftDepth(pMenu);
 
     hWin = WM_GetFirstChild(m_WinShowHelpInfo.hFrame);     
-    m_WinShowHelpInfo.hBtnRtn    = BUTTON_CreateAsChild(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, 23, 23,hWin,NULL, WM_CF_SHOW);
-    m_WinShowHelpInfo.hText      = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+23, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-23, 23, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
+    m_WinShowHelpInfo.hBtnRtn    = BUTTON_CreateAsChild(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, 40, 22,hWin,NULL, WM_CF_SHOW);
+    m_WinShowHelpInfo.hText      = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+40, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-43, 23, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
     m_WinShowHelpInfo.hTextExp   = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET  , PER_CM_OFFSET*4.5, PER_CM_OFFSET*2, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
     m_WinShowHelpInfo.hTextMethod= TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*3, PER_CM_OFFSET*4.5, PER_CM_OFFSET*2, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
 
     hWin = m_WinShowHelpInfo.hBtnRtn;
-    BUTTON_SetBitmapEx(hWin,BUTTON_BI_DISABLED,&bmbackUnsel,0,0);
-    BUTTON_SetBitmapEx(hWin,BUTTON_BI_PRESSED,&bmbackSel,0,0);
-    BUTTON_SetBitmapEx(hWin,BUTTON_BI_UNPRESSED,&bmbackUnsel,0,0);
+    BUTTON_SetSkin(hWin,SKIN_Btn_Btn);
     BUTTON_SetPressed(hWin,1);
 
+    header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+40, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-43, 23);
     hWin = m_WinShowHelpInfo.hText;
-    TEXT_SetFont(m_WinShowHelpInfo.hText,&GUI_Fontsong16all);
+    TEXT_SetFont(m_WinShowHelpInfo.hText,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_BLUE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -2286,7 +2285,7 @@ GUI_Clear();
     memset(strShow,0,sizeof(strShow));
     memcpy(strShow,GetExpInfoPtr(dataStructInterface.helpExpIndex[show_index],g_LanguageIndex),STRSHOWBUF_SIZE);
     hWin = m_WinShowHelpInfo.hTextExp;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_TOP);
@@ -2295,9 +2294,9 @@ GUI_Clear();
     TEXT_SetText(hWin, strShow);
 
     memset(strShow,0,sizeof(strShow));
-   memcpy(strShow,GetHandleInfoPtr(dataStructInterface.helpMethodIndex[show_index],g_LanguageIndex),STRSHOWBUF_SIZE);
+    memcpy(strShow,GetHandleInfoPtr(dataStructInterface.helpMethodIndex[show_index],g_LanguageIndex),STRSHOWBUF_SIZE);
     hWin = m_WinShowHelpInfo.hTextMethod;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_TOP);
@@ -2378,7 +2377,7 @@ int flag_TAB_3s_start=0;
 void _WinLocalOpKeyDown(void)
 {
 	motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-	motorset.stop=42;
+	motorset.stop=43;
     if(BUTTON_IsPressed(m_WinLocalOp.hBtnRtn))
     {
         BUTTON_SetPressed(m_WinLocalOp.hBtnRtn,0);
@@ -2406,7 +2405,7 @@ void _WinLocalOpKeyDown(void)
 void _WinLocalOpKeyUp(void)
 {	
 	motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-	motorset.stop=41;
+	motorset.stop=42;
     if(BUTTON_IsPressed(m_WinLocalOp.hBtnRtn))
     {
         BUTTON_SetPressed(m_WinLocalOp.hBtnRtn,0);
@@ -2473,12 +2472,12 @@ void _WinLocalOpKeyEnter(void)
 						if(flag_figures.handle_stop==1)
 						{
 							motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-							motorset.stop=40;
+							motorset.stop=41;
 						}
 					}else
 					{			
 						motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-						motorset.stop=39;
+						motorset.stop=40;
 					}
 			}else
 			if(motorset.DIR==2)
@@ -2495,13 +2494,13 @@ void _WinLocalOpKeyEnter(void)
 						if(flag_figures.handle_stop==1)
 						{
 							motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-							motorset.stop=38;
+							motorset.stop=39;
 						}
 					}else
 					if(dataStructInterface.stateOpen==1)
 					{			
 						motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-						motorset.stop=37;
+						motorset.stop=38;
 					}
 			}
     }
@@ -2523,12 +2522,12 @@ void _WinLocalOpKeyEnter(void)
 						if(flag_figures.handle_stop==1)
 						{
 							motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-							motorset.stop=36;
+							motorset.stop=37;
 						}
 					}else
 					{			
 						motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-						motorset.stop=35;
+						motorset.stop=36;
 					}
 			}else
 			if(motorset.DIR==2)
@@ -2544,13 +2543,13 @@ void _WinLocalOpKeyEnter(void)
 						if(flag_figures.handle_stop==1)
 						{
 							motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-							motorset.stop=34;
+							motorset.stop=35;
 						}
 					}
 					else
 					{			
 						motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-						motorset.stop=33;
+						motorset.stop=34;
 					}
 			}
     }
@@ -2563,6 +2562,165 @@ void _WinLocalOpKeyTAB()
 void  _WinLocalOpKeyENTER_BEF()
 {
 	if(BUTTON_IsPressed(m_WinLocalOp.hBtnLeft))
+    {
+        SPEED_Stand=dataStructInterface.speed_close;
+        TORQUE_Stand=dataStructInterface.moment_close;
+        if(flag_estop==1)
+        {
+            flag_estop=0;
+            if(motorset.DIR_MOTOR_old==motorset.DIR_MOTOR_s)
+            {
+                motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
+                motorset.stop=33;
+            }
+            flag_stop_button_left=1;
+				
+        }
+        if(flag_stop_button_left==1)
+        {
+            motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
+            motorset.stop=32;
+        }else
+        {
+            #if 1
+            flag_stop_button_right=0;
+            dataStructInterface.stateOpen=0;
+            if(motorset.DIR==1)
+            {
+                if(dataStructInterface.stateClose==0)
+                {
+                    flag_estop=0;
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_s;
+                    motorset_s=10;
+                    GUI_Delay(10);
+                    WM_DisableWindow(m_WinLocalOp.hBtnLeft);
+                    GUI_Delay(10);
+                    BUTTON_SetPressed(m_WinLocalOp.hBtnLeft,1);
+                    WM_EnableWindow(m_WinLocalOp.hBtnLeft);
+                    if(flag_figures.handle_stop==1)
+                    {
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_s; 
+                        motorset_s=9;
+                    }else
+                    {
+                        flag_stop_button_left=0;
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;  
+                        motorset.stop=31;
+                    }
+                }else
+                {
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
+                    motorset.stop=30;
+                }	
+            }
+            else if(motorset.DIR==2)
+            {
+                if(dataStructInterface.stateOpen==0)
+                {
+                    flag_estop=0;
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_s;
+                    motorset_s=8;
+                    GUI_Delay(10);
+                    WM_DisableWindow(m_WinLocalOp.hBtnLeft);
+                    GUI_Delay(10);
+                    BUTTON_SetPressed(m_WinLocalOp.hBtnLeft,1);
+                    WM_EnableWindow(m_WinLocalOp.hBtnLeft);
+                    if(flag_figures.handle_stop==1)
+                    {
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_s; 
+                        motorset_s=7;
+                    }else
+                    {
+                        flag_stop_button_left=0;
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;  
+                        motorset.stop=29;
+                    }
+                }else
+                {
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
+                    motorset.stop=28;
+                }	
+            }					
+			#endif
+        }
+    }
+    else if(BUTTON_IsPressed(m_WinLocalOp.hBtnRight))
+    {
+        SPEED_Stand=dataStructInterface.speed_open;
+        TORQUE_Stand=dataStructInterface.moment_open;
+        if(flag_estop==1)
+        {
+            flag_estop=0;
+            if(motorset.DIR_MOTOR_old==motorset.DIR_MOTOR_n)
+            {
+                motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
+                motorset.stop=27;
+            }
+            flag_stop_button_right=1;
+        }
+        if(flag_stop_button_right==1)
+        {
+            motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
+            motorset.stop=26;
+        }else
+        {
+			#if 1
+            flag_stop_button_left=0;
+            dataStructInterface.stateClose=0;
+            if(motorset.DIR==1)
+            {
+                if(dataStructInterface.stateOpen==0)
+                {
+                    dataStructInterface.stateClose=0;
+                    if(flag_figures.handle_stop==1)
+                    {
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_n;  	
+                        motorset_n=8;
+                    }else
+                    if(flag_figures.handle_stop==0)
+                    {
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
+                        motorset.stop=25;
+                    }
+                }else
+                {
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
+                    motorset.stop=24;
+                }
+            }else
+            if(motorset.DIR==2)
+            {
+                if(dataStructInterface.stateClose==0)
+                {
+                    dataStructInterface.stateClose=0;
+                    if(flag_figures.handle_stop==1)
+                    {
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_n;  
+                        motorset_n=7;							
+                    }else
+                    if(flag_figures.handle_stop==0)
+                    {
+                        motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
+                        motorset.stop=23;
+                    }
+                }else
+                {
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
+                    motorset.stop=22;
+                }
+            }
+			#endif
+        }
+        GUI_Delay(10);
+        WM_DisableWindow(m_WinLocalOp.hBtnRight);
+        GUI_Delay(10);
+        BUTTON_SetPressed(m_WinLocalOp.hBtnRight,1);
+        WM_EnableWindow(m_WinLocalOp.hBtnRight);
+						
+    }
+    
+    /*就地操作开方向与关方向统一化处理
+    if(BUTTON_IsPressed(m_WinLocalOp.hBtnLeft))
     {
         SPEED_Stand=dataStructInterface.speed_close;
         TORQUE_Stand=dataStructInterface.moment_close;
@@ -2672,7 +2830,13 @@ void  _WinLocalOpKeyENTER_BEF()
             {
                 if(dataStructInterface.stateOpen==0)
                 {
-                    dataStructInterface.stateClose=0;
+                    flag_estop=0;
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_n;
+                    GUI_Delay(10);
+                    WM_DisableWindow(m_WinLocalOp.hBtnRight);
+                    GUI_Delay(10);
+                    BUTTON_SetPressed(m_WinLocalOp.hBtnRight,1);
+                    WM_EnableWindow(m_WinLocalOp.hBtnRight);
                     if(flag_figures.handle_stop==1)
                     {
                         motorset.DIR_MOTOR=motorset.DIR_MOTOR_n;  	
@@ -2680,6 +2844,7 @@ void  _WinLocalOpKeyENTER_BEF()
                     }else
                     if(flag_figures.handle_stop==0)
                     {
+                        flag_stop_button_right = 0;
                         motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
                         motorset.stop=24;
                     }
@@ -2693,7 +2858,13 @@ void  _WinLocalOpKeyENTER_BEF()
             {
                 if(dataStructInterface.stateClose==0)
                 {
-                    dataStructInterface.stateClose=0;
+                    flag_estop=0;
+                    motorset.DIR_MOTOR=motorset.DIR_MOTOR_n;
+                    GUI_Delay(10);
+                    WM_DisableWindow(m_WinLocalOp.hBtnRight);
+                    GUI_Delay(10);
+                    BUTTON_SetPressed(m_WinLocalOp.hBtnRight,1);
+                    WM_EnableWindow(m_WinLocalOp.hBtnRight);
                     if(flag_figures.handle_stop==1)
                     {
                         motorset.DIR_MOTOR=motorset.DIR_MOTOR_n;  
@@ -2701,6 +2872,7 @@ void  _WinLocalOpKeyENTER_BEF()
                     }else
                     if(flag_figures.handle_stop==0)
                     {
+                        flag_stop_button_right = 0;
                         motorset.DIR_MOTOR=motorset.DIR_MOTOR_t; 
                         motorset.stop=22;
                     }
@@ -2712,13 +2884,8 @@ void  _WinLocalOpKeyENTER_BEF()
             }
 			#endif
         }
-        GUI_Delay(10);
-        WM_DisableWindow(m_WinLocalOp.hBtnRight);
-        GUI_Delay(10);
-        BUTTON_SetPressed(m_WinLocalOp.hBtnRight,1);
-        WM_EnableWindow(m_WinLocalOp.hBtnRight);
 						
-    }
+    }*/
 }
 
 extern uint16_t SPEED_send;
@@ -2731,7 +2898,7 @@ void _WinLocalOpRefresh(void)
     GUI_HWIN        hWin        = 0;
     char numShow[8];
     hWin = WM_GetFirstChild(m_WinLocalOp.hFrame);            
-	GUI_SetFont(&GUI_Fontsong33);
+	GUI_SetFont(&GUI_Fontblack33);
 
 	if(motorset.flag_MOTOR_Run)
 	{
@@ -2875,9 +3042,9 @@ if(motorset.flag_MOTOR_Close==1)
 			GUI_DrawGradientV(80,35-1,240,65+4,GUI_WHITE,GUI_WHITE);
 			DrawGradientH_PointWhite(73,68,240,68);
 			flag_figures.datadula3=1;
-			GUI_SetFont(&GUI_Fontsong33);
+			GUI_SetFont(&GUI_Fontblack33);
 			GUI_DispDecAt(100,DEBUG_X_OFFSET+150-10-10-20,35,datadula);
-			GUI_SetFont(&GUI_Fontsong16all);
+			GUI_SetFont(&GUI_Fontblack16all);
 			GUI_DispDecAt(0,20+150+18,49,1);
 			if(flag_figures.datadula2==1)
 			{
@@ -2893,19 +3060,19 @@ if(motorset.flag_MOTOR_Close==1)
 				DrawGradientH_PointWhite(73,68,240,68);
 				flag_figures.datadula3=0;				
 			}
-            GUI_SetFont(&GUI_Fontsong33);
+            GUI_SetFont(&GUI_Fontblack33);
             GUI_DispDecAt(key_mlx90363.Integer_3,140,35+2,datadula);
 			GUI_SetColor(GUI_BLACK);
-			GUI_SetFont(&GUI_Fontsong16all);
+			GUI_SetFont(&GUI_Fontblack16all);
             GUI_DispDecAt(key_mlx90363.decimal_3,20+150+18,49,1);		
 		}
 		#endif
 		PROGBAR_SetValue(m_WinLocalOp.hProgbar,key_mlx90363.READ_run_1);
 		
 		#if  1		
-		GUI_SetFont(&GUI_Fontsong16all);
+		GUI_SetFont(&GUI_Fontblack16all);
 		GUI_DispStringAt(",",20+150-32-18+52,45);//184，7		
-		GUI_SetFont(&GUI_Fontsong16all);
+		GUI_SetFont(&GUI_Fontblack16all);
 		GUI_DispStringAt("%",DEBUG_X_OFFSET+150+18+10,35/*+32-4*/);
 
 		#endif
@@ -2947,7 +3114,7 @@ if(motorset.flag_MOTOR_Close==1)
 			
 		}
 			TEXT_SetBkColor(m_WinLocalOp.hTextInfo,GUI_TRANSPARENT);
-			TEXT_SetFont(m_WinLocalOp.hTextInfo,&GUI_Fontsong16all);
+			TEXT_SetFont(m_WinLocalOp.hTextInfo,&GUI_Fontblack16all);
 			TEXT_SetTextColor(m_WinLocalOp.hTextInfo, GUI_BLACK);
 		if(MAIN_MENU_FOCUS_TEXT == g_mainMenuFocus)
     {
@@ -3022,11 +3189,11 @@ static void _WinLocalOpCreate(void *p)
     BUTTON_SetSkin(hWin,SKIN_Btn_Btn);
     BUTTON_SetPressed(hWin,1);
 
-    header_txt(97, 5,164,23);
+    header_txt(96, 5,164,23);
     hWin = WM_GetFirstChild(m_WinLocalOp.hFrame); 
-    m_WinLocalOp.hTextHeader= TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+40, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-23, 23, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
+    m_WinLocalOp.hTextHeader= TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+40, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5-43, 23, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
     hWin = m_WinLocalOp.hTextHeader;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -3057,7 +3224,7 @@ static void _WinLocalOpCreate(void *p)
     StrShowClear();
     m_WinLocalOp.hTextInfo = TEXT_CreateAsChild(120,70,120,20,hWin,NULL,WM_CF_SHOW|WM_CF_HASTRANS,(char *)infoWinMainCN[dataStructInterface.indexFaultNum[0]],TEXT_CF_LEFT|TEXT_CF_VCENTER);			
     TEXT_SetBkColor(m_WinLocalOp.hTextInfo,GUI_WHITE);
-    TEXT_SetFont(m_WinLocalOp.hTextInfo,&GUI_Fontsong16all);
+    TEXT_SetFont(m_WinLocalOp.hTextInfo,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     if(MAIN_MENU_FOCUS_TEXT == g_hdlMenuFocus)
     {
@@ -3455,7 +3622,7 @@ static void _WinMainMenuCreate(void *p)
     BUTTON_SetSkin(hWin, SKIN_Main_Menu_Button_Home);
 	header_txt(DEBUG_X_OFFSET+35-6-2-2, DEBUG_Y_OFFSET+25,250,22);
     hWin = m_MainMenu.hText;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -3463,7 +3630,7 @@ static void _WinMainMenuCreate(void *p)
 
     hWin = m_MainMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);		
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);		
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_BLACK);
@@ -3808,6 +3975,11 @@ void _WinCommonMenuKeyEnter(void)
             id = LISTBOX_GetSel(m_CommonMenu.hList);  //菜单中第id个项目（id包含未使能的项目）
             WIN_Enter(&id);
         }
+        else if(dataStructInterface.Frame_SN == 88)  //针对重设末端位置菜单单独处理,选中重设末端跳转到首次设置
+        {
+            id = 0;
+            WIN_Enter(&id);
+        }
         else
         {
             while(i<LISTBOX_GetNumItems(m_CommonMenu.hList))  //菜单中第j个使能的项目（j不包含未使能的项目）
@@ -3833,7 +4005,7 @@ int kkk;
 extern 	float B_b;
 void _WinCommonMenuRefresh()
 {
-		char str[MAX_INFO_CHAR];
+    char str[MAX_INFO_CHAR];
 	if(dataStructInterface.Frame_SN==5)       //ABCDE
 	{
 			sprintf(str,"模拟量输入AI1     %.1f mA ",ai_o420.AI_0420_UI);//,ai_o420.AI_0420		            
@@ -4000,11 +4172,20 @@ void _WinCommonMenuRefresh()
             strcpy(menuObStatusEn[8],str);
             LISTBOX_SetString(m_CommonMenu.hList,str,8);
         }
+        if(key_mlx90363.READ_run_1_old != key_mlx90363.READ_run_1)
+        {
+            key_mlx90363.READ_run_1_old = key_mlx90363.READ_run_1;
+				            
+            sprintf(str," 定位              %d.%d %% ",key_mlx90363.Integer_3,key_mlx90363.decimal_3);
+            strcpy(menuObStatusCn[13],str);
+            strcpy(menuObStatusEn[13],str);
+            LISTBOX_SetString(m_CommonMenu.hList,str,13);
+        }
         if(powerboard.lcd_current_old!=powerboard.lcd_current)
         {
             powerboard.lcd_current_old=powerboard.lcd_current;
 				          
-            sprintf(str,"                  %.1f A ",powerboard.lcd_current);
+            sprintf(str,"                   %.1f A ",powerboard.lcd_current);
             strcpy(menuObStatusCn[17],str);
             strcpy(menuObStatusEn[17],str);
             LISTBOX_SetString(m_CommonMenu.hList,str,17);
@@ -4013,7 +4194,7 @@ void _WinCommonMenuRefresh()
         {
             powerboard.lcd_voltage_old=powerboard.lcd_voltage;
 				           
-            sprintf(str,"                    %d V ",(int)powerboard.lcd_voltage);
+            sprintf(str,"                   %d V ",(int)powerboard.lcd_voltage);
             strcpy(menuObStatusCn[19],str);
             strcpy(menuObStatusEn[19],str);
             LISTBOX_SetString(m_CommonMenu.hList,str,19);
@@ -4181,10 +4362,11 @@ static void _WinCommonMenuCreate(void *p)
     const char      *pContentEn = pMenu->data->menutitleEn;
     if (NULL == pTitle) pTitle = "";
 
-    states.Coils_temp_old=states.Coils_temp;
-    states.Ele_temp_old=states.Ele_temp;
-    powerboard.lcd_current_old=powerboard.lcd_current;
-    powerboard.lcd_voltage_old=powerboard.lcd_voltage;
+    states.Coils_temp_old = states.Coils_temp;
+    states.Ele_temp_old = states.Ele_temp;
+    key_mlx90363.READ_run_1_old = key_mlx90363.READ_run_1;
+    powerboard.lcd_current_old = powerboard.lcd_current;
+    powerboard.lcd_voltage_old = powerboard.lcd_voltage;
     dataStructInterface.gearType_old=dataStructInterface.gearType;
     eeprom.flag_IO_O=1;
     memset(strShow,0,sizeof(strShow));
@@ -4221,7 +4403,7 @@ static void _WinCommonMenuCreate(void *p)
     
     header_txt(DEBUG_X_OFFSET+35-3-2-5+1, DEBUG_Y_OFFSET+23+2, 250, 23);
     hWin = m_CommonMenu.hText;  //设置文本框基本属性
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -4243,7 +4425,7 @@ static void _WinCommonMenuCreate(void *p)
 		
     hWin = m_CommonMenu.hList;  //设置列表框基本属性
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_TRANSPARENT);
@@ -4510,7 +4692,7 @@ static void _WinCurUserCreate(void *p)
     m_CurUserMenu.hFrame = FRAMEWIN_CreateAsChild(0, 0, LCD_HSIZE+3, LCD_VSIZE+3 ,
                                     WM_HBKWIN, pTitle, NULL, WM_CF_SHOW);
 		FRAMEWIN_SetClientColor(m_CurUserMenu.hFrame,GUI_WHITE);
-    FRAMEWIN_SetFont(m_CurUserMenu.hFrame, &GUI_Fontsong16all);  
+    FRAMEWIN_SetFont(m_CurUserMenu.hFrame, &GUI_Fontblack16all);  
     GUI_UC_SetEncodeUTF8();
     FRAMEWIN_SetTitleVis(m_CurUserMenu.hFrame, 0);            
     hWin = WM_GetFirstChild(m_CurUserMenu.hFrame);            
@@ -4518,14 +4700,14 @@ static void _WinCurUserCreate(void *p)
     m_CurUserMenu.hList      = LISTBOX_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET+23+10, PER_CM_OFFSET*4.5, PER_CM_OFFSET*4, hWin, WM_CF_SHOW, NULL, NULL,NULL);
    header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_CurUserMenu.hText;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
 		hWin = m_CurUserMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_WHITE);
@@ -5035,13 +5217,13 @@ static void _WinCommonSelectRefresh(void)
 	}else
 	if(dataStructInterface.Select_SN==27)
 	{
-		if(dataStructInterface.anologOutputSel1==1)
+		if(dataStructInterface.anologOutputSel1==0)
 		{             
             sprintf(str,"              实际位置值 ");
             strcpy(menuCtrlSysParaCn[14],str);
             strcpy(menuCtrlSysParaEn[14],str);
 		}else
-		if(dataStructInterface.anologOutputSel1==0)
+		if(dataStructInterface.anologOutputSel1==1)
 		{               
             sprintf(str,"              实际过程值 ");
             strcpy(menuCtrlSysParaCn[14],str);
@@ -5082,6 +5264,21 @@ static void _WinCommonSelectRefresh(void)
 		eeprom.emgInput=dataStructInterface.emgInput;
 		eeprom.flag_emgInput=1;
 	}else
+    if(dataStructInterface.Select_SN==31)
+    {
+        if(dataStructInterface.emgCtlSrcFault==0)
+		{                       
+            sprintf(str,"                保持原位 ");
+            strcpy(menuSaftyCn[8],str);
+            strcpy(menuSaftyCn[8],str);
+		}else
+		if(dataStructInterface.emgCtlSrcFault==1)
+		{               
+            sprintf(str,"        运行到“紧急”位置 ");
+            strcpy(menuSaftyCn[8],str);
+            strcpy(menuSaftyCn[8],str);
+		}
+    }else
 	if(dataStructInterface.Select_SN==29)
 	{
 		if(dataStructInterface.anologOutputSel3==0)
@@ -5165,11 +5362,11 @@ void _WinCommonSelectKeyEnter(void )
             if(i == LISTBOX_GetSel(m_CommonSelectMenu.hList) )
             {
                 *(pWinCommonSelecMenu->data->menusel) = j;
-								ext_IO.flag_refresh=1;
-							//ext_IO.eep_save=1;
-								_WinCommonSelectRefresh();
-								_WinCommonSelctRefresh();
-							_WinCommonSelectRefresh_save(j);
+                ext_IO.flag_refresh=1;
+                //ext_IO.eep_save=1;
+                _WinCommonSelectRefresh();
+                _WinCommonSelctRefresh();
+                _WinCommonSelectRefresh_save(j);
 							
                 break;
             }
@@ -5336,7 +5533,7 @@ static void _WinCommonSelectCreate(void *p)
 		#if 1
 		header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
 		  hWin = m_CommonSelectMenu.hText;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -5345,7 +5542,7 @@ static void _WinCommonSelectCreate(void *p)
 #if 1
     hWin = m_CommonSelectMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_WHITE);
@@ -5491,7 +5688,7 @@ void _WinSpeedCloseRefresh(void)
 }
 void _WinSpeedCloseKeyEnter(void )
 {
-	eeprom.flag_speed_close=1;
+	eeprom.flag_speed_close = 1;
     WIN_Exit(0);
 }
 void _WinSpeedCloseKeyDown(void )
@@ -5561,7 +5758,7 @@ static void _WinSpeedCloseCallback(WM_MESSAGE * pMsg)
             break;
         case GUI_KEY_ENTER:
             _WinSpeedCloseKeyEnter();
-				_WinSpeedCloseRefresh();
+            _WinSpeedCloseRefresh();
             break;
         }
         break;
@@ -5585,21 +5782,17 @@ PROGBAR_SKINFLEX_INFO *pSkin =(PROGBAR_SKINFLEX_INFO *)pDrawItemInfo->p;;
   case WIDGET_ITEM_DRAW_BACKGROUND:
     if(pSkin->Index == PROGBAR_SKINFLEX_L)
     {
-			if(flag_estop==0)
-			{
-					for(i=(pDrawItemInfo->x0);i<(pDrawItemInfo->x1);i++)
-					{		
-						if(i%10<2)
-						{
-						GUI_SetColor(GUI_WHITE);
-						}else
-						{
-							GUI_SetColor(GUI_BLUE);
-						}				
-						GUI_DrawLine(i,pDrawItemInfo->y0,i,pDrawItemInfo->y1);					
-					}
-			}
-		
+        for(i=(pDrawItemInfo->x0);i<(pDrawItemInfo->x1);i++)
+        {		
+            if(i%10<2)
+            {
+            GUI_SetColor(GUI_WHITE);
+            }else
+            {
+                GUI_SetColor(GUI_BLUE);
+            }				
+            GUI_DrawLine(i,pDrawItemInfo->y0,i,pDrawItemInfo->y1);					
+        }
     }
     if(pSkin->Index == PROGBAR_SKINFLEX_R)
     {		
@@ -5660,13 +5853,13 @@ static void _WinSpeedCloseCreate(void *p)
 		#if 1
 		header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
 		hWin = m_SpeedCloseMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_SpeedCloseMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetDecMode(hWin,dataStructInterface.speed_close,SPEED_MIN,SPEED_MAX,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
@@ -5674,7 +5867,7 @@ static void _WinSpeedCloseCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("rpm",strShow,STRSHOWBUF_SIZE);
     hWin = m_SpeedCloseMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -5683,7 +5876,7 @@ static void _WinSpeedCloseCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("20 rpm",strShow,STRSHOWBUF_SIZE);
     hWin = m_SpeedCloseMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -5692,7 +5885,7 @@ static void _WinSpeedCloseCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("160 rpm",strShow,STRSHOWBUF_SIZE);
     hWin = m_SpeedCloseMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -5762,17 +5955,17 @@ typedef struct {
 static SPEED_OPEN_MENU_TYPE m_SpeedOpenMenu = {0};                         
 void _WinSpeedOpenRefresh(void)
 {
-		char str[MAX_INFO_CHAR];
+    char str[MAX_INFO_CHAR];
 	             
-		sprintf(str,"                  %d rpm ",dataStructInterface.speed_open);
+    sprintf(str,"                  %d rpm ",dataStructInterface.speed_open);
     strcpy(menuVavleParaCn[4],str);
     strcpy(menuVavleParaEn[4],str);
-		strcpy(menu1EndPosParaCn[4],str);
+    strcpy(menu1EndPosParaCn[4],str);
     strcpy(menu1EndPosParaEn[4],str);
 }
 void _WinSpeedOpenKeyEnter(void )
 {
-	eeprom.flag_speed_open=1;
+	eeprom.flag_speed_open = 1;
     WIN_Exit(0);
 }
 
@@ -5843,7 +6036,7 @@ static void _WinSpeedOpenCallback(WM_MESSAGE * pMsg)
             break;
         case GUI_KEY_ENTER:
             _WinSpeedOpenKeyEnter();
-				_WinSpeedOpenRefresh();
+            _WinSpeedOpenRefresh();
             break;
         }
         break;
@@ -5893,14 +6086,14 @@ static void _WinSpeedOpenCreate(void *p)
     m_SpeedOpenMenu.hProg      = PROGBAR_CreateAsChild( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, PER_CM_OFFSET*4.5, 23, hWin,  NULL, WM_CF_SHOW);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_SpeedOpenMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
-   TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
+    TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
 
     hWin = m_SpeedOpenMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetDecMode(hWin,dataStructInterface.speed_open,SPEED_MIN,SPEED_MAX,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
@@ -5908,7 +6101,7 @@ static void _WinSpeedOpenCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("rpm",strShow,STRSHOWBUF_SIZE);
     hWin = m_SpeedOpenMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -5917,7 +6110,7 @@ static void _WinSpeedOpenCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("20 rpm",strShow,STRSHOWBUF_SIZE);
     hWin = m_SpeedOpenMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -5926,7 +6119,7 @@ static void _WinSpeedOpenCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("160 rpm",strShow,STRSHOWBUF_SIZE);
     hWin = m_SpeedOpenMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6110,13 +6303,13 @@ static void _WinEndPosCloseCreate(void *p)
     m_EndPosCloseMenu.hEdit      = EDIT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+80, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, 60, 40, hWin, WM_CF_SHOW, NULL , NULL, 2);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_EndPosCloseMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_EndPosCloseMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetTextAlign(hWin,GUI_TA_VCENTER|GUI_TA_HCENTER);
@@ -6125,7 +6318,7 @@ static void _WinEndPosCloseCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("0 - ",strShow,STRSHOWBUF_SIZE);
     hWin = m_EndPosCloseMenu.hTextEnd;
-    TEXT_SetFont(hWin,&GUI_Fontsong33);
+    TEXT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6134,7 +6327,7 @@ static void _WinEndPosCloseCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("%",strShow,STRSHOWBUF_SIZE);
     hWin = m_EndPosCloseMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong33);
+    TEXT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6299,13 +6492,13 @@ static void _WinEndPosOpenCreate(void *p)
    m_EndPosOpenMenu.hEdit      = EDIT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+5, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, 60, 40, hWin, WM_CF_SHOW, NULL , NULL, 2);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_EndPosOpenMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
 hWin = m_EndPosOpenMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetTextAlign(hWin,GUI_TA_VCENTER|GUI_TA_HCENTER);
@@ -6314,7 +6507,7 @@ hWin = m_EndPosOpenMenu.hEdit;
     StrShowClear();
     enc_unicode_to_utf8_str("-100",strShow,STRSHOWBUF_SIZE);
     hWin = m_EndPosOpenMenu.hTextEnd;
-    TEXT_SetFont(hWin,&GUI_Fontsong33);
+    TEXT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6323,7 +6516,7 @@ hWin = m_EndPosOpenMenu.hEdit;
     StrShowClear();
     enc_unicode_to_utf8_str("%",strShow,STRSHOWBUF_SIZE);
     hWin = m_EndPosOpenMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong33);
+    TEXT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6384,7 +6577,7 @@ void _WinMomentCloseRefesh(void)
 void _WinMomentCloseKeyEnter(void )
 {
 	eeprom.flag_moment_close=1;
-	_WinMomentCloseRefesh();
+	//_WinMomentCloseRefesh();
     WIN_Exit(0);
 }
 
@@ -6456,7 +6649,7 @@ static void _WinMomentCloseCallback(WM_MESSAGE * pMsg)
             break;
         case GUI_KEY_ENTER:
             _WinMomentCloseKeyEnter();
-				_WinMomentCloseRefesh();
+            _WinMomentCloseRefesh();
             break;
         }
         break;
@@ -6482,12 +6675,12 @@ static void _WinMomentCloseCreate(void *p)
     GUI_UC_SetEncodeUTF8();
     FRAMEWIN_SetTitleVis(m_MomentCloseMenu.hFrame, 0);            
     hWin = WM_GetFirstChild(m_MomentCloseMenu.hFrame); 
-   hWin = WM_GetFirstChild(m_MomentCloseMenu.hFrame);
+    hWin = WM_GetFirstChild(m_MomentCloseMenu.hFrame);
     GUI_SetBkColor(GUI_WHITE);
 	GUI_Clear();
 	GUI_EnableAlpha(1);
 	WIDGET_SetDefaultEffect_None();
-#if 1      
+    #if 1      
 	m_MomentCloseMenu.hImage_CB_1 = IMAGE_CreateEx(0,0,60,240,WM_HBKWIN,WM_CF_SHOW,IMAGE_CF_ALPHA,NULL);
 	IMAGE_SetBitmap(m_MomentCloseMenu.hImage_CB_1,&bmComBack_1);	
 	m_MomentCloseMenu.hImage_CB_2 = IMAGE_CreateEx(260,0,60,240,WM_HBKWIN,WM_CF_SHOW,IMAGE_CF_ALPHA,NULL);
@@ -6504,22 +6697,22 @@ static void _WinMomentCloseCreate(void *p)
     m_MomentCloseMenu.hProg      = PROGBAR_CreateAsChild( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, PER_CM_OFFSET*4.5, 23, hWin,  NULL, WM_CF_SHOW);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_MomentCloseMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
-   TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
+    TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_MomentCloseMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetFloatMode(hWin,dataStructInterface.moment_close,MOMENT_MIN,MOMENT_MAX,1,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
-close_drive(50,80);
+    close_drive(50,80);
     StrShowClear();
     enc_unicode_to_utf8_str("Nm ",strShow,STRSHOWBUF_SIZE);
-		memcpy(strShow,"Nm ",STRSHOWBUF_SIZE);
+    memcpy(strShow,"Nm ",STRSHOWBUF_SIZE);
     hWin = m_MomentCloseMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6527,9 +6720,9 @@ close_drive(50,80);
     TEXT_SetText(hWin, strShow);
     StrShowClear();
     enc_unicode_to_utf8_str("18 Nm",strShow,STRSHOWBUF_SIZE);
-		memcpy(strShow,"18 Nm",STRSHOWBUF_SIZE);
+    memcpy(strShow,"18 Nm",STRSHOWBUF_SIZE);
     hWin = m_MomentCloseMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6537,9 +6730,9 @@ close_drive(50,80);
     TEXT_SetText(hWin, strShow);
     StrShowClear();
     enc_unicode_to_utf8_str("60 Nm",strShow,STRSHOWBUF_SIZE);
-		memcpy(strShow,"60 Nm",STRSHOWBUF_SIZE);
+    memcpy(strShow,"60 Nm",STRSHOWBUF_SIZE);
     hWin = m_MomentCloseMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6549,7 +6742,7 @@ close_drive(50,80);
     PROGBAR_SetText(hWin,"");
     PROGBAR_SetMinMax(hWin,MOMENT_MIN,MOMENT_MAX);
     PROGBAR_SetValue(hWin,dataStructInterface.moment_close);
-		PROGBAR_SetSkin(hWin,_ProgOwnerSkin3);
+    PROGBAR_SetSkin(hWin,_ProgOwnerSkin3);
     WM_SetCallback(WM_HBKWIN, _WinMomentCloseCallback);
     WM_SetFocus(WM_HBKWIN);
 }
@@ -6606,7 +6799,7 @@ void _WinMomentOpenRefresh(void)
 void _WinMomentOpenKeyEnter(void )
 {
 	eeprom.flag_moment_open=1;
-	_WinMomentOpenRefresh();
+	//_WinMomentOpenRefresh();
     WIN_Exit(0);
 }
 
@@ -6679,7 +6872,7 @@ static void _WinMomentOpenCallback(WM_MESSAGE * pMsg)
             break;
         case GUI_KEY_ENTER:
             _WinMomentOpenKeyEnter();
-				_WinMomentOpenRefresh();
+            _WinMomentOpenRefresh();
             break;
         }
         break;
@@ -6723,26 +6916,26 @@ static void _WinMomentOpenCreate(void *p)
     m_MomentOpenMenu.hTextUnit  = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+160, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+10, 20*2, 20, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
     m_MomentOpenMenu.hTextMin   = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80+30, 60, 20, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
     m_MomentOpenMenu.hTextMax   = TEXT_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+160, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80+30, 60, 20, hWin, WM_CF_SHOW, GUI_TA_VCENTER|GUI_TA_LEFT , NULL, " ");
-   m_MomentOpenMenu.hEdit      = EDIT_CreateEx   ( DEBUG_X_OFFSET+PER_CM_OFFSET+60, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5, 90, 40, hWin, WM_CF_SHOW, NULL , NULL, 5);
+    m_MomentOpenMenu.hEdit      = EDIT_CreateEx   ( DEBUG_X_OFFSET+PER_CM_OFFSET+60, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5, 90, 40, hWin, WM_CF_SHOW, NULL , NULL, 5);
     m_MomentOpenMenu.hProg      = PROGBAR_CreateAsChild( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, PER_CM_OFFSET*4.5, 23, hWin,  NULL, WM_CF_SHOW);
-   header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
+    header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_MomentOpenMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
-   TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
+    TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_MomentOpenMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetFloatMode(hWin,dataStructInterface.moment_open,MOMENT_MIN,MOMENT_MAX,1,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
-open_drive(50,80);
+    open_drive(50,80);
     StrShowClear();
     enc_unicode_to_utf8_str("Nm ",strShow,STRSHOWBUF_SIZE);
-		memcpy(strShow,"Nm ",STRSHOWBUF_SIZE);
+    memcpy(strShow,"Nm ",STRSHOWBUF_SIZE);
     hWin = m_MomentOpenMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6750,9 +6943,9 @@ open_drive(50,80);
     TEXT_SetText(hWin, strShow);
     StrShowClear();
     enc_unicode_to_utf8_str("18 Nm",strShow,STRSHOWBUF_SIZE);
-		memcpy(strShow,"18 Nm",STRSHOWBUF_SIZE);
+    memcpy(strShow,"18 Nm",STRSHOWBUF_SIZE);
     hWin = m_MomentOpenMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6760,9 +6953,9 @@ open_drive(50,80);
     TEXT_SetText(hWin, strShow);
     StrShowClear();
     enc_unicode_to_utf8_str("60 Nm",strShow,STRSHOWBUF_SIZE);
-		memcpy(strShow,"60 Nm",STRSHOWBUF_SIZE);
+    memcpy(strShow,"60 Nm",STRSHOWBUF_SIZE);
     hWin = m_MomentOpenMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6771,8 +6964,8 @@ open_drive(50,80);
     hWin = m_MomentOpenMenu.hProg;
     PROGBAR_SetText(hWin,"");
     PROGBAR_SetMinMax(hWin,MOMENT_MIN,MOMENT_MAX);
-    PROGBAR_SetValue(hWin,dataStructInterface.moment_close);
-		PROGBAR_SetSkin(hWin,_ProgOwnerSkin3);
+    PROGBAR_SetValue(hWin,dataStructInterface.moment_open);
+    PROGBAR_SetSkin(hWin,_ProgOwnerSkin3);
     WM_SetCallback(WM_HBKWIN, _WinMomentOpenCallback);
     WM_SetFocus(WM_HBKWIN);
 }
@@ -6913,13 +7106,13 @@ static void _WinOverMomentTimesCreate(void *p)
     m_OverMomentTimesMenu.hProg      = PROGBAR_CreateAsChild( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, PER_CM_OFFSET*4.5, 23, hWin,  NULL, WM_CF_SHOW);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_OverMomentTimesMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_OverMomentTimesMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6929,7 +7122,7 @@ static void _WinOverMomentTimesCreate(void *p)
     enc_unicode_to_utf8_str("x ",strShow,STRSHOWBUF_SIZE);
 		memcpy(strShow,"x ",STRSHOWBUF_SIZE);
     hWin = m_OverMomentTimesMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6939,7 +7132,7 @@ static void _WinOverMomentTimesCreate(void *p)
     enc_unicode_to_utf8_str("0 x",strShow,STRSHOWBUF_SIZE);
 		memcpy(strShow,"0 x",STRSHOWBUF_SIZE);
     hWin = m_OverMomentTimesMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -6949,7 +7142,7 @@ static void _WinOverMomentTimesCreate(void *p)
     enc_unicode_to_utf8_str("5 x",strShow,STRSHOWBUF_SIZE);
     memcpy(strShow,"5 x",STRSHOWBUF_SIZE);
     hWin = m_OverMomentTimesMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7318,7 +7511,7 @@ static void _WinEmergencyPosCreate(void *p)
    #endif
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_EmergencyPosMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -7326,28 +7519,28 @@ static void _WinEmergencyPosCreate(void *p)
 		
     #if 1
     hWin = m_EmergencyPosMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_BLUE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_EmergencyPosMenu.hEditH;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_EmergencyPosMenu.value_show_h = dataStructInterface.emergency_pos/100;
     EDIT_SetDecMode(hWin,m_EmergencyPosMenu.value_show_h,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_EmergencyPosMenu.hEditD;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_EmergencyPosMenu.value_show_d = (dataStructInterface.emergency_pos%100)/10;
     EDIT_SetDecMode(hWin,m_EmergencyPosMenu.value_show_d,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_EmergencyPosMenu.hEditS;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7361,7 +7554,7 @@ static void _WinEmergencyPosCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("0 %",strShow,STRSHOWBUF_SIZE);
     hWin = m_EmergencyPosMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7371,7 +7564,7 @@ static void _WinEmergencyPosCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str("100 %",strShow,STRSHOWBUF_SIZE);
     hWin = m_EmergencyPosMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7383,7 +7576,7 @@ static void _WinEmergencyPosCreate(void *p)
     #if 1
     hWin = m_EmergencyPosMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -7589,13 +7782,13 @@ static void _WinEmgSpeedCloseCreate(void *p)
     m_EmgSpeedCloseMenu.hProg      = PROGBAR_CreateAsChild( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, PER_CM_OFFSET*4.5, 23, hWin,  NULL, WM_CF_SHOW);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_EmgSpeedCloseMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
    TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, (char *)strShow);
     hWin = m_EmgSpeedCloseMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetDecMode(hWin,dataStructInterface.emg_speed_close,SPEED_MIN,SPEED_MAX,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
@@ -7604,7 +7797,7 @@ static void _WinEmgSpeedCloseCreate(void *p)
     enc_unicode_to_utf8_str("rpm",strShow,STRSHOWBUF_SIZE);
     memcpy(strShow,"rpm",STRSHOWBUF_SIZE);
     hWin = m_EmgSpeedCloseMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7614,7 +7807,7 @@ static void _WinEmgSpeedCloseCreate(void *p)
     enc_unicode_to_utf8_str("20 rpm",strShow,STRSHOWBUF_SIZE);
     memcpy(strShow,"20 rpm",STRSHOWBUF_SIZE);
     hWin = m_EmgSpeedCloseMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7624,7 +7817,7 @@ static void _WinEmgSpeedCloseCreate(void *p)
     enc_unicode_to_utf8_str("160 rpm",strShow,STRSHOWBUF_SIZE);
     memcpy(strShow,"160 rpm",STRSHOWBUF_SIZE);
     hWin = m_EmgSpeedCloseMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7679,8 +7872,8 @@ WIN_INFO_TYPE g_WinEmgSpeedCloseMenu = {
 
 typedef struct {
     GUI_HWIN  hFrame;
-		GUI_HWIN hImage_CB_1;       
-		GUI_HWIN hImage_CB_2;       
+    GUI_HWIN hImage_CB_1;       
+    GUI_HWIN hImage_CB_2;       
     GUI_HWIN  hTextHead;        
     GUI_HWIN  hBtnBitMap;       
     GUI_HWIN  hEdit;            
@@ -7688,13 +7881,13 @@ typedef struct {
     GUI_HWIN  hTextUnit;        
     GUI_HWIN  hTextMin;         
     GUI_HWIN  hTextMax;         
-		GUI_HWIN  hButtonEdit;      
+    GUI_HWIN  hButtonEdit;      
 	GUI_HWIN  hImageBack;         
 }EMERGENCY_SPEED_OPEN_MENU_TYPE;
 static EMERGENCY_SPEED_OPEN_MENU_TYPE m_EmgSpeedOpenMenu = {0};                         
 void _WinEmgSpeedOpenKeyEnter(void )
 {
-	eeprom.flag_speed_open=1;
+    eeprom.Save_emg_speed_open_flag=1;
     WIN_Exit(0);
 }
 
@@ -7746,8 +7939,8 @@ void _WinEmgSpeedOpenKeyUp(void)
         break;
     }
     eeprom.emg_speed_open_ee=dataStructInterface.emg_speed_open;
-    EDIT_SetValue(m_EmgSpeedOpenMenu.hEdit,dataStructInterface.speed_open);
-    PROGBAR_SetValue(m_EmgSpeedOpenMenu.hProg,dataStructInterface.speed_open);
+    EDIT_SetValue(m_EmgSpeedOpenMenu.hEdit,dataStructInterface.emg_speed_open);
+    PROGBAR_SetValue(m_EmgSpeedOpenMenu.hProg,dataStructInterface.emg_speed_open);
 }
 
 void __WinEmgSpeedOpenRefresh(void)
@@ -7757,8 +7950,6 @@ void __WinEmgSpeedOpenRefresh(void)
     sprintf(str," 开               %d rpm ",dataStructInterface.emg_speed_open);
     strcpy(menuSaftyCn[4],str);
     strcpy(menuSaftyEn[4],str);
-	eeprom.Save_emg_speed_open_flag=1;
-	
 }
 static void _WinEmgSpeedOpenCallback(WM_MESSAGE * pMsg)
 {
@@ -7825,13 +8016,13 @@ static void _WinEmgSpeedOpenCreate(void *p)
     m_EmgSpeedOpenMenu.hProg      = PROGBAR_CreateAsChild( DEBUG_X_OFFSET+PER_CM_OFFSET   , DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+80, PER_CM_OFFSET*4.5, 23, hWin,  NULL, WM_CF_SHOW);
    header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_EmgSpeedOpenMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, (char *)strShow);
     hWin = m_EmgSpeedOpenMenu.hEdit;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_ORANGE);
     EDIT_SetDecMode(hWin,dataStructInterface.emg_speed_open,SPEED_MIN,SPEED_MAX,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
@@ -7840,7 +8031,7 @@ static void _WinEmgSpeedOpenCreate(void *p)
     enc_unicode_to_utf8_str("rpm",strShow,STRSHOWBUF_SIZE);
 		 memcpy((char *)strShow,"rpm",STRSHOWBUF_SIZE);
     hWin = m_EmgSpeedOpenMenu.hTextUnit;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7850,7 +8041,7 @@ static void _WinEmgSpeedOpenCreate(void *p)
     enc_unicode_to_utf8_str("20 rpm",strShow,STRSHOWBUF_SIZE);
 		memcpy((char *)strShow,"20 rpm",STRSHOWBUF_SIZE);
     hWin = m_EmgSpeedOpenMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -7861,7 +8052,7 @@ static void _WinEmgSpeedOpenCreate(void *p)
     enc_unicode_to_utf8_str("160 rpm",strShow,STRSHOWBUF_SIZE);//WY change speed NJ
 		memcpy((char *)strShow,"160 rpm",STRSHOWBUF_SIZE);
     hWin = m_EmgSpeedOpenMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8169,20 +8360,20 @@ static void _WinPercentageCreate(void *p)
 #if 1
 header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
 hWin = m_PercentageMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_PercentageMenu.hEditH;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_PercentageMenu.value_show_h = *(pMenu->data->menusel)/10;
     EDIT_SetDecMode(hWin,m_PercentageMenu.value_show_h,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_PercentageMenu.hEditL;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8196,7 +8387,7 @@ hWin = m_PercentageMenu.hTextHead;
     StrShowClear();
     enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     hWin = m_PercentageMenu.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8205,7 +8396,7 @@ hWin = m_PercentageMenu.hTextHead;
     StrShowClear();
     enc_unicode_to_utf8_str(pContentEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_PercentageMenu.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8213,7 +8404,7 @@ hWin = m_PercentageMenu.hTextHead;
     TEXT_SetText(hWin, strShow);
     hWin = m_PercentageMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -8594,27 +8785,27 @@ m_CommonThreeNum.hButtonEditH   = BUTTON_CreateEx(DEBUG_X_OFFSET+PER_CM_OFFSET+4
 #if 1
 header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
 hWin = m_CommonThreeNum.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_CommonThreeNum.hEditH;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonThreeNum.value_show_h = *(pMenu->data->menusel)/100;
     EDIT_SetDecMode(hWin,m_CommonThreeNum.value_show_h,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_CommonThreeNum.hEditD;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonThreeNum.value_show_d = (*(pMenu->data->menusel)%100)/10;;
     EDIT_SetDecMode(hWin,m_CommonThreeNum.value_show_d,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_CommonThreeNum.hEditL;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8628,7 +8819,7 @@ hWin = m_CommonThreeNum.hTextHead;
     StrShowClear();
     enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     hWin = m_CommonThreeNum.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8637,7 +8828,7 @@ hWin = m_CommonThreeNum.hTextHead;
     StrShowClear();
     enc_unicode_to_utf8_str(pContentEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_CommonThreeNum.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -8645,7 +8836,7 @@ hWin = m_CommonThreeNum.hTextHead;
     TEXT_SetText(hWin, strShow);
     hWin = m_CommonThreeNum.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -9134,7 +9325,7 @@ static void _WinComFiveNumCreate(void *p)
 #if 1
 header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
   hWin = m_CommonFiveNum.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
    // TEXT_SetBkColor(hWin,GUI_BLUE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9143,35 +9334,35 @@ header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 2
 #endif
 		#if 1
 		  hWin = m_CommonFiveNum.hEdit1;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFiveNum.value_show_1 = m_setvalue/10000;
     EDIT_SetDecMode(hWin,m_CommonFiveNum.value_show_1,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
     hWin = m_CommonFiveNum.hEdit2;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFiveNum.value_show_2 = (m_setvalue%10000)/1000;
     EDIT_SetDecMode(hWin,m_CommonFiveNum.value_show_2,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
     hWin = m_CommonFiveNum.hEdit3;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFiveNum.value_show_3 = ((m_setvalue%10000)%1000)/100;
     EDIT_SetDecMode(hWin,m_CommonFiveNum.value_show_3,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
     hWin = m_CommonFiveNum.hEdit4;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFiveNum.value_show_4 = (((m_setvalue%10000)%1000)%100)/10;
     EDIT_SetDecMode(hWin,m_CommonFiveNum.value_show_4,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
     hWin = m_CommonFiveNum.hEdit5;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9187,7 +9378,7 @@ header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 2
 		StrShowClear();
     enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     hWin = m_CommonFiveNum.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9196,7 +9387,7 @@ header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 2
     StrShowClear();
     enc_unicode_to_utf8_str(pContentEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_CommonFiveNum.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9206,7 +9397,7 @@ header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 2
 		#if 1
 		    hWin = m_CommonFiveNum.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -9642,35 +9833,35 @@ static void _WinComFourNumCreate(void *p)
 		#endif 
 		header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_CommonFourNum.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
 #if 1
 	     hWin = m_CommonFourNum.hEdit1;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFourNum.value_show_1 = m_setvalue/1000;
     EDIT_SetDecMode(hWin,m_CommonFourNum.value_show_1,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);  
 		  hWin = m_CommonFourNum.hEdit2;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFourNum.value_show_2 = (m_setvalue%1000)/100;
     EDIT_SetDecMode(hWin,m_CommonFourNum.value_show_2,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
     hWin = m_CommonFourNum.hEdit3;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_CommonFourNum.value_show_3 = ((m_setvalue%1000)%100)/10;
     EDIT_SetDecMode(hWin,m_CommonFourNum.value_show_3,0,9,0,GUI_EDIT_SUPPRESS_LEADING_ZEROES);
     hWin = m_CommonFourNum.hEdit4;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9688,7 +9879,7 @@ static void _WinComFourNumCreate(void *p)
 		    StrShowClear();
     enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     hWin = m_CommonFourNum.hTextMin;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9697,7 +9888,7 @@ static void _WinComFourNumCreate(void *p)
     StrShowClear();
     enc_unicode_to_utf8_str(pContentEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_CommonFourNum.hTextMax;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9706,7 +9897,7 @@ static void _WinComFourNumCreate(void *p)
 		#endif
     hWin = m_CommonFourNum.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
 		LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -9894,7 +10085,7 @@ flag_reset_encoder=0;
 	encoder.Set_Ready=0;
     memset(strShow,0,sizeof(strShow));
     enc_unicode_to_utf8_str(pTitle,strShow,STRSHOWBUF_SIZE);
-    FRAMEWIN_SetFont(m_SetEndPosMenu.hFrame, &GUI_Fontsong16all);  
+    FRAMEWIN_SetFont(m_SetEndPosMenu.hFrame, &GUI_Fontblack16all);  
 		#if 1       
 	m_SetEndPosMenu.hImage_CB_1 = IMAGE_CreateEx(0,0,60,240,WM_HBKWIN,WM_CF_SHOW,IMAGE_CF_ALPHA,NULL);
 	IMAGE_SetBitmap(m_SetEndPosMenu.hImage_CB_1,&bmComBack_1);
@@ -9917,7 +10108,7 @@ flag_reset_encoder=0;
 
 		header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+41, DEBUG_Y_OFFSET,184-20,23);
     hWin = m_SetEndPosMenu.hText1;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -9926,7 +10117,7 @@ flag_reset_encoder=0;
     StrShowClear();
     enc_unicode_to_utf8_str(menuEndPos1,strShow,STRSHOWBUF_SIZE);
     hWin = m_SetEndPosMenu.hText2;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -9937,7 +10128,7 @@ flag_reset_encoder=0;
     StrShowClear();
     enc_unicode_to_utf8_str(menuEndPos2,strShow,STRSHOWBUF_SIZE);
     hWin = m_SetEndPosMenu.hText3;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_VCENTER|TEXT_CF_LEFT);
@@ -9948,7 +10139,7 @@ flag_reset_encoder=0;
      StrShowClear();
     enc_unicode_to_utf8_str(menuEndPos3,strShow,STRSHOWBUF_SIZE);
     hWin = m_SetEndPosMenu.hText4;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_VCENTER|TEXT_CF_LEFT);
@@ -9958,7 +10149,7 @@ flag_reset_encoder=0;
      StrShowClear();
     enc_unicode_to_utf8_str(menuEndPos4,strShow,STRSHOWBUF_SIZE);
     hWin = m_SetEndPosMenu.hText5;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -10104,7 +10295,7 @@ flag_reset_encoder=0;
     m_SelEndPosMenu.hFrame = FRAMEWIN_CreateAsChild(0, 0, LCD_HSIZE+3, LCD_VSIZE+3 ,
                                     WM_HBKWIN, pTitle, NULL, WM_CF_SHOW);
 		FRAMEWIN_SetClientColor(m_SelEndPosMenu.hFrame,GUI_WHITE);
-    FRAMEWIN_SetFont(m_SelEndPosMenu.hFrame, &GUI_Fontsong16all);  
+    FRAMEWIN_SetFont(m_SelEndPosMenu.hFrame, &GUI_Fontblack16all);  
     GUI_UC_SetEncodeUTF8();
     FRAMEWIN_SetTitleVis(m_SelEndPosMenu.hFrame, 0);           
     hWin = WM_GetFirstChild(m_SelEndPosMenu.hFrame);             
@@ -10118,7 +10309,7 @@ flag_reset_encoder=0;
     BUTTON_SetBitmapEx(hWin,BUTTON_BI_UNPRESSED,&bmbackUnsel,0,0);
     BUTTON_SetPressed(hWin,1);
     hWin = m_SelEndPosMenu.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -10127,7 +10318,7 @@ flag_reset_encoder=0;
     if(LANGUAGE_CN==g_LanguageIndex) enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     else if(LANGUAGE_EN==g_LanguageIndex) enc_unicode_to_utf8_str(pContentEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_SelEndPosMenu.hTextNote;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -10135,7 +10326,7 @@ flag_reset_encoder=0;
     TEXT_SetText(hWin, strShow);
     hWin = m_SelEndPosMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_WHITE);
@@ -10211,7 +10402,7 @@ void _WinEndPosOpKeyDown(void)
 {
 #if 1
 	motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-	motorset.stop=20;
+	motorset.stop=21;
     if(m_WinEndPosOp.selIndex==2)
     {
         BUTTON_SetPressed(m_WinEndPosOp.hBtnRtn,0);
@@ -10267,7 +10458,7 @@ void _WinEndPosOpKeyUp(void)
 {
 #if 1
 	motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-	motorset.stop=19;
+	motorset.stop=20;
     if(m_WinEndPosOp.selIndex==2)
     {
 			if(set_end.liju==0)
@@ -10342,12 +10533,12 @@ void _WinEndPosOpKeyEnter(void)
         if(encoder.dir_flag==2)
         {
             set_end.flag_open=1;
-            powerboard.current_close = powerboard.current_up;
+            powerboard.current_close = powerboard.current_up;  //定义未使用
         }else
         if(encoder.dir_flag==1)
         {
             set_end.flag_close=1;
-            powerboard.current_open = powerboard.current_up;
+            powerboard.current_open = powerboard.current_up;  //定义未使用
         }
         return;	
     }
@@ -10371,7 +10562,7 @@ void _WinEndPosOpKeyEnter(void)
             if(set_end.handle_stop==1)
             {
                 motorset.DIR_MOTOR=motorset.DIR_MOTOR_t;
-                motorset.stop=18;
+                motorset.stop=19;
             }
         }else
         {
@@ -10539,7 +10730,7 @@ static void _WinEndPosOpCallback(WM_MESSAGE * pMsg)
         WM_RestartTimer(pMsg->Data.v, 100);
 		_WinEndPosOpCallback_Refesh();
 		#if 1
-		if(flag_reset_encoder==1)
+		if(flag_reset_encoder==1)  //从第一步设置末端位置到第二步设置，中间延时6ms左右，等待重启编码器结束
         {
             m_WinEndPosOp.cnt++;
             if(m_WinEndPosOp.cnt>5)
@@ -10635,7 +10826,7 @@ static void _WinEndPosOpCreate(void *p)
     
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+41, DEBUG_Y_OFFSET,184-20,23);
     hWin = m_WinEndPosOp.hTextHeader;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -10712,7 +10903,7 @@ static void _WinEndPosOpCreate(void *p)
     }
     hWin = m_WinEndPosOp.hTextInfo;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
 
@@ -10723,7 +10914,7 @@ static void _WinEndPosOpCreate(void *p)
     else if(LANGUAGE_EN == g_LanguageIndex) enc_unicode_to_utf8_str(menuCharHelpEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_WinEndPosOp.hTextHelp;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
 
@@ -10732,7 +10923,7 @@ static void _WinEndPosOpCreate(void *p)
     else if(LANGUAGE_EN == g_LanguageIndex) enc_unicode_to_utf8_str(menuCharEnterEndPosEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_WinEndPosOp.hTextEnter;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
 
@@ -10983,11 +11174,11 @@ void _WinEndPosOpT2KeyEnter(void)
         eeprom.flag_90363=1;
         if(encoder.dir_flag==2)
         {
-            powerboard.current_open = powerboard.current_up;
+            powerboard.current_open = powerboard.current_up;  //定义未使用
         }else
         if(encoder.dir_flag==1)
         {
-            powerboard.current_close = powerboard.current_up;
+            powerboard.current_close = powerboard.current_up;  //定义未使用
         }
         flash_flag.all_move=1;
         flash_flag.all_move1=1;
@@ -11341,7 +11532,7 @@ static void _WinEndPosOpT2Callback(WM_MESSAGE * pMsg)
         flag_reset_encoder=0;
         _WinEndPosOpT2Callback_Refesh();
         #if 1
-        TEXT_SetFont(m_WinEndPosOpT2.hTextHelp,&GUI_Fontsong16all);
+        TEXT_SetFont(m_WinEndPosOpT2.hTextHelp,&GUI_Fontblack16all);
         GUI_UC_SetEncodeUTF8();
 		_WinEndPosOpT2Refresh();
 		_WinEndPosOpT2Callback_Refesh2();
@@ -11383,7 +11574,7 @@ static void _WinEndPosOpT2Create(void *p)
     GUI_SetBkColor(GUI_WHITE);     
     GUI_Clear();
     GUI_AA_SetFactor(MAG);
-		encoder.SET_read=1;
+    encoder.SET_read=1;
 	encoder.set_end_ok=1;
 	set_end.flag_liju=0;
     if(pMenu->data->menunum==1)
@@ -11420,7 +11611,7 @@ static void _WinEndPosOpT2Create(void *p)
 		
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+41, DEBUG_Y_OFFSET,184-20,23);
     hWin = m_WinEndPosOpT2.hTextHeader;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -11496,14 +11687,14 @@ static void _WinEndPosOpT2Create(void *p)
     }
     hWin = m_WinEndPosOpT2.hTextInfo;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
     StrShowClear();		
 		sprintf(numShow,"%1d.%1d",0,0);
     hWin = m_WinEndPosOpT2.hTextFeedNum;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, numShow);
 		
@@ -11512,7 +11703,7 @@ static void _WinEndPosOpT2Create(void *p)
     else if(LANGUAGE_EN == g_LanguageIndex) enc_unicode_to_utf8_str((const char *)menuCharSetDataEndPosEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_WinEndPosOpT2.hTextFeedBack;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
 
@@ -11521,7 +11712,7 @@ static void _WinEndPosOpT2Create(void *p)
     else if(LANGUAGE_EN == g_LanguageIndex) enc_unicode_to_utf8_str((const char *)menuCharSetRangeEndPosEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_WinEndPosOpT2.hTextHelp;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
 
@@ -11531,7 +11722,7 @@ static void _WinEndPosOpT2Create(void *p)
     else if(LANGUAGE_EN == g_LanguageIndex) enc_unicode_to_utf8_str((const char *)menuCharEnterEndPosEn,strShow,STRSHOWBUF_SIZE);
     hWin = m_WinEndPosOpT2.hTextEnter;
     TEXT_SetBkColor(hWin,GUI_WHITE);
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetText(hWin, strShow);
 
@@ -12030,7 +12221,7 @@ static void _WinPasswordInputCreate(void *p)
 #if 1
 header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10-6, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
 hWin = m_UserPasswordInput.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -12038,28 +12229,28 @@ hWin = m_UserPasswordInput.hTextHead;
 #endif
 #if 1
 	hWin = m_UserPasswordInput.hEdit1;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_UserPasswordInput.value_show_1 = 0;
     EDIT_SetDecMode(hWin,m_UserPasswordInput.value_show_1,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_UserPasswordInput.hEdit2;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_UserPasswordInput.value_show_2 = 0;
     EDIT_SetDecMode(hWin,m_UserPasswordInput.value_show_2,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_UserPasswordInput.hEdit3;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_UserPasswordInput.value_show_3 = 0;
     EDIT_SetDecMode(hWin,m_UserPasswordInput.value_show_3,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_UserPasswordInput.hEdit4;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -12069,7 +12260,7 @@ hWin = m_UserPasswordInput.hTextHead;
     memset(strShow,0,sizeof(strShow));
     enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     hWin = m_UserPasswordInput.hTextExp;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_TOP);
@@ -12079,7 +12270,7 @@ hWin = m_UserPasswordInput.hTextHead;
 #if 1
   hWin = m_UserPasswordInput.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
 	LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -12339,7 +12530,7 @@ static void _WinCommonUserManageCreate(void *p)
     #if 1
 		header_txt( DEBUG_X_OFFSET+PER_CM_OFFSET, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
 		  hWin = m_CommonUserManageMenu.hText;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -12348,7 +12539,7 @@ static void _WinCommonUserManageCreate(void *p)
 		#if 1
     hWin = m_CommonUserManageMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
 		LISTBOX_SetSel(hWin,-1);
@@ -12522,32 +12713,32 @@ void _WinPasswordChangeKeyEnter(void )
     else if(4 == m_UserPasswordChange.currentSel)
     {
         m_rt_password_change = m_UserPasswordChange.value_show_1*1000 + m_UserPasswordChange.value_show_2*100 + m_UserPasswordChange.value_show_3*10+m_UserPasswordChange.value_show_4;
-				if(dataStructInterface.Frame_SN==1) 
-				{
-						password.g_password_handle=m_rt_password_change;
-						eeprom.flag_g_password_handle=1;
-				}
-				if(dataStructInterface.Frame_SN==2) 
-				{
-						password.g_password_viewer=m_rt_password_change;
-						eeprom.flag_g_password_viewer=1;
-				}
-				if(dataStructInterface.Frame_SN==3) 
-				{
-						password.g_password_expert=m_rt_password_change;
-						eeprom.flag_g_password_expert=1;
-				}
-				if(dataStructInterface.Frame_SN==4) 
-				{
-						password.g_password_service=m_rt_password_change;
-						eeprom.flag_g_password_service=1;
-				}
-				if(dataStructInterface.Frame_SN==5) 
-				{
-						password.g_password_factroy=m_rt_password_change;
-						eeprom.flag_g_password_factroy=1;
-				}
-			WIN_Exit(1);
+        if(dataStructInterface.Frame_SN==1) 
+        {
+            password.g_password_handle=m_rt_password_change;
+            eeprom.flag_g_password_handle=1;
+        }
+        if(dataStructInterface.Frame_SN==2) 
+        {
+            password.g_password_viewer=m_rt_password_change;
+            eeprom.flag_g_password_viewer=1;
+        }
+        if(dataStructInterface.Frame_SN==3) 
+        {
+            password.g_password_expert=m_rt_password_change;
+            eeprom.flag_g_password_expert=1;
+        }
+        if(dataStructInterface.Frame_SN==4) 
+        {
+            password.g_password_service=m_rt_password_change;
+            eeprom.flag_g_password_service=1;
+        }
+        if(dataStructInterface.Frame_SN==5) 
+        {
+            password.g_password_factroy=m_rt_password_change;
+            eeprom.flag_g_password_factroy=1;
+        }
+        WIN_Exit(1);
     }
     else if(5 == m_UserPasswordChange.currentSel)
     {
@@ -12851,34 +13042,34 @@ dataStructInterface.PASSWORD=* pMenu->data->menusel;
     m_UserPasswordChange.hList      = LISTBOX_CreateEx( DEBUG_X_OFFSET+PER_CM_OFFSET+13, DEBUG_Y_OFFSET+PER_CM_OFFSET*1.5+60+50, 180, 52, hWin, WM_CF_SHOW, NULL, NULL, NULL);
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+10, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_UserPasswordChange.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
     TEXT_SetText(hWin, strShow);
     hWin = m_UserPasswordChange.hEdit1;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_UserPasswordChange.value_show_1 = (*(unsigned short *)pMenu->data->menusel)/1000;
     EDIT_SetDecMode(hWin,m_UserPasswordChange.value_show_1,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_UserPasswordChange.hEdit2;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_UserPasswordChange.value_show_2 = ((*(unsigned short *)pMenu->data->menusel)%1000)/100;
     EDIT_SetDecMode(hWin,m_UserPasswordChange.value_show_2,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_UserPasswordChange.hEdit3;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     m_UserPasswordChange.value_show_3 = (((*(unsigned short *)pMenu->data->menusel)%1000)%100)/10;
     EDIT_SetDecMode(hWin,m_UserPasswordChange.value_show_3,0,9,0,GUI_EDIT_NORMAL);
     hWin = m_UserPasswordChange.hEdit4;
-    EDIT_SetFont(hWin,&GUI_Fontsong33);
+    EDIT_SetFont(hWin,&GUI_Fontblack33);
     GUI_UC_SetEncodeUTF8();
     EDIT_SetTextColor(hWin,EDIT_CI_ENABELD,GUI_BLUE);
     EDIT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
@@ -12888,7 +13079,7 @@ dataStructInterface.PASSWORD=* pMenu->data->menusel;
     memset(strShow,0,sizeof(strShow));
     enc_unicode_to_utf8_str(pContentCn,strShow,STRSHOWBUF_SIZE);
     hWin = m_UserPasswordChange.hTextExp;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetBkColor(hWin,GUI_WHITE);
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_TOP);
@@ -12898,7 +13089,7 @@ dataStructInterface.PASSWORD=* pMenu->data->menusel;
 
     hWin = m_UserPasswordChange.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
 	LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -13122,7 +13313,7 @@ static void _WinEndPosSetOkCreate(void *p)
     rFocus.x1 = PER_CM_OFFSET+10+PER_CM_OFFSET*4.5;
     rFocus.y1 = 145;
     GUI_AA_DrawRoundedRectEx(&rFocus,10);
-    GUI_SetFont(&GUI_Fontsong16all);
+    GUI_SetFont(&GUI_Fontblack16all);
     GUI_SetColor(GUI_BLACK);
     GUI_DispStringAt("末端位置设置成功!", PER_CM_OFFSET+20+20+10 , 125);
 #if 1
@@ -13131,7 +13322,7 @@ static void _WinEndPosSetOkCreate(void *p)
 
     header_txt(56, DEBUG_Y_OFFSET, PER_CM_OFFSET*4.5, 23);
     hWin = m_EndPosSetOK.hTextHead;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -13139,7 +13330,7 @@ static void _WinEndPosSetOkCreate(void *p)
 
     hWin = m_EndPosSetOK.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);
@@ -13421,7 +13612,7 @@ static void _WinEndPosParaMenuCreate(void *p)
 
     header_txt(DEBUG_X_OFFSET+PER_CM_OFFSET+41, DEBUG_Y_OFFSET,184-20,23);
     hWin = m_EndPosParaMenu.hText;
-    TEXT_SetFont(hWin,&GUI_Fontsong16all);
+    TEXT_SetFont(hWin,&GUI_Fontblack16all);
     GUI_UC_SetEncodeUTF8();
     TEXT_SetTextAlign(hWin,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
     TEXT_SetTextColor(hWin,GUI_WHITE);
@@ -13429,7 +13620,7 @@ static void _WinEndPosParaMenuCreate(void *p)
 
     hWin = m_EndPosParaMenu.hList;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 7);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetBkColor(hWin,LISTBOX_CI_DISABLED , GUI_TRANSPARENT);
@@ -13460,7 +13651,7 @@ static void _WinEndPosParaMenuCreate(void *p)
 
     hWin = m_EndPosParaMenu.hListEnter;
     WIDGET_SetEffect(hWin,&WIDGET_Effect_None);
-    LISTBOX_SetFont(hWin, &GUI_Fontsong16all);
+    LISTBOX_SetFont(hWin, &GUI_Fontblack16all);
     LISTBOX_SetItemSpacing(hWin, 6);
     LISTBOX_SetTextAlign(hWin,GUI_TA_VCENTER | GUI_TA_LEFT);
     LISTBOX_SetOwnerDraw(hWin, _WinCommonMenuListOwnerDraw3);

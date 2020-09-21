@@ -8,12 +8,12 @@
 #define  MLX_GPIO              7
 #define  MLX_GPIO_PIN          15
 
-#define KEY_ESCAPE   8
-#define KEY_TAB  9
-#define KEY_UP  17
-#define KEY_DOWN  19
-#define KEY_ENTER  13
-#define KEY_ENTER_BEF  15
+#define KEY_ESCAPE   8     //旋钮抬起状态，xy不变
+#define KEY_TAB  9         //旋钮按下状态，xy不变
+#define KEY_UP  17         //z不变，正向旋转
+#define KEY_DOWN  19       //z不变，反向旋转
+#define KEY_ENTER  13      //按下去动作
+#define KEY_ENTER_BEF  15  //抬起动作
 
 //char ComputeCRC(char Byte0, char Byte1, char Byte2, char Byte3,char Byte4, char Byte5, char Byte6);
 void Init_MLX90363(void);

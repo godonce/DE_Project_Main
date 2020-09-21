@@ -17,17 +17,17 @@ int Init_error_data(void)
 int data_init(void)
 {
 	int i;
-	data_figures.AI1_low=0;
-	data_figures.AI1_high=20;
+	data_figures.AI1_low=0;  //定义未使用
+	data_figures.AI1_high=20;  //定义未使用
 	flag_figures.handle_stop=1;
     data_figures.READ_ALL=key_mlx90363.Read_all;
 	data_figures.TEMP_MOTOR=ADC_TEMP1;
-	powerboard.speed_send=SPEED_send;
+	powerboard.speed_send=SPEED_send;  //定义未使用
     states.Coils_temp=20;
 	states.Ele_temp=22;
 	powerboard.lcd_voltage=((887-((float)(powerboard.voltage&0x03ff))))/1.5;
-	powerboard.voltage_high=powerboard.power_voltage*1.15;
-	powerboard.voltage_low=powerboard.power_voltage*0.7;
+	powerboard.voltage_high=powerboard.power_voltage*1.15;  //即为常量380*1.15
+	powerboard.voltage_low=powerboard.power_voltage*0.7;  //即为常量380*0.7
 		#if 1
 	test[0]  =Error_00();
 	test[1]  =Error_01();

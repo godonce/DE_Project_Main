@@ -12,10 +12,10 @@ char WRITE_READ_EEPROM(char function,short address,char data)
 	short  test1,test2,test3;
 	Init_EESPI0_EN();
 	{
-	states_EEPROM();
+        states_EEPROM();
 	}
 	states_spi0(1);
-	eeprom_buffer[0]=function;
+	eeprom_buffer[0] = function;
 	eeprom_buffer[1] = (address/256)&0xFF;
 	eeprom_buffer[2] = (address%256)&0xFF;
 	eeprom_buffer[3] = (data)&0xFF;
@@ -27,7 +27,7 @@ char WRITE_READ_EEPROM(char function,short address,char data)
 	}
 	states_spi0(0);
 	Delay();
-	retdata=eeprom_read[3]&0xFFFF;
+	retdata = eeprom_read[3]&0xFFFF;
 	return retdata;
 }
 
@@ -45,63 +45,23 @@ int states_EEPROM(void)
 	Delay();
 }
 
-/*
-void set_eeprom(void)
-{				
-    eeprom.speed_open=0x28;   write_to_eeprom.flag_speed_open= 1;
-	eeprom.test1=0x14;        write_to_eeprom.flag_test1        	= 1;
-	eeprom.speed_close=0x28;  write_to_eeprom.flag_speed_close  	= 1;
-	eeprom.test2=0x14;        write_to_eeprom.flag_test2        	= 1;
-	eeprom.moment_close=0x1E;  write_to_eeprom.flag_moment_close 	= 1;
-	eeprom.test3=0x24;         write_to_eeprom.flag_test3        	= 1;
-	eeprom.moment_open=0x1E;   write_to_eeprom.flag_moment_open  	= 1;
-	eeprom.test4=0x2A;         write_to_eeprom.flag_test4        	= 1;
-	eeprom.dir_flag=0x02;      write_to_eeprom.flag_dir_flag     	= 1;
-	eeprom.openOffMode=0x00;   write_to_eeprom.flag_openOffMode  	= 1;
-	eeprom.closeOffMode=0x00;  write_to_eeprom.flag_closeOffMode 	= 1;
-	data_figures.READ_ALL_903=20*4096;
-	dataStructInterface.endPosClose=0x02;   write_to_eeprom.flag_ctrlMode     	= 1;
-	dataStructInterface.endPosOpen=0x62;    write_to_eeprom.flag_closeDir     	= 1;
-	g_deviceState=0;
-	eeprom.ctrlMode=0x03;
-	eeprom.closeDir=0x00;
-	eeprom.out1=0x00FF;
-	eeprom.out2=0x00FF;
-	eeprom.out3=0x00FF;
-	eeprom.out4=0x00FF;
-	eeprom.out5=0x00FF;
-	eeprom.out6=0x00FF;
-	eeprom.out7=0x00FF;
-	eeprom.out8=0x00FF;
-	eeprom.out_of_1=0x00FF;
-	eeprom.out_of_2=0x00FF;
-	eeprom.out_of_3=0x00FF;
-	eeprom.out_of_4=0x00FF;
-	eeprom.out_of_5=0x00FF;
-	eeprom.out_of_6=0x00FF;
-	eeprom.out_of_7=0x00FF;
-	eeprom.out_of_8=0x0000;	
-}*/
 
 
 void read_eeprom(void)
 {
 	eeprom.speed_open=WRITE_READ_EEPROM(0x03,1,0x00)&0xff;
 	Delay();
-	eeprom.test1=WRITE_READ_EEPROM(0x03,2,0x00)&0xff;
-	Delay();
+	//eeprom.test1=WRITE_READ_EEPROM(0x03,2,0x00)&0xff;
+	//Delay();
 	eeprom.speed_close=WRITE_READ_EEPROM(0x03,3,0x00)&0xff;
-	Delay();
-	eeprom.test2=WRITE_READ_EEPROM(0x03,4,0x00)&0xff;
-	Delay();
+	//eeprom.test2=WRITE_READ_EEPROM(0x03,4,0x00)&0xff;
+	//Delay();
 	eeprom.moment_close=WRITE_READ_EEPROM(0x03,5,0x00)&0xff;
-	Delay();
-	eeprom.test3=WRITE_READ_EEPROM(0x03,6,0x00)&0xff;
-	Delay();
+	//eeprom.test3=WRITE_READ_EEPROM(0x03,6,0x00)&0xff;
+	//Delay();
 	eeprom.moment_open=WRITE_READ_EEPROM(0x03,7,0x00)&0xff;
-	Delay();
-	eeprom.test4=WRITE_READ_EEPROM(0x03,8,0x00)&0xff;
-	Delay();
+	//eeprom.test4=WRITE_READ_EEPROM(0x03,8,0x00)&0xff;
+	//Delay();
 	eeprom.dir_flag=WRITE_READ_EEPROM(0x03,9,0x00)&0xff;
 	Delay();
 	eeprom.openOffMode=WRITE_READ_EEPROM(0x03,11,0x00)&0xff;
@@ -119,14 +79,6 @@ void read_eeprom(void)
 	eeprom.endPosOpen=WRITE_READ_EEPROM(0x03,34,0x00)&0xff;
 	Delay();
     
-    //目测没用
-	g_deviceState=WRITE_READ_EEPROM(0x03,36,0x00)&0xff;
-	if((g_deviceState!=0)&&(g_deviceState!=1)&&(g_deviceState!=2)&&(g_deviceState!=3)&&(g_deviceState!=4))
-	{
-		g_deviceState=0;
-	}
-	Delay();
-    //
     
 	eeprom.ctrlMode=WRITE_READ_EEPROM(0x03,37,0x00)&0xff;
 	Delay();
@@ -196,22 +148,43 @@ void read_eeprom(void)
 	eeprom.emg_speed_open=WRITE_READ_EEPROM(0x03,112,0x00)&0xff;
 	Delay();
     
+    ai_o420.G0420_slope=((WRITE_READ_EEPROM(0x03,113,0x00)&0xff)<<8)+(WRITE_READ_EEPROM(0x03,114,0x00)&0xff);
     //ai_o420.G0420_slope=1815;   //20200701三方检测精度
     //ai_o420.G0420_slope=2002;     //20200702自家测试检测精度
-    ai_o420.G0420_slope=1988;     //20200706自家老板子检测精度
-	Delay();
+    //ai_o420.G0420_slope=1988;     //20200706自家老板子检测精度
+    //ai_o420.G0420_slope=1815;   //20200805三方检测精度重新调整(整机)
+    //ai_o420.G0420_slope=2001;   //20200807面板上带蓝色的板子精度
+    //ai_o420.G0420_slope=1815;  //6800190926102
+    //ai_o420.G0420_slope=1817;    //6800190926103
+    Delay();
+    ai_o420.G0420_offset=((WRITE_READ_EEPROM(0x03,115,0x00)&0xff)<<8)+(WRITE_READ_EEPROM(0x03,116,0x00)&0xff);
     //ai_o420.G0420_offset=365;   //20200701三方检测精度
     //ai_o420.G0420_offset=400;     //20200702自家测试检测精度
-    ai_o420.G0420_offset=397;     //20200706自家老板子检测精度
-	Delay();
+    //ai_o420.G0420_offset=397;     //20200706自家老板子检测精度
+    //ai_o420.G0420_offset=365;   //20200805三方检测精度重新调整(整机)
+    //ai_o420.G0420_offset=400;   //20200807面板上带蓝色的板子精度
+	//ai_o420.G0420_offset=362; //6800190926102
+    //ai_o420.G0420_offset=363;   //6800190926103
+    Delay();
+    ai_o420.G0420_OUT_slope=((WRITE_READ_EEPROM(0x03,117,0x00)&0xff)<<8)+(WRITE_READ_EEPROM(0x03,118,0x00)&0xff);
     //ai_o420.G0420_OUT_slope=17600;  //20200701三方检测精度
     //ai_o420.G0420_OUT_slope=16932;    //20200702自家测试检测精度
-    ai_o420.G0420_OUT_slope=17122;    //20200706自家老板子检测精度
-	Delay();
+    //ai_o420.G0420_OUT_slope=17122;    //20200706自家老板子检测精度
+    //ai_o420.G0420_OUT_slope=17485;  //20200805三方检测精度重新调整(整机)
+    //ai_o420.G0420_OUT_slope=16900;  //20200807面板上带蓝色的板子精度
+    //ai_o420.G0420_OUT_slope=17410;//17390; //6800190926102
+    //ai_o420.G0420_OUT_slope=17224;  //6800190926103
+    Delay();
+    ai_o420.G0420_OUT_offset=((WRITE_READ_EEPROM(0x03,119,0x00)&0xff)<<8)+(WRITE_READ_EEPROM(0x03,120,0x00)&0xff);
     //ai_o420.G0420_OUT_offset=14300;  //20200701三方检测精度
     //ai_o420.G0420_OUT_offset=13560;    //20200702自家测试检测精度
-    ai_o420.G0420_OUT_offset=13795;    //20200706自家老板子检测精度
+    //ai_o420.G0420_OUT_offset=13795;    //20200706自家老板子检测精度
+    //ai_o420.G0420_OUT_offset=14180;  //20200805三方检测精度重新调整(整机)
+    //ai_o420.G0420_OUT_offset=13535;  //20200807面板上带蓝色的板子精度
+    //ai_o420.G0420_OUT_offset=14060;  //6800190926102
+    //ai_o420.G0420_OUT_offset=13890;    //6800190926103
 	Delay();
+    
 	dataStructInterface.showDirect=WRITE_READ_EEPROM(0x03,122,0x00)&0xff;
 	Delay();
 	
@@ -228,7 +201,7 @@ void read_eeprom(void)
 	
 	if(password.g_password_handle==0xFFFF)
 	{
-		password.g_password_handle=9044;
+		password.g_password_handle=0000;
 	}
 	if(password.g_password_viewer==0xFFFF)
 	{
@@ -249,28 +222,28 @@ void read_eeprom(void)
 		password.g_password_factroy=9999;
 	}
 	Delay();
-	g_deviceState=WRITE_READ_EEPROM(0x03,144,0x00)&0xff;
-	if(g_deviceState==0xff)
+	g_deviceState = WRITE_READ_EEPROM(0x03,144,0x00)&0xff;
+	if(g_deviceState == 0xff)
 	{
 		g_deviceState=0;
 	}
 	Delay();
-	eeprom.krInput_save=WRITE_READ_EEPROM(0x03,146,0x00)&0xff;
-	if(eeprom.krInput_save==0xff)
+	eeprom.krInput_save = WRITE_READ_EEPROM(0x03,146,0x00)&0xff;
+	if(eeprom.krInput_save == 0xff)
 	{
-		eeprom.krInput_save=0;
+		eeprom.krInput_save = 0;
 	}
 	Delay();
-	eeprom.rmtChoose=WRITE_READ_EEPROM(0x03,148,0x00)&0xff;
-	if(eeprom.rmtChoose==0xff)
+	eeprom.rmtChoose = WRITE_READ_EEPROM(0x03,148,0x00)&0xff;
+	if(eeprom.rmtChoose == 0xff)
 	{
-		eeprom.rmtChoose=0;
+		eeprom.rmtChoose = 0;
 	}
 	Delay();
-	eeprom.emgInput=WRITE_READ_EEPROM(0x03,150,0x00)&0xff;
-	if(eeprom.emgInput==0xff)
+	eeprom.emgInput = WRITE_READ_EEPROM(0x03,150,0x00)&0xff;
+	if(eeprom.emgInput == 0xff)
 	{
-		eeprom.emgInput=0;
+		eeprom.emgInput = 0;
 	}
 	Delay();
 }
@@ -280,22 +253,10 @@ char test005_2=0xdb;
 char test005_3=0xdc;
 char test005_4=0xdd;
 char save_end_num;
-
-/*void set_write_eeprom(void)
-{
-	int i;
-				
-	if(write_to_eeprom.flag_speed_open   	== 1)
-	{
-	WRITE_READ_EEPROM(0x02,1,dataStructInterface.speed_open);
-		write_to_eeprom.flag_speed_open   	=0;
-	}
-	if(eeprom.flag_speed_close==1)
-	{
-		WRITE_READ_EEPROM(0x02,3,dataStructInterface.speed_close);
-		eeprom.flag_speed_close=0;
-	}
-}*/
+char save_end_num1 = 0;
+char save_end_num2 = 0;
+char save_end_num3 = 0;
+char save_end_num4 = 0;
 
 void write_eeprom(void)
 {
@@ -303,25 +264,30 @@ void write_eeprom(void)
 	if(eeprom.flag_speed_open==1)
 	{
         WRITE_READ_EEPROM(0x02,1,dataStructInterface.speed_open);
-        if(save_end_num>20)
+        OSTimeDly(5);  //20200807调整转速转矩之后，重新上电，转速转矩有变化。增加写eeprom延时
+        eeprom.flag_speed_open=0;
+        /*if(save_end_num>20)
 		{
 			eeprom.flag_speed_open=0;
 			save_end_num=0;
-		}				
+		}*/
 	}
 	if(eeprom.flag_speed_close==1)
 	{
 		WRITE_READ_EEPROM(0x02,3,dataStructInterface.speed_close);
+        OSTimeDly(5);  //20200807调整转速转矩之后，重新上电，转速转矩有变化。增加写eeprom延时
 		eeprom.flag_speed_close=0;
 	}
 	if(eeprom.flag_moment_close==1)
 	{
 		WRITE_READ_EEPROM(0x02,5,dataStructInterface.moment_close);
+        OSTimeDly(5);  //20200807调整转速转矩之后，重新上电，转速转矩有变化。增加写eeprom延时
 		eeprom.flag_moment_close=0;
 	}
 	if(eeprom.flag_moment_open==1)
 	{
         WRITE_READ_EEPROM(0x02,7,dataStructInterface.moment_open);
+        OSTimeDly(5);  //20200807调整转速转矩之后，重新上电，转速转矩有变化。增加写eeprom延时
 		eeprom.flag_moment_open=0;
 	}
 	if(eeprom.flag_90363==1)
@@ -515,57 +481,58 @@ void write_eeprom(void)
 			save_end_num=0;
 		}
 	}
-	if(ai_o420.flag_save0420_s==1)
-	{
-		WRITE_READ_EEPROM(0x02,113,(ai_o420.G0420_slope/256)&0xFF);
-		WRITE_READ_EEPROM(0x02,114,(ai_o420.G0420_slope%256)&0xFF);
-		Delay();
-		save_end_num++;
-		if(save_end_num>20)
-		{
-			ai_o420.flag_save0420_s=0;
-            ai_o420.flag_save0420_o=1;
-			save_end_num=0;
-		}
-	}
-	if(ai_o420.flag_save0420_o==1)
-	{
-		WRITE_READ_EEPROM(0x02,115,(ai_o420.G0420_offset/256)&0xFF);
-		WRITE_READ_EEPROM(0x02,116,(ai_o420.G0420_offset%256)&0xFF);
-		Delay();
-		save_end_num++;
-		if(save_end_num>20)
-		{
-			ai_o420.flag_save0420_o=0;
-            ai_o420.flag_save0420_o_s=1;
-			save_end_num=0;
-		}
-	}
-	if(ai_o420.flag_save0420_o_s==1)
-	{
-		WRITE_READ_EEPROM(0x02,117,(ai_o420.G0420_OUT_slope/256)&0xFF);
-		WRITE_READ_EEPROM(0x02,118,(ai_o420.G0420_OUT_slope%256)&0xFF);
-		Delay();
-		save_end_num++;
-		if(save_end_num>20)
-		{
-			ai_o420.flag_save0420_o_s=0;
-            ai_o420.flag_save0420_o_o=1;
-			save_end_num=0;
-		}
-	}
-	if(ai_o420.flag_save0420_o_o==1)
-	{																					
-		WRITE_READ_EEPROM(0x02,119,(ai_o420.G0420_OUT_offset/256)&0xFF);
-		WRITE_READ_EEPROM(0x02,120,(ai_o420.G0420_OUT_offset%256)&0xFF);
-		Delay();
-		save_end_num++;
-		if(save_end_num>20)
-		{
-			ai_o420.flag_save0420_o_o=0;
-			save_end_num=0;
-		}
-	}
+    
+    if(ai_o420.flag_save0420_s==1)
+    {
+        WRITE_READ_EEPROM(0x02,113,(ai_o420.G0420_slope/256)&0xFF);
+        WRITE_READ_EEPROM(0x02,114,(ai_o420.G0420_slope%256)&0xFF);
+        Delay();
+        save_end_num1++;
+        if(save_end_num1>20) //20
+        {
+            ai_o420.flag_save0420_s=0;
+            //ai_o420.flag_save0420_o=1;
+            save_end_num1=0;
+        }
+    }
+    if(ai_o420.flag_save0420_o==1)
+    {
+        WRITE_READ_EEPROM(0x02,115,(ai_o420.G0420_offset/256)&0xFF);
+        WRITE_READ_EEPROM(0x02,116,(ai_o420.G0420_offset%256)&0xFF);
+        Delay();
+        save_end_num2++;
+        if(save_end_num2>20)
+        {
+            ai_o420.flag_save0420_o=0;
+            //ai_o420.flag_save0420_o_s=1;
+            save_end_num2=0;
+        }
+    }
+    if(ai_o420.flag_save0420_o_s==1)
+    {
+        WRITE_READ_EEPROM(0x02,117,(ai_o420.G0420_OUT_slope/256)&0xFF);
+        WRITE_READ_EEPROM(0x02,118,(ai_o420.G0420_OUT_slope%256)&0xFF);
+        Delay();
+        save_end_num3++;
+        if(save_end_num3>20)
+        {
+            ai_o420.flag_save0420_o_s=0;
+            //ai_o420.flag_save0420_o_o=1;
+            save_end_num3=0;
+        }
+    }
+    if(ai_o420.flag_save0420_o_o==1)
+    {                     
+        WRITE_READ_EEPROM(0x02,119,(ai_o420.G0420_OUT_offset/256)&0xFF);
+        WRITE_READ_EEPROM(0x02,120,(ai_o420.G0420_OUT_offset%256)&0xFF);
+        Delay();
+        save_end_num4++;
+        if(save_end_num4>20)
+        {
+            ai_o420.flag_save0420_o_o=0;
+            save_end_num4=0;
+        }
+    }
 	if(eeprom.showDirect==1)
 	{
 		WRITE_READ_EEPROM(0x02,122,(dataStructInterface.showDirect)&0xFF);
@@ -632,6 +599,7 @@ void write_eeprom(void)
     if(eeprom.g_deviceState_flag==1)
 	{					
 		WRITE_READ_EEPROM(0x02,144,(g_deviceState)&0xFF);
+        OSTimeDly(5);
 		eeprom.g_deviceState_flag=0;
 	}
 	if(eeprom.flag_krInput==1)
